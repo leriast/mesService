@@ -1,14 +1,12 @@
 package com.common.dao.entity.incoming;
 
 import java.io.Serializable;
-import java.util.Map;
 
 /**
  * Created by root on 10/13/16.
  */
 public class Recipient implements Serializable {
     private int id;
-
 
     private String address;
     private Param param;

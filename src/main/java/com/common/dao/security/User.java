@@ -1,21 +1,16 @@
 package com.common.dao.security;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+
 @Entity
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "IDUSER")
     private int idUser;
 
@@ -31,6 +26,13 @@ public class User {
 
     @Column(name="ENABLED")
     private boolean enabled;
+
+    public User(String s, String stencil, boolean b) {
+        this.password=s;
+        this.username=stencil;
+        this.enabled=b;
+    }
+    public User(){}
 
     public int getIdUser() {
         return idUser;

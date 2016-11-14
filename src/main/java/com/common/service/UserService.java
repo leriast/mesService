@@ -1,10 +1,13 @@
 package com.common.service;
-import java.util.List;
 
-import org.springframework.stereotype.Component;
-
+import com.common.dao.entity.message.Message1;
 import com.common.dao.security.User;
 
+import java.util.ArrayList;
+
 public interface UserService {
-	public User listContact(String name);
+	User listContact(String name);
+	void insertMessage(Message1 m);
+	void search();
+	void insertMessageList(ArrayList<Message1>list);
 }

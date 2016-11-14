@@ -1,9 +1,10 @@
 package com.common.config;
 
-import java.util.Properties;
-
-import com.common.service.workingThread.Pool;
-import org.aspectj.lang.annotation.Before;
+import com.common.dao.security.User;
+import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
@@ -12,7 +13,6 @@ import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,141 +24,177 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.ui.velocity.VelocityEngineFactoryBean;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import com.common.dao.security.User;
-import com.common.service.UserService;
+import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = { "com.coommon", "com.coommon.service" })
+@ComponentScan(basePackages = {"com.common.controller.BasikController", "com.common", "com.common.dao.entity", "com.common.dao.entity.DAOInsertThread", "com.common.service", "com.common.service.workingThread"})
 @EnableTransactionManagement
 @PropertySource(value = "classpath:util.properties")
 public class Config {
+    Logger logger = Logger.getLogger(String.valueOf(Config.class));
 
-	@Bean(name="rabbitListenerContainerFactory")
-	public SimpleRabbitListenerContainerFactory listenerFactory(){
-		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
-		factory.setConnectionFactory(connectionFactory());
-		return factory;
-	}
-	@Bean
-	public ConnectionFactory connectionFactory() {
-		CachingConnectionFactory connectionFactory =
-				new CachingConnectionFactory("localhost");
-		return connectionFactory;
-	}
+    @Bean(name = "rabbitListenerContainerFactory")
+    public SimpleRabbitListenerContainerFactory listenerFactory() {
+        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+        factory.setConnectionFactory(connectionFactory());
+        return factory;
+    }
 
-	@Bean
-	public AmqpAdmin amqpAdmin() {
-		return new RabbitAdmin(connectionFactory());
-	}
+    @Bean
+    public ConnectionFactory connectionFactory() {
+        CachingConnectionFactory connectionFactory =
+                new CachingConnectionFactory("localhost");
+        return connectionFactory;
+    }
 
-	@Bean
-	public RabbitTemplate rabbitTemplate() {
-		return new RabbitTemplate(connectionFactory());
-	}
+    @Bean
+    public AmqpAdmin amqpAdmin() {
+        return new RabbitAdmin(connectionFactory());
+    }
 
-	@Bean
-	public Queue myQueue1() {
-		return new Queue("queue1");
-	}
+    @Bean
+    public RabbitTemplate rabbitTemplate() {
+        return new RabbitTemplate(connectionFactory());
+    }
 
-//@Bean
-//public Pool getPool(){
-//	return new Pool();
-//}
+    @Bean
+    public Queue myQueue1() {
+        return new Queue("queue1");
+    }
 
-	@Bean
-	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-		return new PropertySourcesPlaceholderConfigurer();
-	}
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+    @Bean(name="pathToSave")
+    public String getPath(){
+     return this.path;
+    }
+    @Value("${pathToSave}")
+    private String path;
+    @Value("${jdbc.hsqldb.postgres.driverClass}")
+    private String driverClass;
+    @Value("${jdbc.hsqldb.postgres.url}")
+    private String jdbcUrl;
+    @Value("${jdbc.hsqldb.postgres.username}")
+    private String jdbcUserName;
+    @Value("${jdbc.hsqldb.postgres.password}")
+    private String jdbcPassword;
 
-	@Value("${jdbc.hsqldb.driverClass}")
-	private String driverClass;
-	@Value("${jdbc.hsqldb.url}")
-	private String jdbcUrl;
-	@Value("${jdbc.hsqldb.username}")
-	private String jdbcUserName;
-	@Value("${jdbc.hsqldb.password}")
-	private String jdbcPassword;
+//    @Value("${jdbc.hsqldb.driverClass}")
+//    private String driverClass;
+//    @Value("${jdbc.hsqldb.url}")
+//    private String jdbcUrl;
+//    @Value("${jdbc.hsqldb.username}")
+//    private String jdbcUserName;
+//    @Value("${jdbc.hsqldb.password}")
+//    private String jdbcPassword;
 
-	@Value("classpath:dbschema.sql")
-	private Resource dbschemaSqlScript;
-	@Value("classpath:test-data.sql")
-	private Resource testDataSqlScript;
 
-	@Bean(name = "dataSource")
-	public DriverManagerDataSource getDriverManagerDataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(driverClass);
-		dataSource.setUrl(jdbcUrl);
-		dataSource.setUsername(jdbcUserName);
-		dataSource.setPassword(jdbcPassword);
-		return dataSource;
-	}
+    @Value("classpath:dbschema.sql")
+    private Resource dbschemaSqlScript;
+    @Value("classpath:test-data.sql")
+    private Resource testDataSqlScript;
 
-	@Bean
-	public DataSourceInitializer dataSourceInitializer() {
-		final DataSourceInitializer initializer = new DataSourceInitializer();
-		initializer.setDataSource(getDriverManagerDataSource());
-		initializer.setDatabasePopulator(getDatabasePopulator());
-		return initializer;
-	}
+    @Bean(name = "dataSource")
+    public DriverManagerDataSource getDriverManagerDataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(driverClass);
+        dataSource.setUrl(jdbcUrl);
+        dataSource.setUsername(jdbcUserName);
+        dataSource.setPassword(jdbcPassword);
+        return dataSource;
+    }
 
-	private DatabasePopulator getDatabasePopulator() {
-		final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-		populator.addScript(dbschemaSqlScript);
-		populator.addScript(testDataSqlScript);
-		return populator;
-	}
+    @Bean
+    public DataSourceInitializer dataSourceInitializer() {
+        final DataSourceInitializer initializer = new DataSourceInitializer();
+        initializer.setDataSource(getDriverManagerDataSource());
+        initializer.setDatabasePopulator(getDatabasePopulator());
+        return initializer;
+    }
 
-	@Bean(name = "entityManagerFactory")
-	public LocalContainerEntityManagerFactoryBean getLocalContainerEntityManagerFactoryBean() {
-		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-		em.setPackagesToScan(new String[] { "com.common.dao" });
-		em.setDataSource(getDriverManagerDataSource());
+    private DatabasePopulator getDatabasePopulator() {
+        final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+        populator.addScript(dbschemaSqlScript);
+        populator.addScript(testDataSqlScript);
+        return populator;
+    }
 
-		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-		((HibernateJpaVendorAdapter) vendorAdapter).setGenerateDdl(true);
-		((HibernateJpaVendorAdapter) vendorAdapter).setShowSql(true);
-		em.setJpaVendorAdapter(vendorAdapter);
+    @Bean(name = "entityManagerFactory")
+    public LocalContainerEntityManagerFactoryBean getLocalContainerEntityManagerFactoryBean() {
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setPackagesToScan(new String[]{"com.common.dao", "com.common.dao.entity"});
+        em.setDataSource(getDriverManagerDataSource());
 
-		Properties jpaProperties = new Properties();
-		jpaProperties.put("hibernate.dialect",
-				"org.hibernate.dialect.MySQLDialect");
-		jpaProperties.put("hibernate.show_sql", true);
-		jpaProperties.put("hibernate.format_sql", "false");
-		jpaProperties.put("hibernate.hbm2ddl.auto", "update");
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        ((HibernateJpaVendorAdapter) vendorAdapter).setGenerateDdl(true);
+        ((HibernateJpaVendorAdapter) vendorAdapter).setShowSql(true);
+        em.setJpaVendorAdapter(vendorAdapter);
 
-		em.setJpaProperties(jpaProperties);
-		return em;
-	}
+        Properties jpaProperties = new Properties();
+        jpaProperties.put("hibernate.dialect",
+                "org.hibernate.dialect.PostgreSQLDialect");
 
-	@Bean(name = "jpaTransactionManager")
-	public JpaTransactionManager getJpaTransactionManager() {
-		JpaTransactionManager jpa = new JpaTransactionManager();
-		jpa.setEntityManagerFactory(getLocalContainerEntityManagerFactoryBean()
-				.getNativeEntityManagerFactory());
-		return jpa;
-	}
+//        jpaProperties.put("hibernate.dialect",
+//                "org.hibernate.dialect.MySQLDialect");
+        jpaProperties.put("hibernate.show_sql", true);
+        jpaProperties.put("hibernate.format_sql", "false");
+        jpaProperties.put("hibernate.hbm2ddl.auto", "update");
+        em.setJpaProperties(jpaProperties);
+        return em;
+    }
 
-	@Autowired
-	@Bean(name = "sessionFactory")
-	public SessionFactory getSessionFactory(DriverManagerDataSource dataSource) {
+    @Bean(name = "jpaTransactionManager")
+    public JpaTransactionManager getJpaTransactionManager() {
+        JpaTransactionManager jpa = new JpaTransactionManager();
+        jpa.setEntityManagerFactory(getLocalContainerEntityManagerFactoryBean()
+                .getNativeEntityManagerFactory());
+        return jpa;
+    }
 
-		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(
-				dataSource);
+    @Bean(name = "properties")
+    @Transactional
+    public int getProperties(SessionFactory sessionFactory) {
+        Session session;
+        try {
+            session = sessionFactory.getCurrentSession();
+        } catch (HibernateException e) {
+            session = sessionFactory.openSession();
+        }
+        Criteria criteria = sessionFactory
+                .getCurrentSession()
+                .createCriteria(User.class, "arr");
+        User a = new User();
+        a = (User) criteria.list().get(0);
+        System.out.println("configure   " + a.getUsername() + "   " + a.getPassword());
+        return 8;
+    }
 
-		sessionBuilder.scanPackages("com.common.dao.security");
+    //@Autowired
+    @Bean(name = "sessionFactory")
+    public SessionFactory getSessionFactory(DriverManagerDataSource dataSource) {
+        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(
+                dataSource);
+        sessionBuilder.scanPackages("com.common.dao.security");
+        sessionBuilder.scanPackages("com.common.dao.entity.message");
+        sessionBuilder.scanPackages("com.common.dao.entity");
+        return sessionBuilder.buildSessionFactory();
+    }
 
-		return sessionBuilder.buildSessionFactory();
-	}
-
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver commonsMultipartResolver(){
+        CommonsMultipartResolver resolver=new CommonsMultipartResolver();
+        resolver.setMaxUploadSize(20000);
+        return resolver;
+    }
 }

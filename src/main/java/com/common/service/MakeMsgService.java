@@ -2,8 +2,6 @@ package com.common.service;
 
 
 import com.common.dao.entity.incoming.IncomingTask;
-import com.common.dao.entity.incoming.Recipient;
-import com.common.dao.entity.incoming.IncomingTask;
 import com.common.dao.entity.inside.Message;
 
 import java.util.ArrayList;
@@ -13,16 +11,16 @@ import java.util.ArrayList;
  */
 public class MakeMsgService {
 
-    public IncomingTask makeMsg(IncomingTask iTask){
+    public IncomingTask makeMsg(IncomingTask iTask) {
 
-        IncomingTask exTask=new IncomingTask();
+        IncomingTask exTask = new IncomingTask();
         exTask.setPriority(iTask.getPriority());
-        ArrayList<Message>list=new ArrayList<Message>();
+        ArrayList<Message> list = new ArrayList<Message>();
 
 //        for(Recipient recipient:iTask.getRecipientList()){
 //            list.add(new Message(recipient.getParam().getValuse(), recipient.getTelephone()));
 //        }
-  //      exTask.setMsgList(list);
+        //      exTask.setMsgList(list);
 
         return exTask;
     }

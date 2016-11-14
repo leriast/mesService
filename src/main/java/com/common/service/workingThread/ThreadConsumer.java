@@ -1,27 +1,24 @@
 package com.common.service.workingThread;
 
-
-import com.common.dao.entity.incoming.IncomingTask;
-import com.common.dao.entity.incoming.IncomingTask;
-import com.common.dao.entity.inside.Message;
+import com.common.dao.entity.message.Message1;
+import com.common.dao.entity.queue.InsertQueue;
 import com.common.dao.entity.queue.Queue;
-import com.common.service.quartz.CronExprGenerator;
-import com.common.service.quartz.QuartzEx;
-import com.common.service.quartz.QuartzJob;
-import com.common.service.quartz.QuartzJobListener;
-import org.quartz.*;
-import org.quartz.impl.StdSchedulerFactory;
-import org.quartz.impl.matchers.KeyMatcher;
+import org.quartz.SchedulerException;
 
-import java.util.Date;
+import java.util.logging.Logger;
 
-/**
- * Created by root on 10/20/16.
- */
+
 public class ThreadConsumer extends Thread {
-    public Queue queue=new Queue();
-    public QuartzEx quartz;
-    IncomingTask task =new IncomingTask();
+    Logger logger = Logger.getLogger(String.valueOf(ThreadConsumer.class));
+    public InsertQueue insertQueue=new InsertQueue();
+
+    public ThreadConsumer(){}
+
+    public Queue queue = new Queue();
+//    public QuartzEx quartz=new QuartzEx();
+
+        Message1 task = new Message1();
+
     public ThreadConsumer(Queue queue, String name) throws SchedulerException {
         this.queue = queue;
         this.name = name;
@@ -35,8 +32,8 @@ public class ThreadConsumer extends Thread {
 
     public void run() {
         while (true) {
-                queue.getMainQueue().comparator();
-            //IncomingTask task = null;
+
+   //         System.out.println("tasks for execution "+queue.getMainQueue().size());
             try {
                 task = queue.getMainQueue().take();
             } catch (InterruptedException e) {
@@ -46,13 +43,75 @@ public class ThreadConsumer extends Thread {
         }
     }
 
-    public void executeTask(IncomingTask task) {
-        System.out.println(name + " priority: " + task.getPriority() + "  " + Thread.activeCount());
+    public void executeTask(Message1 task) {
+     //
+        try {
+         //   System.out.println(task.getIdMessage());
+            insertQueue.getMainQueue().add(task);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+       if(
+               task.getRelevant().after(new Date())){
+           System.out.println(task.getRelevant()+"          "+new Date());
+            */
+/*for(int i=0;i<task.getChanel().size();i++){
+
+        }*//*
+
+
+           System.out.println(name + " priority: " + task.getPriority() + "  " + Thread.activeCount() +" and deadTime "+task.getRelevant());
+//        try {
+//            sleep(11000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        for(Recipient r:task.getRecipientList()){
+             String aaa=name + " priority: " + task.getPriority() + "  ";
+
+         //      System.out.println(r.getAddress());
+        }
 //        for (Message m : task.getMsgList()) {
 //            //    System.out.println(name+" priority: "+task.getPriority() + "  " + m.generateTextMessage()+"  "+Thread.activeCount());
 //            String a=name+" priority: "+task.getPriority() + "  " + m.generateTextMessage()+"  "+Thread.activeCount();
 //        }
+       }else{
+           System.out.print(task.getPriority()+"   was thrown");
+           System.out.println(task.getRelevant()+"          "+new Date());
+           */
+/*
+           *
+           *
+           *
+           * 
+           *
+           *
+           *
+           * *//*
+
+       }
+*/
 
     }
 }

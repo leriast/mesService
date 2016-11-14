@@ -254,3 +254,14 @@ public class CronExprGenerator implements Serializable {
 
     }
 }
+/*
+cronExpression: "s m h D M W Y"
+                 | | | | | | `- Year [optional]
+                 | | | | | `- Day of Week
+                 | | | | `- Month
+                 | | | `- Day of Month
+                 | | `- Hour
+                 | `- Minute
+                 `- Second
+
+    	 */

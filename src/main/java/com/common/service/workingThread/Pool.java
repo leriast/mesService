@@ -1,44 +1,54 @@
 package com.common.service.workingThread;
 
 
+import com.common.dao.entity.DAOInsertThread;
 import com.common.dao.entity.queue.Queue;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.hibernate.SessionFactory;
 import org.quartz.SchedulerException;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
-/**
- * Created by root on 10/20/16.
- */
 
-//    @Aspect
+//@Component
+//@Transactional
+//@Repository
 public class Pool {
-  //    public static final Pool INSTANCE = new Pool();
-    static ArrayList<Thread> list = new ArrayList<Thread>();
-public Queue queue;
-
-    public Pool(Queue queue) {
-        this.queue=queue;
-        Start(queue);
+    Logger logger = Logger.getLogger(String.valueOf(Pool.class));
+    private SessionFactory sessionFactory;
+    private int poolSize;
+    public Pool(SessionFactory sessionFactory,int poolSize) {
+        this.sessionFactory=sessionFactory;
+        this.poolSize=poolSize;
+        Start();
     }
+    static ArrayList<Thread> list = new ArrayList<Thread>();
+    public Queue queue=new Queue();
 
-    //    @Pointcut("execution(* com.common.listener.RabbitMqListener.processQueue1(..))")
-//   public void test(){
-//   }
-    public void Start(Queue queue) {
-        queue.getMainQueue().comparator();
-        for (int i = 0; i < 8; i++) {
+    public void Start() {
+        for (int someVarible = 0; someVarible < poolSize; someVarible++) {
             try {
-                list.add(new Thread(new ThreadConsumer(queue, "Thread number " + i)));
+           //    list.add(new Thread(new ThreadConsumer(queue, "Thread number " + someVarible)));
+                new Thread(new ThreadConsumer(queue, "Thread number " + someVarible)).start();
             } catch (SchedulerException e) {
                 e.printStackTrace();
             }
         }
-        for (int i = 0; i < list.size(); i++) {
-            list.get(i).start();
-        }
+
+        new Thread(new DAOInsertThread(sessionFactory)).start();
+        new Thread(new DAOInsertThread(sessionFactory)).start();
+    //    System.out.println(sessionFactory);
+//        list.add(new ZeroPriorityThread());
+//        list.add(new ClearQueueThread());
+        /*checker.start();*/
+    //   list.add(new DAOInsertThread());
+//        for (int i = 0; i < list.size(); i++) {
+//            try {
+//                    list.get(i).start();
+//                System.out.println(list.get(i).getName());
+//            }catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        }
     }
 }
