@@ -1,6 +1,6 @@
 package com.common.controller;
 
-import com.common.service.ReadData;
+import com.common.service.file.ReadData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,18 +18,20 @@ import java.util.UUID;
 class FileUploadController {
     @Autowired
     String path;
-  public   ReadData readData=new ReadData();
+    public ReadData readData = new ReadData();
+
     @RequestMapping(value = "/file", method = RequestMethod.GET)
-    public String setupUploadFile(){
+    public String setupUploadFile() {
         return "upload";
     }
+
     @RequestMapping(value = "/uploadFile")
     public String processUploadPreview(
             @RequestParam("file") MultipartFile file
-    ){
-        System.out.println(file.getOriginalFilename()+"      "+path+"   "+file.getContentType());
+    ) {
+        System.out.println(file.getOriginalFilename() + "      " + path + "   " + file.getContentType());
         try {
-            FileOutputStream out = new FileOutputStream(path+ UUID.randomUUID()+
+            FileOutputStream out = new FileOutputStream(path + UUID.randomUUID() +
                     ".csv");
             out.write(file.getBytes());
         } catch (FileNotFoundException e) {

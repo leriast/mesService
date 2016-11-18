@@ -12,16 +12,9 @@ import java.util.ArrayList;
 public class MakeMsgService {
 
     public IncomingTask makeMsg(IncomingTask iTask) {
-
         IncomingTask exTask = new IncomingTask();
         exTask.setPriority(iTask.getPriority());
         ArrayList<Message> list = new ArrayList<Message>();
-
-//        for(Recipient recipient:iTask.getRecipientList()){
-//            list.add(new Message(recipient.getParam().getValuse(), recipient.getTelephone()));
-//        }
-        //      exTask.setMsgList(list);
-
         return exTask;
     }
 }

@@ -1,7 +1,7 @@
 package com.common.listener;
 
 import com.common.dao.entity.incoming.IncomingTask;
-import com.common.dao.entity.message.Message1;
+import com.common.dao.entity.message.Message;
 import com.common.dao.entity.queue.InsertQueue;
 import com.common.dao.entity.queue.Queue;
 import com.common.service.workingThread.Pool;
@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayInputStream;
@@ -27,19 +26,20 @@ public class RabbitMqListener {
    public InsertQueue insertQueue=new InsertQueue();
     @Autowired
     SessionFactory sessionFactory;
-    @Autowired @Qualifier("properties")
-    int poolSize;
+//    @Autowired @Qualifier("properties")
+    int poolSize=8;
 
 
     Logger logger = Logger.getLogger(String.valueOf(RabbitMqListener.class));
     public Queue queue = new Queue();
     //   public QuartzEx quartz;
-    ArrayList<Message1> list = new ArrayList<>();
+    ArrayList<Message> list = new ArrayList<>();
 
     @RabbitListener(queues = "queue1")
     public void processQueue1(byte[] message) throws IOException, ClassNotFoundException {
 
       try{  if (!a) {
+
           Pool pool= new Pool(sessionFactory,poolSize);
           a = true;
       }}catch (Exception e){/*NOP*/}
@@ -48,11 +48,11 @@ public class RabbitMqListener {
       //  System.out.println(task.getRecipientList().size());
         for (int iter = 0; iter < task.getRecipientList().size(); iter++) {
          //   System.out.println(iter);
-//            try {
-                queue.getMainQueue().add(new Message1(iter, new Date(), task.getDepartureTime(), task.getRelevant(), new Date(), new String[]{"asd", "asd"}, "message", "address"));
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            try {
+                queue.getMainQueue().add(new Message(iter, new Date(), task.getDepartureTime(), task.getRelevant(), new Date(), new String[]{"asd", "asd"}, "message", "address"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     /*
 

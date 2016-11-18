@@ -1,6 +1,6 @@
 package com.common.service.workingThread;
 
-import com.common.dao.entity.message.Message1;
+import com.common.dao.entity.message.Message;
 import com.common.dao.entity.queue.InsertQueue;
 import com.common.dao.entity.queue.Queue;
 import org.quartz.SchedulerException;
@@ -17,7 +17,7 @@ public class ThreadConsumer extends Thread {
     public Queue queue = new Queue();
 //    public QuartzEx quartz=new QuartzEx();
 
-        Message1 task = new Message1();
+        Message task = new Message();
 
     public ThreadConsumer(Queue queue, String name) throws SchedulerException {
         this.queue = queue;
@@ -43,10 +43,10 @@ public class ThreadConsumer extends Thread {
         }
     }
 
-    public void executeTask(Message1 task) {
+    public void executeTask(Message task) {
      //
         try {
-         //   System.out.println(task.getIdMessage());
+            System.out.println(name+"          "+task.getIdMessage()+"  "+Thread.activeCount());
             insertQueue.getMainQueue().add(task);
         }catch (Exception e){
             e.printStackTrace();

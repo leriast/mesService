@@ -1,10 +1,6 @@
 package com.common.config;
 
-import com.common.dao.security.User;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
@@ -14,10 +10,7 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -30,13 +23,12 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import java.util.Properties;
-
+@EnableAspectJAutoProxy
 @Configuration
-@ComponentScan(basePackages = {"com.common.controller.BasikController", "com.common", "com.common.dao.entity", "com.common.dao.entity.DAOInsertThread", "com.common.service", "com.common.service.workingThread"})
+@ComponentScan(basePackages = {"com.common"})   //, "com.common.dao.entity", "com.common.dao.insert.DAOInsertThread", "com.common.service","com.common.service.logger", "com.common.service.workingThread"
 @EnableTransactionManagement
 @PropertySource(value = "classpath:util.properties")
 public class Config {
@@ -161,40 +153,50 @@ public class Config {
                 .getNativeEntityManagerFactory());
         return jpa;
     }
-
-    @Bean(name = "properties")
-    @Transactional
-    public int getProperties(SessionFactory sessionFactory) {
-        Session session;
-        try {
-            session = sessionFactory.getCurrentSession();
-        } catch (HibernateException e) {
-            session = sessionFactory.openSession();
-        }
-        Criteria criteria = sessionFactory
-                .getCurrentSession()
-                .createCriteria(User.class, "arr");
-        User a = new User();
-        a = (User) criteria.list().get(0);
-        System.out.println("configure   " + a.getUsername() + "   " + a.getPassword());
-        return 8;
-    }
+//
+//    @Bean(name = "properties")
+//    @Transactional
+//    public int getProperties(SessionFactory sessionFactory) {
+//        Session session;
+//        try {
+//            session = sessionFactory.getCurrentSession();
+//        } catch (HibernateException e) {
+//            session = sessionFactory.openSession();
+//        }
+//        Criteria criteria = sessionFactory
+//                .getCurrentSession()
+//                .createCriteria(User.class, "arr");
+//        User a = new User();
+//        a = (User) criteria.list().get(0);
+//        System.out.println("configure   " + a.getUsername() + "   " + a.getPassword());
+//        return 8;
+//    }
 
     //@Autowired
     @Bean(name = "sessionFactory")
     public SessionFactory getSessionFactory(DriverManagerDataSource dataSource) {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(
                 dataSource);
-        sessionBuilder.scanPackages("com.common.dao.security");
+        sessionBuilder.scanPackages("com.common.dao.entity.security");
         sessionBuilder.scanPackages("com.common.dao.entity.message");
-        sessionBuilder.scanPackages("com.common.dao.entity");
+        sessionBuilder.scanPackages("com.common.dao.entity.company");
         return sessionBuilder.buildSessionFactory();
     }
 
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver commonsMultipartResolver(){
         CommonsMultipartResolver resolver=new CommonsMultipartResolver();
-        resolver.setMaxUploadSize(20000);
+        resolver.setMaxUploadSize(20000000);
         return resolver;
     }
+
+//    @Bean(name="ControllerLogger")
+//    public ControllerLogger logger(){
+//        return new ControllerLogger();
+//    }
+//
+//    @Bean(name="PoincutDefinition")
+//    public PointcutDefinition pointcut(){
+//        return new PointcutDefinition();
+//    }
 }
