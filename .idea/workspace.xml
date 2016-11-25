@@ -1,101 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74232484-55d2-419d-9b24-3d2bb11a9c77" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_4_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_15_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_0_CR2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_9_4_1211.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/IDAOInsertThread.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/MakeMsgService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/security/Role.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/security/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/insert/IDAOInsertThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/common/service/MakeMsgService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/security/Role.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/security/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/IDAOInsertThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/MakeMsgService.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/security/Role.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/Role.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/security/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/config/Config.class" afterPath="$PROJECT_DIR$/target/classes/com/common/config/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/controller/BasicController.class" afterPath="$PROJECT_DIR$/target/classes/com/common/controller/BasicController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/controller/FileUploadController.class" afterPath="$PROJECT_DIR$/target/classes/com/common/controller/FileUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/company/Company.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/company/Company.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/Message.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/Message.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/user/UserDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/user/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/user/UserDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/user/UserDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/listener/RabbitMqListener.class" afterPath="$PROJECT_DIR$/target/classes/com/common/listener/RabbitMqListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/file/ReadData.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/file/ReadData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/logger/ControllerLogger.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/logger/ControllerLogger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/logger/PointcutDefinition.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/logger/PointcutDefinition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/user/UserService.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/user/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/user/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/user/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ClearQueueThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ClearQueueThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/Pool.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/Pool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ThreadConsumer.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ThreadConsumer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/Config.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/BasicController.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/BasicController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/FileUploadController.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/FileUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/company/Company.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/company/Company.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/Message.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/Message.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/user/UserDAO.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/user/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/user/UserDAOImpl.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/user/UserDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/RabbitMqListener.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/RabbitMqListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/file/ReadData.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/file/ReadData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/logger/ControllerLogger.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/logger/ControllerLogger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/logger/PointcutDefinition.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/logger/PointcutDefinition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/user/UserService.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/user/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/user/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/user/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ClearQueueThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ClearQueueThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/Pool.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/Pool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ThreadConsumer.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ThreadConsumer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/newSpringMVC_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/newSpringMVC_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newSpringMVC.iml" afterPath="$PROJECT_DIR$/newSpringMVC.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/config/SecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/config/SecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/company/Company.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/company/Company.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/file/ReadData.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/file/ReadData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/logger/ControllerLogger.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/logger/ControllerLogger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/logger/PointcutDefinition.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/logger/PointcutDefinition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/user/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/user/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/user/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/user/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ClearQueueThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ClearQueueThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dbschema.sql" afterPath="$PROJECT_DIR$/src/main/resources/dbschema.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/test-data.sql" afterPath="$PROJECT_DIR$/src/main/resources/test-data.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dbschema.sql" afterPath="$PROJECT_DIR$/target/classes/dbschema.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/log4j.properties" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/test-data.sql" afterPath="$PROJECT_DIR$/target/classes/test-data.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/dbschema.sql" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/dbschema.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/log4j.properties" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/test-data.sql" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/test-data.sql" />
-    </list>
+    <list default="true" id="74232484-55d2-419d-9b24-3d2bb11a9c77" name="Default" comment="" />
     <ignored path="newSpringMVC.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1177,15 +1083,15 @@
       <workItem from="1479714183769" duration="1656000" />
       <workItem from="1479723637769" duration="37197000" />
       <workItem from="1479888972492" duration="37242000" />
-      <workItem from="1479983763279" duration="34125000" />
+      <workItem from="1479983763279" duration="34346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="390225000" />
+    <option name="totallyTimeSpent" value="390446000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="4" width="1914" height="1051" extended-state="0" />
+    <frame x="1920" y="4" width="1914" height="1051" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
