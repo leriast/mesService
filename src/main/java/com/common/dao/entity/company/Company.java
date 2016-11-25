@@ -1,6 +1,6 @@
 package com.common.dao.entity.company;
 
-import com.common.dao.entity.security.User;
+import com.common.dao.entity.user.User;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -19,6 +19,8 @@ public class Company {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_USER")
     private Set<User> user;
+//    @JoinColumn(name = "ID_USER")
+//    private Set<Contacts> contacts;
     @Column(name = "COMPANY_NAME")
     private String company_name;
     @Column(name = "TELEPHONE")

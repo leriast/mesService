@@ -1,7 +1,6 @@
 package com.common.service.logger;
 
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,12 +9,12 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class PointcutDefinition {
-    @Pointcut("execution(* *(..)) && within(com.common.controller.*)")
+ /*   @Pointcut("execution(* *(..)) && within(com.common.controller.*)")
     public void controllerLayer() {
     }
 
 
- /*   @Before("controllerLayer()")
+    @Before("controllerLayer()")
     public void beforeAccountMethodExecution(JoinPoint joinPoint) {
    //     System.out.println("Logging account access. Account: ");
         Object[] args = joinPoint.getArgs();

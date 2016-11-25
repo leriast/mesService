@@ -1,4 +1,4 @@
-package com.common.dao.entity.security;
+package com.common.dao.entity.user;
 
 import javax.persistence.*;
 import java.util.Set;

@@ -1,6 +1,7 @@
 package com.common.service.logger;
 
 import org.apache.log4j.Logger;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
@@ -22,10 +23,10 @@ public class ControllerLogger {
 //    public void advice() {
 //        System.out.println("qwe");
 //    }
-//    @Around("execution(* *(..)) && within(com.common.service.DeleteFile.*)")
-//    public void someFromService() {
-//        System.out.println("qweewq12312312312");
-//    }
+    @Around("execution(* *(..)) && within(com.common.service.DeleteFile.*)")
+    public void someFromService() {
+        System.out.println("qweewq12312312312");
+    }
 
 //
 //    @Before("execution(* com.common.controller.BasicController.index(..))")

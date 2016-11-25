@@ -18,7 +18,7 @@
 
 
         <!-- Hibernate / JPA -->
-        <hibernate.version>4.0.1.Final</hibernate.version>
+            <hibernate.version>4.0.1.Final</hibernate.version>
         <spring-security.version>4.0.4.RELEASE</spring-security.version>
 
 
@@ -31,6 +31,11 @@
     </properties>
 
     <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>postgresql</groupId>-->
+            <!--<artifactId>postgresql</artifactId>-->
+            <!--<version>9.1-901-1.jdbc4</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -143,7 +148,7 @@
             <artifactId>spring-security-web</artifactId>
             <version>${spring-security.version}</version>
         </dependency>
-        <!--To start using the security namespace in your application context -->
+        <!--To start using the user namespace in your application context -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
@@ -158,7 +163,7 @@
             <scope>compile</scope>
         </dependency>
 
-        <!--Common Java Annotations. For this app it includes security annotation:
+        <!--Common Java Annotations. For this app it includes user annotation:
             @RolesAllowed; @DenyAll, @RunAs, @PermitAll -->
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -277,6 +282,17 @@
             <version>4.2.4.RELEASE</version>
         </dependency>
         <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20080701</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
@@ -300,6 +316,21 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>4.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.0.1.Final</version>
         </dependency>
 
         <!--asdasda-->

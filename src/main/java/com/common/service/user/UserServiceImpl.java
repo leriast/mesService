@@ -1,8 +1,11 @@
 package com.common.service.user;
 
+//import com.common.dao.entity.JSONT;
+
+import com.common.dao.entity.JSONT;
 import com.common.dao.entity.message.Message;
-import com.common.dao.entity.security.Role;
-import com.common.dao.entity.security.User;
+import com.common.dao.entity.user.Role;
+import com.common.dao.entity.user.User;
 import com.common.dao.user.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,13 +41,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void insertUser(User user) {
-        userDAO.insertUser(user);
-    }
+    public User insertUser(User user) {return userDAO.insertUser(user);}
 
     @Override
     public Role getRoleById(int id) {
        return userDAO.getRoleBuId(id);
     }
+
+    @Override
+    public void getContactsDictonary() {userDAO.getContactsDictonary();}
+
+    @Override
+    public void getContactsByType() {
+        userDAO.getContactsByType();
+    }
+
+    @Override
+    public void insertJ(JSONT j) {
+        userDAO.insertJ(j);
+    }
+
 
 }

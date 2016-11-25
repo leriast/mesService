@@ -5,7 +5,7 @@ import com.common.dao.entity.queue.Queue;
 import java.util.Date;
 
 /**
- * Created by root on 11/4/16.
+     *delete
  */
 public class ClearQueueThread extends Thread {
     private Queue queue = new Queue();
@@ -13,8 +13,7 @@ public class ClearQueueThread extends Thread {
 
     public void run() {
         while (true) {
-            //for (int i = 0; i < queue.getMainQueue().size(); i++) {
-                try {
+                            try {
                     task = queue.getMainQueue().take();
                     if (task.getRelevantTime().after(new Date())) {
                         queue.getMainQueue().add(task);
@@ -24,15 +23,9 @@ public class ClearQueueThread extends Thread {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-          //  }
             queue.getMainQueue().comparator();
-       /*     try {
-             //   sleep(1000*60*60);
-           //     wait(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
         }
-
     }
 }
+
+

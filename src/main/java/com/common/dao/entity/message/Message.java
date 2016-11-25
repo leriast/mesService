@@ -11,6 +11,7 @@ import java.util.Date;
 public class Message implements Serializable,Comparable<Message>{
 
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idMessage")

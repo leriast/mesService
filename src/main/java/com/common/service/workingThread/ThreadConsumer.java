@@ -1,27 +1,30 @@
 package com.common.service.workingThread;
 
 import com.common.dao.entity.message.Message;
-import com.common.dao.entity.queue.InsertQueue;
 import com.common.dao.entity.queue.Queue;
 import org.quartz.SchedulerException;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.utils.SerializationUtils;
 
 import java.util.logging.Logger;
 
 
 public class ThreadConsumer extends Thread {
     Logger logger = Logger.getLogger(String.valueOf(ThreadConsumer.class));
-    public InsertQueue insertQueue=new InsertQueue();
 
-    public ThreadConsumer(){}
+private AmqpTemplate template;
+    public ThreadConsumer() {
+    }
 
     public Queue queue = new Queue();
 //    public QuartzEx quartz=new QuartzEx();
 
-        Message task = new Message();
+    Message task = new Message();
 
-    public ThreadConsumer(Queue queue, String name) throws SchedulerException {
+    public ThreadConsumer(AmqpTemplate template,Queue queue, String name) throws SchedulerException {
         this.queue = queue;
         this.name = name;
+        this.template=template;
     }
 
     public ThreadConsumer(String name) throws SchedulerException {
@@ -33,25 +36,28 @@ public class ThreadConsumer extends Thread {
     public void run() {
         while (true) {
 
-   //         System.out.println("tasks for execution "+queue.getMainQueue().size());
+            //         System.out.println("tasks for execution "+queue.getMainQueue().size());
             try {
                 task = queue.getMainQueue().take();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            executeTask(task);
+            executeTask(task,template);
         }
     }
 
-    public void executeTask(Message task) {
-     //
+    public void executeTask(Message task,AmqpTemplate template) {
+        //
         try {
-            System.out.println(name+"          "+task.getIdMessage()+"  "+Thread.activeCount());
-            insertQueue.getMainQueue().add(task);
-        }catch (Exception e){
+            System.out.println(name + "          " + task.getIdMessage() + "  " + task.getPriority() + "        " + Thread.activeCount());
+      //      System.out.println(queue.getMainQueue().size() + "               " + insertQueue.getMainQueue().size());
+            //     sleep(100);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
+        byte[] data = SerializationUtils.serialize(task);
+        template.convertAndSend("insertStat", data);
 
 
 

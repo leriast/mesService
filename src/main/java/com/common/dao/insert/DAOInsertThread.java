@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 @Repository
 @Transactional
-public class DAOInsertThread extends Thread implements IDAOInsertThread {
+public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
     Logger logger = Logger.getLogger(String.valueOf(DAOInsertThread.class));
     ArrayList<Message> list = new ArrayList<>();
     Session session;
@@ -35,18 +35,15 @@ public class DAOInsertThread extends Thread implements IDAOInsertThread {
     public void run() {
         while (true) {
             try {
-                //Object task1 = queue.getMainQueue().take();
-         //       System.out.println(task.getClass().isInstance(new Message())/*.getName()*/);
                 task= (Message) queue.getMainQueue().take();
                 list.add(task);
                 try {
-                    if (list.size() == 10000) {
+                    if (list.size() == 5000) {
                         System.out.println(list.size());
                         try {
                             session = sessionFactory.getCurrentSession();
                         } catch (HibernateException e) {
                             while (sessionFactory.getStatistics().getSessionOpenCount() > 30) {
-                          //      sleep(1000);
                                 logger.info("to many DB sessions");
                             }
                             session = sessionFactory.openSession();

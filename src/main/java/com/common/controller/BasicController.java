@@ -5,9 +5,10 @@ import com.common.dao.entity.incoming.IncomingTask;
 import com.common.dao.entity.incoming.Param;
 import com.common.dao.entity.incoming.Recipient;
 import com.common.dao.entity.queue.Queue;
-import com.common.dao.entity.security.User;
+import com.common.dao.entity.user.User;
 import com.common.service.company.CompanyService;
 import com.common.service.user.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.utils.SerializationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
-import java.util.logging.Logger;
 
 
 @Controller
@@ -42,6 +42,7 @@ public class BasicController {
     @RequestMapping(value = "/index")
     public ModelAndView index(Map<String, Object> map,
                               HttpServletRequest request) {
+
         map.put("User", userService.listContact(request
                 .getUserPrincipal().getName()));
         System.out.println(request.getUserPrincipal().getName() + "   " + new Date());
@@ -59,7 +60,7 @@ public class BasicController {
         long start = System.currentTimeMillis();
         for (int i = 0; i < a; i++) {
             byte[] data = SerializationUtils.serialize(generate(b));
-            template.convertAndSend("queue1", data);
+            template.convertAndSend("getData", data);
         }
         long finish = System.currentTimeMillis();
         long timeConsumedMillis = finish - start;
@@ -121,8 +122,11 @@ public class BasicController {
     @RequestMapping(value = {"/", "/log**"}, method = RequestMethod.GET)
     public ModelAndView start(HttpServletRequest request) {
         userService.insertUser(new User("QWE","test",true,"test","test","test","test",1,companyService.getCompanyById(2), userService.getRoleById(1)));
-        companyService.getCompanies();
-        userService.search();
+        //userService.getContactsDictonary();
+
+        //userService.getContactsByType();
+        //companyService.getCompanies();
+       // userService.search();
         return new ModelAndView("/log");
     }
 

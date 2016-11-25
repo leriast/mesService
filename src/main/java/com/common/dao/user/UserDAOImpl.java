@@ -1,11 +1,14 @@
 package com.common.dao.user;
 
 
+import com.common.dao.entity.JSONT;
 import com.common.dao.entity.message.Message;
-import com.common.dao.entity.security.Role;
-import com.common.dao.entity.security.User;
-import com.common.service.company.CompanyService;
+import com.common.dao.entity.user.ContactsDictonary;
+import com.common.dao.entity.user.Role;
+import com.common.dao.entity.user.User;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
@@ -14,17 +17,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 @Transactional
 public class UserDAOImpl implements UserDAO {
     @Autowired
     private SessionFactory sessionFactory;
-    @Autowired
-    CompanyService companyService;
-    //  Transaction ses=sessionFactory.getCurrentSession().beginTransaction();
-
-    int i = 0;
 
     public User listContact(String name) {
         Criteria criteria = sessionFactory
@@ -38,14 +37,8 @@ public class UserDAOImpl implements UserDAO {
 
 
     public void insertMessage(Message m) {
-
-        System.out.println("realTrue");
         sessionFactory.getCurrentSession().save(m);
-        //     sessionFactory.getCurrentSession().save(new Message("asdsaa"+i,"asdsaad"+i,true));
-        sessionFactory.getCurrentSession().getTransaction().begin();
-        sessionFactory.getCurrentSession().getTransaction().commit();
-
-
+         beginCommitTransaction();
     }
 
     @Override
@@ -56,14 +49,12 @@ public class UserDAOImpl implements UserDAO {
             if (sessionFactory.getCurrentSession().getTransaction() != null) {
             }
             try {
-                sessionFactory.getCurrentSession().getTransaction().begin();
-                sessionFactory.getCurrentSession().getTransaction().commit();
+                beginCommitTransaction();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        sessionFactory.getCurrentSession().getTransaction().begin();
-        sessionFactory.getCurrentSession().getTransaction().commit();
+        beginCommitTransaction();
 
         System.out.println("end");
     }
@@ -71,26 +62,80 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void search() {
-   /*     Criteria criteria = sessionFactory
-                .getCurrentSession()
-                .createCriteria(User.class, "arr");
-        User a = new User();
-        a = (User) criteria.list().get(0);
-        System.out.println(a.getUsername() + "   " + a.getPassword());
-    */
+//        Criteria criteria = sessionFactory
+//                .getCurrentSession()
+//                .createCriteria(User.class, "arr");
+//        User a = new User();
+//        a = (User) criteria.list().get(0);
+//        System.out.println(a.getUsername() + "   " + a.getPassword());
+        Criteria criteria =   sessionFactory.getCurrentSession().createCriteria(Message.class,"arr");
+        Message aa=new Message();
+        aa=(Message) criteria.list().get(0);
+        System.out.println("search   "+aa.getPriority());
     }
 
     @Override
-    public void insertUser(User user) {
+    public User insertUser(User user) {
         //user.setCompany(companyService.getCompanyById(id_company));
         sessionFactory.getCurrentSession().save(user);
-        sessionFactory.getCurrentSession().getTransaction().begin();
-        sessionFactory.getCurrentSession().getTransaction().commit();
+        beginCommitTransaction();
+        return user;
     }
 
     @Override
     public Role getRoleBuId(int id) {
         Role role= (Role) sessionFactory.getCurrentSession().load(Role.class,id);
         return role;
+    }
+
+    @Override
+    public void getContactsDictonary() {
+        ContactsDictonary dictonary=(ContactsDictonary)sessionFactory.getCurrentSession().load(ContactsDictonary.class,100);
+      //  System.out.println(dictonary.getName());
+    }
+
+    @Override
+    public void getContactsByType() {
+        String hql= "SELECT CONTACT_PERSON.* FROM CONTACT_PERSON INNER JOIN CONTACTS_CONTACT_PERSON AS CCP\n" +
+                "ON CONTACT_PERSON.ID_CONTACT_PERSON=CCP.ID_CONTACT_PERSON\n" +
+                "INNER JOIN D_CONTACT_TYPE AS D\n" +
+                "ON CCP.ID_CONTACT_TYPE=D.ID_CONTACT_TYPE \n" +
+                "WHERE D.NAME='SMS'";
+        SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery(hql);
+        query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        List results = query.list();
+        User a =new User();
+       // a=(User)results.get(0);
+      //  System.out.println(results.get(0));
+
+       // insertUser(new User())
+        Query query1 = sessionFactory.getCurrentSession().createSQLQuery(
+                "select GetAllTasks (7)");
+                //.setParameter("in_id", 7);
+
+        results=query1.list();
+        System.out.println(results.get(0));
+    }
+
+    @Override
+    public void insertJ(JSONT j) {
+        try {
+            sessionFactory.getCurrentSession().createSQLQuery("INSERT INTO jsont (info) VALUES ('"+ j.getJson()+"'" +
+                    ");").executeUpdate();
+            /*System.out.println(new Date());
+            JSONT jsont=(JSONT)  sessionFactory.getCurrentSession().load(JSONT.class,1);
+            JSONObject jsonObj = new JSONObject(jsont.getJson());
+            jsonObj.get("idRole");
+            System.out.println(new Date());*/
+            //System.out.println(jsonObj.get("idRole"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        beginCommitTransaction();
+    }
+
+    public void beginCommitTransaction(){
+        sessionFactory.getCurrentSession().getTransaction().begin();
+        sessionFactory.getCurrentSession().getTransaction().commit();
     }
 }

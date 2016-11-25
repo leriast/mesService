@@ -1,4 +1,4 @@
-package com.common.dao.entity.security;
+package com.common.dao.entity.user;
 
 import com.common.dao.entity.company.Company;
 import org.hibernate.validator.constraints.NotEmpty;

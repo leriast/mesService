@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pgjson">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../Downloads/pgjson-master.zip!/pgjson-master/src/main/java" />
+    </SOURCES>
+  </library>
+</component>

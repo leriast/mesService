@@ -1,10 +1,13 @@
 package com.common.service.file;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.Date;
 
 /**
  * Created by root on 11/14/16.
@@ -14,47 +17,80 @@ import java.util.Scanner;
 class for reading from csv
  */
 public class ReadData {
-    int someMagic=0;
-    private static final char DEFAULT_SEPARATOR = ',';
-    private static final char DEFAULT_QUOTE = '"';
     private String path;
-    public void readData(String path1) {
-    path=path1;
-        final File folder = new File(path1);
+    private String fileName;
+
+    public JSONArray readData(String path, String fileName) {
+        this.path = path;
+        this.fileName = fileName;
         try {
-            listFilesForFolder(folder);
+          return  listFilesForFolder(fileName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public void listFilesForFolder(final File folder) throws FileNotFoundException {
-        String word = "";
-        String title="";
-        for (final File fileEntry : folder.listFiles()) {
-            if (fileEntry.isDirectory()) {
-                listFilesForFolder(fileEntry);
-            } else {
-                System.out.println(fileEntry.getName());
-                String csvFile = path+fileEntry.getName();
-                Scanner scanner = new Scanner(new File(csvFile));
-                while (scanner.hasNext()) {
-                    List<String> line=new ArrayList<>();
-                    line.add(scanner.nextLine());
-
-                    if (line != null) for (int i = 0; i < line.size(); i++) {word="";
-                        if(someMagic==0)     {                  title += line.get(i);someMagic++;}
-                        else {word+=" "+line.get(i);}
+    public JSONArray listFilesForFolder(String fileName) throws FileNotFoundException {
+        System.out.println("start parse csv   "+new Date());
+        ArrayList<String> word = new ArrayList<String>();
+        String autorParam = "";
+        ArrayList<String> title = new ArrayList<String>();
+        JSONObject obj = new JSONObject();
+        JSONObject obj0 = new JSONObject();
+        JSONArray obj1 = new JSONArray();
+        int propertyRow = 0;
+        BufferedReader fileReader = null;
+        final String DELIMITER = ",";
+        try {
+            String line = "";
+            fileReader = new BufferedReader(new FileReader(path + fileName));
+            while ((line = fileReader.readLine()) != null) {
+                if (propertyRow == 0) {
+                    propertyRow++;
+                    String[] tokens = line.split(DELIMITER);
+                    for (String token : tokens) {
+                        autorParam += (token + " ");
                     }
-                    System.out.println(title);System.out.println(word);
+                } else if (propertyRow == 1) {
+                    propertyRow++;
+                    String[] tokens = line.split(DELIMITER);
+                    for (String token : tokens) {
+                        title.add(token);
+                    }
+                } else {
+                    String[] tokens = line.split(DELIMITER);
+                    for (String token : tokens) {
+                        word.add(token);
+                    }
                 }
-                scanner.close();
-                new DeleteFile(fileEntry);
-
             }
-
-
+            try {
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
+        int x = 0;
+        int y = word.size() / title.size();
+        for (int i = 0; i < y; i++) {
+            for (String t : title) {
+                obj0.put(t, word.get(x));
+                x++;
+            }
+            obj1.add(obj0.clone());
+
+         }
+        System.out.println("   end parse, start return    "+new Date());
+        return obj1;
     }
 }
 

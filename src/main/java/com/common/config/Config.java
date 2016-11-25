@@ -59,15 +59,25 @@ public class Config {
     }
 
     @Bean
+    public Queue myQueue() {
+        return new Queue("json");
+    }
+
+    @Bean
     public Queue myQueue1() {
-        return new Queue("queue1");
+        return new Queue("getData");
+    }
+
+    @Bean//create queue rabbitMQ
+    public Queue myQueue2() {
+        return new Queue("insertStat");
     }
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
-    @Bean(name="pathToSave")
+    @Bean(name="pathToSave")                        //upload CSV file
     public String getPath(){
      return this.path;
     }
@@ -115,7 +125,7 @@ public class Config {
         return initializer;
     }
 
-    private DatabasePopulator getDatabasePopulator() {
+    private DatabasePopulator getDatabasePopulator() {              //DB scripts
         final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
         populator.addScript(dbschemaSqlScript);
         populator.addScript(testDataSqlScript);
@@ -135,7 +145,8 @@ public class Config {
 
         Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.dialect",
-                "org.hibernate.dialect.PostgreSQLDialect");
+               "org.hibernate.dialect.PostgreSQLDialect");
+//                "PostgreSQL94JsonDialect");
 
 //        jpaProperties.put("hibernate.dialect",
 //                "org.hibernate.dialect.MySQLDialect");
@@ -145,6 +156,7 @@ public class Config {
         em.setJpaProperties(jpaProperties);
         return em;
     }
+
 
     @Bean(name = "jpaTransactionManager")
     public JpaTransactionManager getJpaTransactionManager() {
@@ -175,9 +187,10 @@ public class Config {
     //@Autowired
     @Bean(name = "sessionFactory")
     public SessionFactory getSessionFactory(DriverManagerDataSource dataSource) {
-        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(
+        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(     //entities
                 dataSource);
-        sessionBuilder.scanPackages("com.common.dao.entity.security");
+        sessionBuilder.scanPackages("com.common.dao.entity.user");
+        sessionBuilder.scanPackages("com.common.dao.entity");
         sessionBuilder.scanPackages("com.common.dao.entity.message");
         sessionBuilder.scanPackages("com.common.dao.entity.company");
         return sessionBuilder.buildSessionFactory();
@@ -186,7 +199,7 @@ public class Config {
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver commonsMultipartResolver(){
         CommonsMultipartResolver resolver=new CommonsMultipartResolver();
-        resolver.setMaxUploadSize(20000000);
+        resolver.setMaxUploadSize(200000000);                                //max file size
         return resolver;
     }
 
