@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.UUID;
 
 /**
@@ -34,7 +36,9 @@ class FileUploadController {
             @RequestParam("file") MultipartFile file
     ) {
         String fileName=UUID.randomUUID()+".csv";
+
         System.out.println(file.getOriginalFilename() + "      " + path + "   " + file.getContentType());
+
         try {
             FileOutputStream out = new FileOutputStream(path + fileName);
             out.write(file.getBytes());
@@ -44,6 +48,7 @@ class FileUploadController {
             e.printStackTrace();
         }
 
+        //readData.readData(path,fileName);
         byte[] data = SerializationUtils.serialize(readData.readData(path,fileName));
         template.convertAndSend("json", data);
         return "redirect:index";

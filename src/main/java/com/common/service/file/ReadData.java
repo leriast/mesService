@@ -1,4 +1,5 @@
 package com.common.service.file;
+import com.common.dao.entity.queue.IncomingInsertQueue;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -17,6 +18,7 @@ import java.util.Date;
 class for reading from csv
  */
 public class ReadData {
+    IncomingInsertQueue queue=new IncomingInsertQueue();
     private String path;
     private String fileName;
 
@@ -86,6 +88,9 @@ public class ReadData {
                 obj0.put(t, word.get(x));
                 x++;
             }
+       //     queue.getMainQueue().add(new JSONT(obj0.toJSONString()));
+
+
             obj1.add(obj0.clone());
 
          }

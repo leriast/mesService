@@ -14,8 +14,9 @@ public interface UserDAO {
 	void search();
 
 	User insertUser(User user);
-	Role getRoleBuId(int id);
+	Role getRoleById(int id);
 	void getContactsDictonary();
 	void getContactsByType();
 	void insertJ(JSONT j);
+	User getUserByCompany(String companyName);
 }

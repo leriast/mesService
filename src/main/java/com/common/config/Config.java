@@ -28,7 +28,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import java.util.Properties;
 @EnableAspectJAutoProxy
 @Configuration
-@ComponentScan(basePackages = {"com.common"})   //, "com.common.dao.entity", "com.common.dao.insert.DAOInsertThread", "com.common.service","com.common.service.logger", "com.common.service.workingThread"
+@ComponentScan(basePackages = {"com.common","com.common.service.workingThread"})   //, "com.common.dao.entity", "com.common.dao.insert.DAOInsertThread", "com.common.service","com.common.service.logger", "com.common.service.workingThread"
 @EnableTransactionManagement
 @PropertySource(value = "classpath:util.properties")
 public class Config {
@@ -153,6 +153,7 @@ public class Config {
         jpaProperties.put("hibernate.show_sql", true);
         jpaProperties.put("hibernate.format_sql", "false");
         jpaProperties.put("hibernate.hbm2ddl.auto", "update");
+       // jpaProperties.put("hibernate.jdbc.use_streams_for_binary", "true");
         em.setJpaProperties(jpaProperties);
         return em;
     }
@@ -193,6 +194,8 @@ public class Config {
         sessionBuilder.scanPackages("com.common.dao.entity");
         sessionBuilder.scanPackages("com.common.dao.entity.message");
         sessionBuilder.scanPackages("com.common.dao.entity.company");
+        sessionBuilder.scanPackages("com.common.dao.entity.task");
+        sessionBuilder.scanPackages("com.common.service.workingThread");
         return sessionBuilder.buildSessionFactory();
     }
 

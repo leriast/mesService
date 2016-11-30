@@ -17,4 +17,5 @@ public interface UserService {
 	void getContactsDictonary();
 	void getContactsByType();
 	void insertJ(JSONT j);
+	User getUserByCompany(String companyName);
 }

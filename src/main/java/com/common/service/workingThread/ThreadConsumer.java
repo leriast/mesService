@@ -49,7 +49,7 @@ private AmqpTemplate template;
     public void executeTask(Message task,AmqpTemplate template) {
         //
         try {
-            System.out.println(name + "          " + task.getIdMessage() + "  " + task.getPriority() + "        " + Thread.activeCount());
+         //   System.out.println(name + "          " + task.getIdMessage() + "  " + task.getPriority() + "        " + Thread.activeCount());
       //      System.out.println(queue.getMainQueue().size() + "               " + insertQueue.getMainQueue().size());
             //     sleep(100);
 

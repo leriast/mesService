@@ -11,24 +11,24 @@ INSERT INTO CONTACT_PERSON (USERNAME, PASSWORD, ENABLED,FIRSTNAME,SECONDNAME,DEP
 VALUES ('superuser@outlook.com','12345',TRUE,'TEST','TEST','TEST','ADMIN',1,3);
 
 INSERT INTO CONTACT_PERSON (USERNAME, PASSWORD, ENABLED,FIRSTNAME,SECONDNAME,DEPARTMENT,CREATOR,ID_COMPANY,ID_ROLE)
-VALUES ('superuser@outlook.com','12345',TRUE,'TEST','TEST','TEST','ADMIN',1,2);
+VALUES ('user@outlook.com','12345',TRUE,'TEST','TEST','TEST','ADMIN',2,2);
 
 INSERT INTO CONTACT_PERSON (USERNAME, PASSWORD, ENABLED,FIRSTNAME,SECONDNAME,DEPARTMENT,CREATOR,ID_COMPANY,ID_ROLE)
-VALUES ('superuser@outlook.com','12345',TRUE,'TEST','TEST','TEST','ADMIN',1,1);
+VALUES ('admin@outlook.com','12345',TRUE,'TEST','TEST','TEST','ADMIN',1,1);
 
 --CONTACTS_DICTONARY
 INSERT INTO D_CONTACT_TYPE (NAME) VALUES ('SMS');
 INSERT INTO D_CONTACT_TYPE (NAME) VALUES ('VIBER');
 INSERT INTO D_CONTACT_TYPE (NAME) VALUES ('TELEPHONE');
-INSERT INTO D_CONTACT_TYPE (NAME) VALUES ('HERNIA');
 
 
+--LANGUAGE
+INSERT INTO LANGUAGE (NAME) VALUES('UA');
 
 --CONTACTS_CONTACT_PERSON
 INSERT INTO CONTACTS_CONTACT_PERSON (id_contact_person,id_company,id_contact_type,priority_callback) VALUES (1,1,1,1);
 INSERT INTO CONTACTS_CONTACT_PERSON (id_contact_person,id_company,id_contact_type,priority_callback) VALUES (1,1,2,1);
 INSERT INTO CONTACTS_CONTACT_PERSON (id_contact_person,id_company,id_contact_type,priority_callback) VALUES (1,1,3,1);
-INSERT INTO CONTACTS_CONTACT_PERSON (id_contact_person,id_company,id_contact_type,priority_callback) VALUES (2,1,1,1);
 
 
 -- DUCTS
@@ -37,18 +37,33 @@ INSERT INTO D_DUCT (NAME_DUCT,DUCT_PRIORITY) VALUES ('SMS',3);
 INSERT INTO D_DUCT (NAME_DUCT,DUCT_PRIORITY) VALUES ('VIBER',2);
 
 
---STENCIL
-INSERT INTO STENCIL (ID_D_DUCT,STENCIL_ENTITY) VALUES (1,'ASD #NAME QWE #VALUE');
-INSERT INTO STENCIL (ID_D_DUCT,STENCIL_ENTITY) VALUES (2,'ASD #NAME QWE #VALUE');
-INSERT INTO STENCIL (ID_D_DUCT,STENCIL_ENTITY) VALUES (3,'ASD #NAME QWE #VALUE');
-
 --STRUCTURE
-INSERT INTO STRUCTURE (ID_COMPANY,ID_STENCIL) VALUES(1,1);
-INSERT INTO STRUCTURE (ID_COMPANY,ID_STENCIL) VALUES(1,2);
+INSERT INTO STRUCTURE (ID_COMPANY,ID_LANGUAGE) VALUES(1,1);
+INSERT INTO STRUCTURE (ID_COMPANY,ID_LANGUAGE) VALUES(1,1);
 
+--STENCIL
+INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (1,1,'ASD #NAME QWE #VALUE');
+INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (2,1,'ASD #NAME QWE #VALUE');
+INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (3,2,'ASD #NAME QWE #VALUE');
+
+
+
+--TASK
+--insert into task (id_contact_person,id_structure,algoritm,variables,priority,ID_LANGUAGE,PARAMS) VALUES (1,1,'{SMS,PUSH}','{"1":"jghfgdd","asd":"qweqweqw"}',1,1,'{"4":"jghfgdd","asd":"qweqweqw"}');
+--insert into task (id_contact_person,id_structure,algoritm,variables,priority,ID_LANGUAGE,PARAMS) VALUES (2,1,'{VIBER,PUSH}','{"2":"qwe"}',1,1,'{"3":"4"}');
+
+
+
+
+--MSG
+--insert into MSG (id_contact_person,id_structure,algoritm,variables,priority,ID_LANGUAGE,PARAMS,MESSAGE,ID_TASK) VALUES (1,1,'{SMS,PUSH}','{"A":"B"}',1,1,'{"A":"B"}','HELLO MR. NOBODY',1);
 
 --message
 
-insert into message (priority,frequence,delay,departuretime,relevanttime,duct,message,address) values (1,NOW(),NOW(),NOW(),NOW(),'{asd,asd}','messs','addr');
-insert into message (priority,frequence,delay,departuretime,relevanttime,duct,message,address) values (1,NOW(),NOW(),NOW(),NOW(),'{asd,asd}','messs','addr');
-insert into message (priority,frequence,delay,departuretime,relevanttime,duct,message,address) values (1,NOW(),NOW(),NOW(),NOW(),'{asd,asd}','messs','addr');
+--insert into message (priority,frequence,delay,departuretime,relevanttime,duct,message,address) values (1,NOW(),NOW(),NOW(),NOW(),'{asd,asd}','messs','addr');
+--insert into message (priority,frequence,delay,departuretime,relevanttime,duct,message,address) values (1,NOW(),NOW(),NOW(),NOW(),'{asd,asd}','messs','addr');
+--insert into message (priority,frequence,delay,departuretime,relevanttime,duct,message,address) values (1,NOW(),NOW(),NOW(),NOW(),'{asd,asd}','messs','addr');
+
+--LIMITATIONS
+
+INSERT INTO D_LIMITATIONS (LIMITATION,ID_D_DUCT) VALUES (120,2);

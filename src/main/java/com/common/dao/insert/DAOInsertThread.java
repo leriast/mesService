@@ -39,7 +39,7 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
                 list.add(task);
                 try {
                     if (list.size() == 5000) {
-                        System.out.println(list.size());
+                     //   System.out.println(list.size());
                         try {
                             session = sessionFactory.getCurrentSession();
                         } catch (HibernateException e) {
@@ -86,6 +86,7 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
                         try {
                             session.getTransaction().commit();
                             session.close();
+                            System.out.println("end   "+new Date());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

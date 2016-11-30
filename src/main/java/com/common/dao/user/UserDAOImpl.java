@@ -83,7 +83,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Role getRoleBuId(int id) {
+    public Role getRoleById(int id) {
         Role role= (Role) sessionFactory.getCurrentSession().load(Role.class,id);
         return role;
     }
@@ -132,6 +132,17 @@ public class UserDAOImpl implements UserDAO {
             e.printStackTrace();
         }
         beginCommitTransaction();
+    }
+
+    @Override
+    public User getUserByCompany(String companyName) {
+        String hql = "from User a join fetch a.company where a.company.company_name = :companyName";
+        Query query= sessionFactory.getCurrentSession().createQuery(hql).setParameter("companyName",companyName);
+        //query.setText("company",companyName);
+        List<User> list =query.list();
+        //System.out.println(list.get(0).getClass());
+        System.out.println(list.get(0).getUsername());
+        return (User) list.get(0);
     }
 
     public void beginCommitTransaction(){

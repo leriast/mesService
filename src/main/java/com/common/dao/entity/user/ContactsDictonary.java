@@ -1,7 +1,6 @@
 package com.common.dao.entity.user;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by root on 11/18/16.
@@ -13,12 +12,14 @@ public class ContactsDictonary {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_CONTACT_TYPE")
     private int id;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_CONTACT_CONTACT_PERSON")
-    private
-    Set<Contacts> contacts;
+
     @Column(name = "NAME")
     private String name;
+
+    /*@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CONTACT_CONTACT_PERSON")
+    private Set<Contacts> contacts;*/
+
 
     public ContactsDictonary() {
     }

@@ -1,3 +1,4 @@
+/*
 package com.common.dao.entity.usertype;
 
 import org.hibernate.HibernateException;
@@ -13,32 +14,39 @@ import java.sql.SQLException;
 
 public class WString1 implements UserType {
 
-    /**
+    */
+/**
      * Constante contenant le type SQL "Array".
-     */
+     *//*
+
     protected static final int[] SQL_TYPES = {Types.ARRAY,Types.ARRAY};
 
-    /**
+    */
+/**
      * Return the SQL type codes for the columns mapped by this type. The
      * codes are defined on <tt>java.sql.Types</tt>.
      *
      * @return int[] the typecodes
      * @see java.sql.Types
-     */
+     *//*
+
     public final int[] sqlTypes() {
         return SQL_TYPES;
     }
 
-    /**
+    */
+/**
      * The class returned by <tt>nullSafeGet()</tt>.
      *
      * @return Class
-     */
+     *//*
+
     public final Class returnedClass() {
         return String[].class;
     }
 
-    /**
+    */
+/**
      * Retrieve an instance of the mapped class from a JDBC resultset. Implementors
      * should handle possibility of null values.
      *
@@ -51,7 +59,8 @@ public class WString1 implements UserType {
      *                                          lors de la récupération des données.
      * @throws java.sql.SQLException            exception SQL
      *                                          levées lors de la récupération des données.
-     */
+     *//*
+
     @Override
     public final Object nullSafeGet(
             final ResultSet resultSet,
@@ -66,7 +75,8 @@ public class WString1 implements UserType {
         return array;
     }
 
-    /**
+    */
+/**
      * Write an instance of the mapped class to a prepared statement. Implementors
      * should handle possibility of null values. A multi-column type should be written
      * to parameters starting from <tt>index</tt>.
@@ -79,7 +89,8 @@ public class WString1 implements UserType {
      *                                          lors de la récupération des données.
      * @throws java.sql.SQLException            exception SQL
      *                                          levées lors de la récupération des données.
-     */
+     *//*
+
     @Override
     public final void nullSafeSet(final PreparedStatement statement, final Object value,
                                   final int index, final SessionImplementor session) throws HibernateException, SQLException {
@@ -139,4 +150,4 @@ public class WString1 implements UserType {
             final Object owner) throws HibernateException {
         return original;
     }
-}
+}*/

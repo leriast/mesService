@@ -1,6 +1,6 @@
 package com.common.dao.insert;
 
-import com.common.dao.entity.JSONT;
+import com.common.dao.entity.message.Message;
 import com.common.dao.entity.queue.IncomingInsertQueue;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -15,11 +15,11 @@ import java.util.logging.Logger;
  */
 public class DAOInsertIncomingThread extends Thread {
     Logger logger = Logger.getLogger(String.valueOf(DAOInsertThread.class));
-    ArrayList<JSONT> list = new ArrayList<>();
+    ArrayList<Message> list = new ArrayList<>();
     Session session;
     private SessionFactory sessionFactory;
     IncomingInsertQueue queue = new IncomingInsertQueue();
-    JSONT task = new JSONT();
+    Message task = new Message();
 
     public DAOInsertIncomingThread() {
     }
@@ -29,7 +29,7 @@ public class DAOInsertIncomingThread extends Thread {
     }
 
     public void run() {
-        System.out.println("work");
+        System.out.println("i`m start?   "+queue.getMainQueue().size());
         while (true) {
             try {
                 session = sessionFactory.getCurrentSession();
@@ -40,19 +40,13 @@ public class DAOInsertIncomingThread extends Thread {
                 session = sessionFactory.openSession();
             }
             try {
-                task = (JSONT) queue.getMainQueue().take();
+                task = (Message) queue.getMainQueue().take();
                 list.add(task);
                 try {
                     if (list.size() == 10000) {
                         System.out.println(list.size());
-                        /*try {
-                            session = sessionFactory.getCurrentSession();
-                        } catch (HibernateException e) {
-                            while (sessionFactory.getStatistics().getSessionOpenCount() > 50) {
-                                logger.info("to many DB sessions");
-                            }
-                            session = sessionFactory.openSession();
-                        }*/
+
+
                         for (int i = 0; i < list.size(); i++) {
                             task = list.get(i);
                             if (task != null) {
@@ -81,11 +75,7 @@ public class DAOInsertIncomingThread extends Thread {
 
                     } else if (queue.getMainQueue().size() == 0) {
                         System.out.println(list.size());
-                       /* try {
-                            session = sessionFactory.getCurrentSession();
-                        } catch (HibernateException e) {
-                            session = sessionFactory.openSession();
-                        }*/
+
                         for (int i = 0; i < list.size(); i++) {
                             task = list.get(i);
                             if (task != null) {

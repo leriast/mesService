@@ -5,8 +5,9 @@ import com.common.dao.entity.incoming.IncomingTask;
 import com.common.dao.entity.incoming.Param;
 import com.common.dao.entity.incoming.Recipient;
 import com.common.dao.entity.queue.Queue;
-import com.common.dao.entity.user.User;
+import com.common.dao.entity.task.Language;
 import com.common.service.company.CompanyService;
+import com.common.service.task.TaskService;
 import com.common.service.user.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -29,6 +30,8 @@ public class BasicController {
     public UserService userService;
     @Autowired
     public CompanyService companyService;
+    @Autowired
+    TaskService taskService;
 
     ArrayList<String> chanel = new ArrayList<>();
     int i = 1000;
@@ -42,7 +45,7 @@ public class BasicController {
     @RequestMapping(value = "/index")
     public ModelAndView index(Map<String, Object> map,
                               HttpServletRequest request) {
-
+        System.out.println(Thread.activeCount());
         map.put("User", userService.listContact(request
                 .getUserPrincipal().getName()));
         System.out.println(request.getUserPrincipal().getName() + "   " + new Date());
@@ -121,13 +124,29 @@ public class BasicController {
 
     @RequestMapping(value = {"/", "/log**"}, method = RequestMethod.GET)
     public ModelAndView start(HttpServletRequest request) {
-        userService.insertUser(new User("QWE","test",true,"test","test","test","test",1,companyService.getCompanyById(2), userService.getRoleById(1)));
+
+        System.out.println("basic controller start  ");
+        for(Object a:taskService.getAllLanguages()){
+            Language lng=(Language)a;
+            System.out.println(lng.getName());
+        }
+
+//        for(Object a:taskService.commonTaskList()){
+//            Task task=(Task) a;
+//            System.out.println("alg?  "+task.getAlgoritm()[0]);
+//        }
+     //   userService.insertUser(new User("QWE","test",true,"test","test","test","test",1,companyService.getCompanyById(2), userService.getRoleById(1)));
         //userService.getContactsDictonary();
 
         //userService.getContactsByType();
         //companyService.getCompanies();
-       // userService.search();
+        // userService.search();
         return new ModelAndView("/log");
+    }
+
+    @RequestMapping(value = {"/task"}, method = RequestMethod.GET)
+    public String taskForm(HttpServletRequest request) {
+        return ("/task");
     }
 
 

@@ -18,7 +18,7 @@
 
 
         <!-- Hibernate / JPA -->
-            <hibernate.version>4.0.1.Final</hibernate.version>
+            <hibernate.version>5.0.5.Final</hibernate.version>
         <spring-security.version>4.0.4.RELEASE</spring-security.version>
 
 
@@ -26,11 +26,16 @@
         <spring-framework.data.version>1.9.1.RELEASE</spring-framework.data.version>
 
         <!-- Spring -->
-        <spring-framework.version>4.2.4.RELEASE</spring-framework.version>
+        <spring-framework.version>4.3.4.RELEASE</spring-framework.version>
 
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>jta</artifactId>
+            <version>1.1</version>
+        </dependency>
         <!--<dependency>-->
             <!--<groupId>postgresql</groupId>-->
             <!--<artifactId>postgresql</artifactId>-->
@@ -330,7 +335,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.0.1.Final</version>
+            <version>5.0.5.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.0.5.Final</version>
         </dependency>
 
         <!--asdasda-->

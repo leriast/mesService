@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Role getRoleById(int id) {
-       return userDAO.getRoleBuId(id);
+       return userDAO.getRoleById(id);
     }
 
     @Override
@@ -59,6 +59,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void insertJ(JSONT j) {
         userDAO.insertJ(j);
+    }
+
+    @Override
+    public User getUserByCompany(String companyName) {
+        return userDAO.getUserByCompany(companyName);
     }
 
 

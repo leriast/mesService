@@ -1,7 +1,6 @@
 package com.common.dao.entity.queue;
 
-import com.common.dao.entity.JSONT;
-import com.common.dao.entity.incoming.IncomingTask;
+import com.common.dao.entity.message.Message;
 
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -12,16 +11,15 @@ public class IncomingInsertQueue {
     public static final IncomingInsertQueue INSTANCE = new IncomingInsertQueue();
     //
     // public Pool pool=new Pool();
-    private PriorityBlockingQueue<JSONT> incomingInsertQueue=new PriorityBlockingQueue<JSONT>(/*100*/);
+    private PriorityBlockingQueue<Message> incomingInsertQueue=new PriorityBlockingQueue<Message>(/*100*/);
     public IncomingInsertQueue(){}
-    public IncomingInsertQueue(IncomingTask ex){
-    }
 
-    public /*synchronized*/ PriorityBlockingQueue<JSONT> getMainQueue() {
+
+    public /*synchronized*/ PriorityBlockingQueue<Message> getMainQueue() {
         return INSTANCE.incomingInsertQueue;
     }
 
-    public synchronized void setMainQueue(PriorityBlockingQueue<JSONT> mainQueue) {
+    public synchronized void setMainQueue(PriorityBlockingQueue<Message> mainQueue) {
         this.incomingInsertQueue = mainQueue;
     }
 }
