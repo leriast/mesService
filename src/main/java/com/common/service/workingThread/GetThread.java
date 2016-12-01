@@ -2,15 +2,12 @@ package com.common.service.workingThread;
 
 import com.common.dao.entity.message.Message;
 import com.common.dao.entity.queue.Queue;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,50 +29,60 @@ public class GetThread extends Thread {
         this.sessionFactory = sessionFactory;
     }
 
-    int x = 0;
-
     public void run() {
+        //    System.out.println("GetThread");
         while (true) /*while (x<10)*/ {
-            if (queue.getMainQueue().size() < 500) {
+            if (queue.getMainQueue().size() < 1000) {
+                System.out.println(new Date());
+                //      System.out.println(true);
                 try {
                     session = sessionFactory.getCurrentSession();
                 } catch (HibernateException e) {
                     while (sessionFactory.getStatistics().getSessionOpenCount() > 10) {
                     }
-                    session = sessionFactory.openSession();
-                }
-                Criteria criteria = session.createCriteria(Message.class, "arr").add(Restrictions.eq("priority", 1)).setMaxResults(700);
-              //  System.out.println(queue.getMainQueue().size() + "  SELECT   ");
-                Message aa = new Message();
-                a.clear();
-                a = criteria.list();
-                for (int i = 0; i < a.size(); i++) {
-                    aa = (Message) a.get(i);
-                    //  System.out.println(aa.getPriority());
-                    if (aa != null) {
-                  //         queue.getMainQueue().add(aa);
-
+                    try {
+                        session = sessionFactory.openSession();
+                        ;
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                     }
+
                 }
-
-                //}
-                //  System.out.println(a.getUsername() + "   " + a.getPassword());
-                x++;
-
-//            try {
-//                sleep(10);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-                session.close();
-            } /*else {
+                List list = null;
                 try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
+                    Query query = session.createQuery("from Message where status = :code ");
+                    query.setParameter("code", 1);
+                    query.setMaxResults(1000);
+                    list = query.list();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-            }*/
+                Message aa;
+
+
+                if (list.size() != 0) {
+                    for (Object object : list) {
+                        aa = (Message) object;
+                        aa.setStatus(3);
+                        session.saveOrUpdate(aa);
+                    }
+                    session.getTransaction().begin();
+                    session.getTransaction().commit();
+                    for (Object aaa : list) {
+                        if (aaa != null) {
+                            queue.getMainQueue().add((Message) aaa);
+                        }
+                    }
+                }
+                //session.close();
+            }
+            try {
+                sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 }

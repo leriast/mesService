@@ -1,10 +1,10 @@
 package com.common.service.workingThread;
 
 import com.common.dao.entity.message.Message;
+import com.common.dao.entity.queue.InsertQueue;
 import com.common.dao.entity.queue.Queue;
 import org.quartz.SchedulerException;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.utils.SerializationUtils;
 
 import java.util.logging.Logger;
 
@@ -17,6 +17,7 @@ private AmqpTemplate template;
     }
 
     public Queue queue = new Queue();
+    InsertQueue insertQueue=new InsertQueue();
 //    public QuartzEx quartz=new QuartzEx();
 
     Message task = new Message();
@@ -36,7 +37,6 @@ private AmqpTemplate template;
     public void run() {
         while (true) {
 
-            //         System.out.println("tasks for execution "+queue.getMainQueue().size());
             try {
                 task = queue.getMainQueue().take();
             } catch (InterruptedException e) {
@@ -47,77 +47,13 @@ private AmqpTemplate template;
     }
 
     public void executeTask(Message task,AmqpTemplate template) {
-        //
+        task.setStatus(2);
+     //   System.out.println(task.getIdMessage()+"  "+name);
         try {
-         //   System.out.println(name + "          " + task.getIdMessage() + "  " + task.getPriority() + "        " + Thread.activeCount());
-      //      System.out.println(queue.getMainQueue().size() + "               " + insertQueue.getMainQueue().size());
-            //     sleep(100);
-
-        } catch (Exception e) {
+            sleep(100);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        byte[] data = SerializationUtils.serialize(task);
-        template.convertAndSend("insertStat", data);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-       if(
-               task.getRelevant().after(new Date())){
-           System.out.println(task.getRelevant()+"          "+new Date());
-            */
-/*for(int i=0;i<task.getChanel().size();i++){
-
-        }*//*
-
-
-           System.out.println(name + " priority: " + task.getPriority() + "  " + Thread.activeCount() +" and deadTime "+task.getRelevant());
-//        try {
-//            sleep(11000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        for(Recipient r:task.getRecipientList()){
-             String aaa=name + " priority: " + task.getPriority() + "  ";
-
-         //      System.out.println(r.getAddress());
-        }
-//        for (Message m : task.getMsgList()) {
-//            //    System.out.println(name+" priority: "+task.getPriority() + "  " + m.generateTextMessage()+"  "+Thread.activeCount());
-//            String a=name+" priority: "+task.getPriority() + "  " + m.generateTextMessage()+"  "+Thread.activeCount();
-//        }
-       }else{
-           System.out.print(task.getPriority()+"   was thrown");
-           System.out.println(task.getRelevant()+"          "+new Date());
-           */
-/*
-           *
-           *
-           *
-           * 
-           *
-           *
-           *
-           * *//*
-
-       }
-*/
-
+        insertQueue.getMainQueue().add(task);
     }
 }

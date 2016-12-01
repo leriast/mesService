@@ -41,7 +41,7 @@ public class TaskDAOImpl implements TaskDAO {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Task.class, "arr");
         Task task = (Task) criteria.list().get(0);
         try {
-            System.out.println(task.getVaribles());
+            System.out.println("var="+task.getVaribles());
 //            ByteArrayInputStream bytesIn = new ByteArrayInputStream(task.getVaribles());
 //            ObjectInputStream ois = new ObjectInputStream(bytesIn);
 //            Object obj = ois.readObject();
@@ -128,6 +128,7 @@ public class TaskDAOImpl implements TaskDAO {
     @Override
     public Structure getStructure() {
         Structure structure=(Structure)sessionFactory.getCurrentSession().load(Structure.class,1);
+        System.out.println(structure.getId());
         return structure;
     }
 

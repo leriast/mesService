@@ -53,4 +53,9 @@ public class TaskServiceImpl implements TaskService {
     public void insertTask(Task task) {
         taskDAO.insertTask(task);
     }
+
+    @Override
+    public void getAllStructure() {
+        taskDAO.getStructure();
+    }
 }

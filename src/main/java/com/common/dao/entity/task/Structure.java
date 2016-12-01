@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "structure")
 public class Structure {
+    public Structure(){}
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "ID_STRUCTURE")
@@ -20,4 +21,33 @@ public class Structure {
     @ManyToOne(targetEntity = Language.class)
     @JoinColumn(name = "ID_LANGUAGE", referencedColumnName = "ID_LANGUAGE")
     private Language language;
+
+    public Structure(Company company, Language language) {
+        this.company = company;
+        this.language = language;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
 }

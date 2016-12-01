@@ -124,10 +124,10 @@ public class BasicController {
 
     @RequestMapping(value = {"/", "/log**"}, method = RequestMethod.GET)
     public ModelAndView start(HttpServletRequest request) {
-
+        //taskService.getStructure();
         System.out.println("basic controller start  ");
-        for(Object a:taskService.getAllLanguages()){
-            Language lng=(Language)a;
+        for (Object a : taskService.getAllLanguages()) {
+            Language lng = (Language) a;
             System.out.println(lng.getName());
         }
 
@@ -135,7 +135,7 @@ public class BasicController {
 //            Task task=(Task) a;
 //            System.out.println("alg?  "+task.getAlgoritm()[0]);
 //        }
-     //   userService.insertUser(new User("QWE","test",true,"test","test","test","test",1,companyService.getCompanyById(2), userService.getRoleById(1)));
+        //   userService.insertUser(new User("QWE","test",true,"test","test","test","test",1,companyService.getCompanyById(2), userService.getRoleById(1)));
         //userService.getContactsDictonary();
 
         //userService.getContactsByType();

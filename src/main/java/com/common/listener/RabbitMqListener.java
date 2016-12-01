@@ -12,6 +12,7 @@ import com.common.service.user.UserService;
 import com.common.service.workingThread.Pool;
 import org.hibernate.SessionFactory;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -64,11 +65,11 @@ public class RabbitMqListener {
         //  System.out.println(task.getRecipientList().size());
         for (int iter = 0; iter < task.getRecipientList().size(); iter++) {
             //   System.out.println(iter);
-            try {
-                queue.getMainQueue().add(new Message(iter, new Date(), task.getDepartureTime(), task.getRelevant(), new Date(), new String[]{"qaz", "asd", "qwe"}, "message", "address"));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try {
+//                queue.getMainQueue().add(new Message(iter, new Date(), task.getDepartureTime(), task.getRelevant(), new Date(), new String[]{"qaz", "asd", "qwe"}, "message", "address"));
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
         }
     /*
 
@@ -103,13 +104,15 @@ public class RabbitMqListener {
         try {
                 testIterator++;
                 Task task = new Task(userService.getUserByCompany("NP"), taskService.getStructure(), new String[]{"push", "telegram"}, obj1.toJSONString(), 1, (Language) taskService.getAllLanguages().get(0), "asd");
+
                 taskService.insertTask(task);
+
             System.out.println(task.getId());
 
-//            for (Object o : obj1) {
-//                JSONObject q = (JSONObject) o;
-//                incomingInsertQueue.getMainQueue().add(new Message(1, new Date(), new Date(), new Date(), new Date(), new String[]{"qaz", "asd", "qwe"}, q.toJSONString(), "address"));
-//            }
+            for (Object o : obj1) {
+                JSONObject q = (JSONObject) o;
+                incomingInsertQueue.getMainQueue().add(new Message(1, new Date(), new Date(), new Date(), new Date(), new String[]{"qaz", "asd", "qwe"}, q.toJSONString(), "address",task,1));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

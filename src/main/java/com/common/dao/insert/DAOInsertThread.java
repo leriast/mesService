@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Logger;
 
 /**
@@ -33,26 +32,35 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
         this.sessionFactory = sf;
     }
     public void run() {
+    //    System.out.println("DAOInsertThread");
         while (true) {
             try {
                 task= (Message) queue.getMainQueue().take();
                 list.add(task);
                 try {
-                    if (list.size() == 5000) {
-                     //   System.out.println(list.size());
+                    if (list.size() == 10000) {
                         try {
+                    //        System.out.println("DAOInsertThread!!");
                             session = sessionFactory.getCurrentSession();
                         } catch (HibernateException e) {
-                            while (sessionFactory.getStatistics().getSessionOpenCount() > 30) {
+                            while (sessionFactory.getStatistics().getSessionOpenCount() > 70) {
                                 logger.info("to many DB sessions");
                             }
                             session = sessionFactory.openSession();
                         }
-                        for (int i = 0; i < list.size(); i++) {
-                            task = list.get(i);
-                            if (task != null) {session.save(task);}
+                        try {
+                            for (int i = 0; i < list.size(); i++) {
+                                task = list.get(i);
+                                if (task != null) {
+                                    session.update(task);
+                                }
+                            }
+                            session.getTransaction().begin();
+                            session.getTransaction().commit();
+                            list.clear();
+                        }catch (Exception e){
+                            e.printStackTrace();
                         }
-                        list.clear();
                         try {
                             session.beginTransaction();
                         } catch (Exception e) {
@@ -61,13 +69,12 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
                         try {
                             session.getTransaction().commit();
                             session.close();
-                            System.out.println(this+
-                                    "    commit    "+new Date());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
 
                     } else if (queue.getMainQueue().size() == 0) {
+                     //   System.out.println("DAOInsertThread!!");
                          try {
                             session = sessionFactory.getCurrentSession();
                         } catch (HibernateException e) {
@@ -75,8 +82,11 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
                         }
                         for (int i = 0; i < list.size(); i++) {
                             task = list.get(i);
-                            if (task != null) {session.save(task);}
+                            if (task != null) {session.update(task);
+                               }
                         }
+                        session.getTransaction().begin();
+                        session.getTransaction().commit();
                         list.clear();
                         try {
                             session.beginTransaction();
@@ -86,7 +96,7 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
                         try {
                             session.getTransaction().commit();
                             session.close();
-                            System.out.println("end   "+new Date());
+                      //      System.out.println("end   "+new Date());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

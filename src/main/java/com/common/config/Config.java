@@ -92,6 +92,7 @@ public class Config {
     @Value("${jdbc.hsqldb.postgres.password}")
     private String jdbcPassword;
 
+
 //    @Value("${jdbc.hsqldb.driverClass}")
 //    private String driverClass;
 //    @Value("${jdbc.hsqldb.url}")
@@ -114,6 +115,9 @@ public class Config {
         dataSource.setUrl(jdbcUrl);
         dataSource.setUsername(jdbcUserName);
         dataSource.setPassword(jdbcPassword);
+
+
+
         return dataSource;
     }
 
@@ -153,7 +157,7 @@ public class Config {
         jpaProperties.put("hibernate.show_sql", true);
         jpaProperties.put("hibernate.format_sql", "false");
         jpaProperties.put("hibernate.hbm2ddl.auto", "update");
-       // jpaProperties.put("hibernate.jdbc.use_streams_for_binary", "true");
+        jpaProperties.put("hibernate.jdbc.use_streams_for_binary", "true");
         em.setJpaProperties(jpaProperties);
         return em;
     }
@@ -196,6 +200,7 @@ public class Config {
         sessionBuilder.scanPackages("com.common.dao.entity.company");
         sessionBuilder.scanPackages("com.common.dao.entity.task");
         sessionBuilder.scanPackages("com.common.service.workingThread");
+        sessionBuilder.scanPackages("com.common.dao.entity.usertype");
         return sessionBuilder.buildSessionFactory();
     }
 

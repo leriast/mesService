@@ -26,4 +26,8 @@ public interface TaskService {
 
     void insertTask(Task task);
 
+    void getAllStructure();
+
+
+
 }

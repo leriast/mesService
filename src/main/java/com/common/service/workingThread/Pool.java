@@ -51,9 +51,12 @@ public class Pool {
         }
         new DAOInsertThread(sessionFactory).start();
         new DAOInsertThread(sessionFactory).start();
+        new DAOInsertThread(sessionFactory).start();
+        new DAOInsertThread(sessionFactory).start();
         new GetThread(sessionFactory).start();
         //  new ZeroPriorityThread().start();
         //   new ClearQueueThread().start();
+
         new DAOInsertIncomingThread(sessionFactory).start();
         new DAOInsertIncomingThread(sessionFactory).start();
         new DAOInsertIncomingThread(sessionFactory).start();

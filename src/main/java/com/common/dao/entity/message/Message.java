@@ -1,5 +1,6 @@
 package com.common.dao.entity.message;
 
+import com.common.dao.entity.task.Task;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class Message implements Serializable,Comparable<Message>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idMessage")
-    private int idMessage;
+    private Long idMessage;
     @Column(name = "priority")
     private int priority;
     @Column(name = "frequence")
@@ -33,8 +34,13 @@ public class Message implements Serializable,Comparable<Message>{
     private String message;
     @Column(name = "address")
     private String address;
+    @ManyToOne(targetEntity = Task.class)
+    @JoinColumn(name = "ID_TASK", referencedColumnName = "ID_TASK")
+    private Task id_task;
+    @Column(name = "status")
+    private int status;
 
-    public Message(int priority, Date frequence, Date departureTime, Date relevantTime, Date delay, String[] duct, String message, String address) {
+    public Message(int priority, Date frequence, Date departureTime, Date relevantTime, Date delay, String[] duct, String message, String address,Task task,int status) {
         this.priority = priority;
         this.frequence = frequence;
         this.departureTime = departureTime;
@@ -43,9 +49,11 @@ public class Message implements Serializable,Comparable<Message>{
         this.duct = duct;
         this.message = message;
         this.address = address;
+        this.id_task=task;
+        this.status=status;
     }
 
-    public Message(Date frequence, Date departureTime, Date relevantTime, Date delay, String[] duct, String message, String address) {
+    public Message(Date frequence, Date departureTime, Date relevantTime, Date delay, String[] duct, String message, String address,Task task,int status) {
         this.frequence = frequence;
         this.departureTime = departureTime;
         this.relevantTime = relevantTime;
@@ -53,14 +61,32 @@ public class Message implements Serializable,Comparable<Message>{
         this.duct = duct;
         this.message = message;
         this.address = address;
+        this.id_task=task;
+        this.status=status;
     }
     public Message(){}
 
-    public int getIdMessage() {
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public Task getId_task() {
+        return id_task;
+    }
+
+    public void setId_task(Task id_task) {
+        this.id_task = id_task;
+    }
+
+    public Long getIdMessage() {
         return idMessage;
     }
 
-    public void setIdMessage(int idMessage) {
+    public void setIdMessage(Long idMessage) {
         this.idMessage = idMessage;
     }
 

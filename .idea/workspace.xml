@@ -2,118 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74232484-55d2-419d-9b24-3d2bb11a9c77" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_4_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_1_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_15_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_0_CR2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_9_4_1211.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_2_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_2_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/arr.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/arr1.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitJSON.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/usertype/WString1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/common/listener/RabbitJSON.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/usertype/WString1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/RabbitJSON.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-commons-annotations-4.0.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-core-4.0.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-entitymanager-4.0.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/lib/javassist-3.15.0-GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.1.0.CR2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/lib/spring-context-support-4.2.4.RELEASE.jar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/config/Config.class" afterPath="$PROJECT_DIR$/target/classes/com/common/config/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/controller/BasicController.class" afterPath="$PROJECT_DIR$/target/classes/com/common/controller/BasicController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/controller/FileUploadController.class" afterPath="$PROJECT_DIR$/target/classes/com/common/controller/FileUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/queue/IncomingInsertQueue.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/queue/IncomingInsertQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/ContactsDictonary.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/ContactsDictonary.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/Message.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/Message.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertIncomingThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertIncomingThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/task/TaskDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/task/TaskDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/task/TaskDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/task/TaskDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/user/UserDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/user/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/user/UserDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/user/UserDAOImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/listener/RabbitMqListener.class" afterPath="$PROJECT_DIR$/target/classes/com/common/listener/RabbitMqListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/file/ReadData.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/file/ReadData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/task/TaskService.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/task/TaskService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/task/TaskServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/task/TaskServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/user/UserService.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/user/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/user/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/user/UserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/GetThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/GetThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/Pool.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/Pool.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ThreadConsumer.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ThreadConsumer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ZeroPriorityThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ZeroPriorityThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/Config.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/BasicController.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/BasicController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/FileUploadController.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/FileUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/queue/IncomingInsertQueue.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/queue/IncomingInsertQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/ContactsDictonary.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/ContactsDictonary.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/Message.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/Message.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertIncomingThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertIncomingThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/task/TaskDAO.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/task/TaskDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/task/TaskDAOImpl.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/task/TaskDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/user/UserDAO.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/user/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/user/UserDAOImpl.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/user/UserDAOImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/RabbitMqListener.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/RabbitMqListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/file/ReadData.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/file/ReadData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/task/TaskService.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/task/TaskService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/task/TaskServiceImpl.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/task/TaskServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/user/UserService.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/user/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/user/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/user/UserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/GetThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/GetThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/Pool.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/Pool.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ThreadConsumer.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ThreadConsumer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ZeroPriorityThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ZeroPriorityThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/newSpringMVC_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/newSpringMVC_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newSpringMVC.iml" afterPath="$PROJECT_DIR$/newSpringMVC.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/IncomingInsertQueue.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/IncomingInsertQueue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/ContactsDictonary.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/ContactsDictonary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/WString1.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/WString1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Stencil.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Stencil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/file/ReadData.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/file/ReadData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/user/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/user/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/user/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/user/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dbschema.sql" afterPath="$PROJECT_DIR$/src/main/resources/dbschema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/test-data.sql" afterPath="$PROJECT_DIR$/src/main/resources/test-data.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/util.properties" afterPath="$PROJECT_DIR$/src/main/resources/util.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/task.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/task.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dbschema.sql" afterPath="$PROJECT_DIR$/target/classes/dbschema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/test-data.sql" afterPath="$PROJECT_DIR$/target/classes/test-data.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/util.properties" afterPath="$PROJECT_DIR$/target/classes/util.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/dbschema.sql" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/dbschema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/test-data.sql" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/test-data.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/util.properties" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/util.properties" />
@@ -149,62 +83,61 @@
       <file leaf-file-name="RabbitMqListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="106" column="43" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
+            <state relative-caret-position="399">
+              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java">
+      <file leaf-file-name="Structure.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1095">
-              <caret line="95" column="16" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="16" />
+            <state relative-caret-position="285">
+              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#808#809#0" expanded="true" />
+                <element signature="e#833#834#0" expanded="true" />
+                <element signature="e#866#867#0" expanded="true" />
+                <element signature="e#894#895#0" expanded="true" />
+                <element signature="e#929#930#0" expanded="true" />
+                <element signature="e#959#960#0" expanded="true" />
+                <element signature="e#1006#1007#0" expanded="true" />
+                <element signature="e#1044#1045#0" expanded="true" />
+                <element signature="e#1081#1082#0" expanded="true" />
+                <element signature="e#1112#1113#0" expanded="true" />
+                <element signature="e#1162#1163#0" expanded="true" />
+                <element signature="e#1202#1203#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskDAOImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java">
+      <file leaf-file-name="Language.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1315">
-              <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+            <state relative-caret-position="135">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java">
+      <file leaf-file-name="Duct.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Duct.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="32" />
+            <state relative-caret-position="135">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stencil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Stencil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="2" selection-end-line="8" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -213,33 +146,49 @@
       <file leaf-file-name="TaskService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+            <state relative-caret-position="375">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileUploadController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+            <state relative-caret-position="467">
+              <caret line="47" column="25" selection-start-line="45" selection-start-column="3" selection-end-line="47" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDAOImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAOImpl.java">
+      <file leaf-file-name="Company.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/company/Company.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-              <folding>
-                <marker date="1480434638072" expanded="true" signature="3136:3459" ph="SELECT CONTA... CONTACT_PERSON" />
-                <marker date="1480434638072" expanded="true" signature="3879:3901" ph="select GetAl... " />
-                <marker date="1480434638072" expanded="true" signature="4159:4236" ph="INSERT INTO jsont... " />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasicController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -265,7 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/StringJsonUserType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/KeyOffset.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/KeyOfSetType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/CommonQueue.java" />
@@ -275,7 +223,6 @@
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/task.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/service/file/ReadData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/CollectionUserType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/MutableUserType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/JSONBDocument.java" />
@@ -288,34 +235,36 @@
         <option value="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMQInsertData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/service/user/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/service/user/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ZeroPriorityThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/IncomingInsertQueue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/MyJson.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/ContactsDictonary.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/ByteArrayBlobType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/WByte.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/util.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/MyPostgreSQL94Dialect.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/test-data.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/dbschema.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/util.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/dbschema.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/test-data.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Stencil.java" />
       </list>
     </option>
   </component>
@@ -387,10 +336,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="4" />
-    <option name="width" value="1914" />
-    <option name="height" value="1051" />
+    <option name="x" value="1919" />
+    <option name="width" value="1922" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -417,8 +365,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -506,44 +452,6 @@
               <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workingThread" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newSpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rezi-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -576,210 +484,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="task" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newSpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rezi-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quartz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newSpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rezi-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="options" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newSpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rezi-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="message" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newSpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rezi-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newSpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rezi-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="file" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newSpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rezi-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="company" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -842,6 +546,112 @@
               <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newSpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rezi-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newSpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rezi-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="usertype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newSpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rezi-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -874,6 +684,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -910,6 +724,14 @@
               <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stencil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -941,7 +763,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="insert" />
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="message" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newSpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rezi-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1008,6 +872,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1636,20 +1502,22 @@
       <workItem from="1480498942965" duration="205000" />
       <workItem from="1480499377318" duration="15974000" />
       <workItem from="1480517120303" duration="66000" />
+      <workItem from="1480517666555" duration="8895000" />
+      <workItem from="1480527324922" duration="24420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="490523000" />
+    <option name="totallyTimeSpent" value="523838000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="4" width="1914" height="1051" extended-state="0" />
-    <editor active="false" />
+    <frame x="1919" y="0" width="1922" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44753748" sideWeight="0.08271078" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17845659" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.01814301" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1660,14 +1528,15 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39892474" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.49786553" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3419355" sideWeight="0.9172892" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3404711" sideWeight="0.9172892" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20203644" sideWeight="0.49074075" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20117396" sideWeight="0.49074075" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18177083" sideWeight="0.5092593" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2581361" sideWeight="0.50398177" order="5" side_tool="true" content_ui="tabs" />
@@ -1676,7 +1545,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.49786553" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1687,7 +1555,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44753748" sideWeight="0.08271078" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12433012" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17845659" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1705,11 +1573,11 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3419355" sideWeight="0.9172892" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3419355" sideWeight="0.9172892" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20203644" sideWeight="0.49074075" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20203644" sideWeight="0.49074075" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18177083" sideWeight="0.5092593" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1748,81 +1616,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/JSOBUserType.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/WString1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/MyJsonType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="51" column="45" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/inside/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ClearQueueThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/InsertQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/user/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1851,23 +1648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
-          <folding>
-            <marker date="1480435130967" expanded="true" signature="1835:1938" ph="INSERT INTO jsont... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1917,27 +1697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/WByte.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="114" column="25" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/util.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/WString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="113" column="45" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/MyPostgreSQL94Dialect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1945,48 +1704,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1130">
-          <caret line="155" column="9" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="42" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test-data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="64" column="2" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.2.4.RELEASE/spring-tx-4.2.4.RELEASE.jar!/org/springframework/transaction/support/AbstractPlatformTransactionManager.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dbschema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="99" column="39" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="136" column="11" selection-start-line="133" selection-start-column="10" selection-end-line="136" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2039,71 +1760,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="106" column="43" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="95" column="16" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1315">
-          <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#965#966#0" expanded="false" />
+            <element signature="e#996#997#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2112,10 +1777,264 @@
         <state relative-caret-position="1875">
           <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <marker date="1480434638072" expanded="true" signature="3136:3459" ph="SELECT CONTA... CONTACT_PERSON" />
             <marker date="1480434638072" expanded="true" signature="3879:3901" ph="select GetAl... " />
             <marker date="1480434638072" expanded="true" signature="4159:4236" ph="INSERT INTO jsont... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/util.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/WString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test-data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-570">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2475">
+          <caret line="202" column="67" selection-start-line="202" selection-start-column="67" selection-end-line="202" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding>
+            <marker date="1480603584627" expanded="true" signature="1873:1976" ph="INSERT INTO jsont... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/usertype/WByte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="114" column="25" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="63" column="39" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#673#674#0" expanded="false" />
+            <element signature="e#725#726#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/options/OptionsDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/options/OptionsDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+          <folding>
+            <element signature="e#910#911#0" expanded="false" />
+            <element signature="e#950#951#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dbschema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="46" column="2" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding>
+            <element signature="e#1237#1238#0" expanded="false" />
+            <element signature="e#1277#1278#0" expanded="false" />
+            <element signature="e#1328#1329#0" expanded="false" />
+            <element signature="e#1366#1367#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="130" column="44" selection-start-line="130" selection-start-column="44" selection-end-line="130" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMqListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding>
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
+            <element signature="e#1006#1007#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+            <element signature="e#1081#1082#0" expanded="true" />
+            <element signature="e#1112#1113#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1202#1203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="47" column="25" selection-start-line="45" selection-start-column="3" selection-end-line="47" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/company/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Duct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Stencil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="2" selection-end-line="8" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
