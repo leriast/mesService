@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Logger;
 
 /**
@@ -28,14 +29,14 @@ public class DAOInsertIncomingThread extends Thread {
     }
 
     public void run() {
-     //   System.out.println("DAOInsertIncomingThread");
+        //   System.out.println("DAOInsertIncomingThread");
 //        System.out.println("i`m start?   "+queue.getMainQueue().size());
         while (true) {
             try {
                 session = sessionFactory.getCurrentSession();
             } catch (HibernateException e) {
-                while (sessionFactory.getStatistics().getSessionOpenCount() > 70) {
-                    logger.info("to many DB sessions");
+              while (sessionFactory.getStatistics().getSessionOpenCount() > 90) {
+                //    logger.info("to many DB sessions");
                 }
                 session = sessionFactory.openSession();
             }
@@ -43,29 +44,29 @@ public class DAOInsertIncomingThread extends Thread {
                 task = (Message) queue.getMainQueue().take();
                 list.add(task);
                 try {
-                    if (list.size() == 10000) {
-                  //      System.out.println(list.size());
 
-
+                    if (list.size() == 25000) {
                         for (int i = 0; i < list.size(); i++) {
+
                             task = list.get(i);
+
                             if (task != null) {
-
-                               session.save(task);
-
-                                /* session.createSQLQuery("INSERT INTO jsont (info) VALUES ('" + task.getJson() + "'" +
-                                        ");");*//*.executeUpdate();*/
+                                session.save(task);
                             }
                         }
-                        list.clear();
-                        try {
 
+                        list.clear();
+
+                        try {
                             session.beginTransaction();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                         try {
+                        //    session.flush();
                             session.getTransaction().commit();
+                            System.out.println("queue=  "+queue.getMainQueue().size()+"    DAOInsertIncomingThread commit 20k " + new Date());
+                        //    session.clear();
                             session.close();
 //                            System.out.println(this +
 //                                    "    commit    " + new Date() + "           " + Thread.activeCount()+"/"+sessionFactory.getStatistics().getSessionOpenCount()+" " + "           " + queue.getMainQueue().size());
@@ -74,7 +75,7 @@ public class DAOInsertIncomingThread extends Thread {
                         }
 
                     } else if (queue.getMainQueue().size() == 0) {
-                    //    System.out.println(list.size());
+                        //    System.out.println(list.size());
 
                         for (int i = 0; i < list.size(); i++) {
                             task = list.get(i);
@@ -89,10 +90,14 @@ public class DAOInsertIncomingThread extends Thread {
                             e.printStackTrace();
                         }
                         try {
+                     //
+                            //       session.flush();
                             session.getTransaction().commit();
+                            System.out.println("ueue=  "+queue.getMainQueue().size()+"    DAOInsertIncomingThread commit  " + new Date());
+                       //     session.clear();
                             session.close();
-                          //  System.out.println(this +
-                          //          "    commit    " + new Date() + "           " + Thread.activeCount()+"/"+sessionFactory.getStatistics().getSessionOpenCount()+" " + "           " + queue.getMainQueue().size());
+                            //  System.out.println(this +
+                            //          "    commit    " + new Date() + "           " + Thread.activeCount()+"/"+sessionFactory.getStatistics().getSessionOpenCount()+" " + "           " + queue.getMainQueue().size());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

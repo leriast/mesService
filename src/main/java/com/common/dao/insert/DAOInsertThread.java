@@ -1,7 +1,9 @@
 package com.common.dao.insert;
 
 import com.common.dao.entity.message.Message;
+import com.common.dao.entity.message.SentMessage;
 import com.common.dao.entity.queue.InsertQueue;
+import com.common.dao.entity.queue.Queue;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Logger;
 
 /**
@@ -23,6 +26,7 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
     Session session;
     private SessionFactory sessionFactory;
     InsertQueue queue = new InsertQueue();
+    Queue q=new Queue();
     Message task = new Message();
 
     public DAOInsertThread() {
@@ -31,76 +35,89 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
     public DAOInsertThread(SessionFactory sf) {
         this.sessionFactory = sf;
     }
+
     public void run() {
-    //    System.out.println("DAOInsertThread");
         while (true) {
             try {
-                task= (Message) queue.getMainQueue().take();
+                task = /*(Message)*/ queue.getMainQueue().take();
                 list.add(task);
                 try {
-                    if (list.size() == 10000) {
+                    if (list.size() == 20000) {
                         try {
-                    //        System.out.println("DAOInsertThread!!");
                             session = sessionFactory.getCurrentSession();
                         } catch (HibernateException e) {
-                            while (sessionFactory.getStatistics().getSessionOpenCount() > 70) {
+                            while (sessionFactory.getStatistics().getSessionOpenCount() > 90) {
                                 logger.info("to many DB sessions");
                             }
                             session = sessionFactory.openSession();
                         }
-                        try {
+                        session.clear();
+                        System.out.println("daoInsertThread.list=   "+list.size());
                             for (int i = 0; i < list.size(); i++) {
                                 task = list.get(i);
                                 if (task != null) {
-                                    session.update(task);
+                                    if (task.getStatus() == 2) {
+                                        SentMessage mess=new SentMessage(task);
+                                        session.save(mess);
+                                    } else {
+                                        session.update(task);
+                                      //  System.out.println(task.getStatus());
+                                    }
+
                                 }
                             }
+                   //         session.flush();
                             session.getTransaction().begin();
                             session.getTransaction().commit();
+                            //session.clear();
+                            System.out.println("insert queue=  "+queue.getMainQueue().size()+"   before workers=   "+q.getMainQueue().size()+"    DAOInsertThread commit  " + new Date());
                             list.clear();
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
-                        try {
-                            session.beginTransaction();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            session.getTransaction().commit();
-                            session.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
 
-                    } else if (queue.getMainQueue().size() == 0) {
-                     //   System.out.println("DAOInsertThread!!");
-                         try {
+                            session.close();
+
+
+                    } else if (queue.getMainQueue().size() == 0 && list.size() != 0) {
+                        try {
                             session = sessionFactory.getCurrentSession();
                         } catch (HibernateException e) {
                             session = sessionFactory.openSession();
+                            session.clear();
                         }
+                        System.out.println("daoInsertThread.list=   "+list.size());
+                        session.clear();
                         for (int i = 0; i < list.size(); i++) {
                             task = list.get(i);
-                            if (task != null) {session.update(task);
-                               }
+
+                                if (task.getStatus() == 2) {
+                                    try {
+                                        session.saveOrUpdate(new SentMessage(task));
+                                    }catch (Exception e){
+                                        System.err.println("error id= "+task.getIdMessage());
+                                    }
+                                } else {
+                                    session.update(task);
+                                }
+
                         }
+                 //       session.flush();
                         session.getTransaction().begin();
-                        session.getTransaction().commit();
                         list.clear();
+//                        try {
+//                            session.beginTransaction();
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
                         try {
-                            session.beginTransaction();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        try {
+                            System.out.println("insert if queue=  "+queue.getMainQueue().size()+"   before workers=   "+q.getMainQueue().size()+"    DAOInsertThread commit  " + new Date());
                             session.getTransaction().commit();
+                            session.clear();
                             session.close();
-                      //      System.out.println("end   "+new Date());
                         } catch (Exception e) {
                             e.printStackTrace();
+
                         }
                     }
+                 //   session.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

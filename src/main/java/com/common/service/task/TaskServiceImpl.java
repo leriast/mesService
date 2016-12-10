@@ -1,6 +1,8 @@
 package com.common.service.task;
 
 import com.common.dao.entity.incoming.IncomingTask;
+import com.common.dao.entity.stencil.Duct;
+import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
 import com.common.dao.task.TaskDAO;
@@ -57,5 +59,34 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void getAllStructure() {
         taskDAO.getStructure();
+    }
+
+    @Override
+    public void getStencilByStructure(Structure structure) {
+        taskDAO.getStencilByStructure(structure);
+    }
+
+    @Override
+    public void getStencilByDuct(Duct duct) {
+        taskDAO.getStencilByDuct(duct);
+    }
+
+    @Override
+    public Stencil getStencilByTask(Duct duct, Structure structure) {
+       return taskDAO.getStencilByTask(duct,structure);
+    }
+
+    @Override
+    public Structure getStructureById(int id) {
+        return taskDAO.getStructureById(id);
+    }
+    @Override
+    public Duct getDuctById(int id){
+        return taskDAO.getDuctById(id);
+    }
+
+    @Override
+    public Duct getDuctByName(String name) {
+        return taskDAO.getDuctByName(name);
     }
 }

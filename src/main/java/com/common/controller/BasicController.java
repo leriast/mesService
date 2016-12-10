@@ -5,8 +5,8 @@ import com.common.dao.entity.incoming.IncomingTask;
 import com.common.dao.entity.incoming.Param;
 import com.common.dao.entity.incoming.Recipient;
 import com.common.dao.entity.queue.Queue;
-import com.common.dao.entity.task.Language;
 import com.common.service.company.CompanyService;
+import com.common.service.skype.SkypeService;
 import com.common.service.task.TaskService;
 import com.common.service.user.UserService;
 import org.apache.log4j.Logger;
@@ -45,10 +45,13 @@ public class BasicController {
     @RequestMapping(value = "/index")
     public ModelAndView index(Map<String, Object> map,
                               HttpServletRequest request) {
+        new SkypeService();
+        //new skype_api();
         System.out.println(Thread.activeCount());
         map.put("User", userService.listContact(request
                 .getUserPrincipal().getName()));
         System.out.println(request.getUserPrincipal().getName() + "   " + new Date());
+
         return new ModelAndView("/index");
     }
 
@@ -124,12 +127,20 @@ public class BasicController {
 
     @RequestMapping(value = {"/", "/log**"}, method = RequestMethod.GET)
     public ModelAndView start(HttpServletRequest request) {
+
+
+        taskService.getStructureById(10);
+        //taskService.getStencilByStructure(taskService.getStructure());
         //taskService.getStructure();
-        System.out.println("basic controller start  ");
-        for (Object a : taskService.getAllLanguages()) {
-            Language lng = (Language) a;
-            System.out.println(lng.getName());
-        }
+//        System.out.println(taskService
+//                .getDuctByName("PUSH").getName());
+//
+//        taskService.getStencilByDuct(taskService.getDuctById(1));
+//        System.out.println("basic controller start  ");
+//        for (Object a : taskService.getAllLanguages()) {
+//            Language lng = (Language) a;
+//            System.out.println(lng.getName());
+//        }
 
 //        for(Object a:taskService.commonTaskList()){
 //            Task task=(Task) a;

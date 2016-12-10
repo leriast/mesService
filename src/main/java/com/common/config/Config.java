@@ -108,6 +108,12 @@ public class Config {
     @Value("classpath:test-data.sql")
     private Resource testDataSqlScript;
 
+    @Value("loggerHost")
+    private String loggerHost;
+
+    @Value("loggerPort")
+    private String loggerPort;
+
     @Bean(name = "dataSource")
     public DriverManagerDataSource getDriverManagerDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -139,7 +145,7 @@ public class Config {
     @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean getLocalContainerEntityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setPackagesToScan(new String[]{"com.common.dao", "com.common.dao.entity"});
+        em.setPackagesToScan(new String[]{"com.common.dao.entity.usertype","com.common.dao", "com.common.dao.entity"});
         em.setDataSource(getDriverManagerDataSource());
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -168,6 +174,7 @@ public class Config {
         JpaTransactionManager jpa = new JpaTransactionManager();
         jpa.setEntityManagerFactory(getLocalContainerEntityManagerFactoryBean()
                 .getNativeEntityManagerFactory());
+
         return jpa;
     }
 //
@@ -209,6 +216,18 @@ public class Config {
         CommonsMultipartResolver resolver=new CommonsMultipartResolver();
         resolver.setMaxUploadSize(200000000);                                //max file size
         return resolver;
+    }
+
+    @Bean(name = "loggerHost")
+    public String getLoggerHost(){
+
+        return loggerHost;
+    }
+
+    @Bean(name = "loggerPort")
+    public String getLoggerPort(){
+
+        return loggerPort;
     }
 
 //    @Bean(name="ControllerLogger")

@@ -5,10 +5,14 @@
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/workingThread/ZeroPriorityThread.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/logger/ControllerLogger.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java
+/home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/udp/UDPClient.java
+/home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/udp/SendUDP.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/workingThread/GetThread.java
+/home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/viber/ViberService.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/entity/user/ContactsDictonary.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/message/MessageDAOImpl.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/entity/queue/InsertQueue.java
+/home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/skype/SkypeService.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/entity/stencil/Stencil.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/company/CompanyDAOImpl.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/message/MessageService.java
@@ -46,6 +50,7 @@
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/entity/user/User.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/entity/user/Role.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/entity/usertype/MyJson.java
+/home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/entity/message/SentMessage.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/listener/RabbitMQInsertData.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/service/user/UserService.java
 /home/alexhor/222/111/Rezi-master/src/main/java/com/common/dao/entity/inside/Message.java

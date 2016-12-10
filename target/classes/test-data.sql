@@ -35,6 +35,7 @@ INSERT INTO CONTACTS_CONTACT_PERSON (id_contact_person,id_company,id_contact_typ
 INSERT INTO D_DUCT (NAME_DUCT,DUCT_PRIORITY) VALUES ('PUSH',1);
 INSERT INTO D_DUCT (NAME_DUCT,DUCT_PRIORITY) VALUES ('SMS',3);
 INSERT INTO D_DUCT (NAME_DUCT,DUCT_PRIORITY) VALUES ('VIBER',2);
+INSERT INTO D_DUCT (NAME_DUCT,DUCT_PRIORITY) VALUES ('TELEGRAM',4);
 
 
 --STRUCTURE
@@ -42,9 +43,17 @@ INSERT INTO STRUCTURE (ID_COMPANY,ID_LANGUAGE) VALUES(1,1);
 INSERT INTO STRUCTURE (ID_COMPANY,ID_LANGUAGE) VALUES(1,1);
 
 --STENCIL
-INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (1,1,'ASD #NAME QWE #VALUE');
-INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (2,1,'ASD #NAME QWE #VALUE');
+-- INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (1,1,'ASD #NAME QWE #VALUE');
+INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (2,2,'ASD #NAME QWE #VALUE');
 INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (3,2,'ASD #NAME QWE #VALUE');
+insert into stencil (id_d_duct,id_structure,stencil_entity) values(1,1,'Как ныне сбирается вещий #name Отмстить неразумным #enemy:' ||
+ ' Их села и нивы за буйный набег Обрек он мечам и пожарам;' ||
+  'С дружиной своей, в цареградской броне, ' ||
+   '#boss по полю едет на верном коне.');
+
+   insert into stencil (id_d_duct,id_structure,stencil_entity) values(4,1,' #name  #enemy:');
+
+
 
 
 
@@ -77,3 +86,20 @@ VALUES ('user@outlook.com','12345',TRUE,'TEST','TEST','TEST','ADMIN',2,2);
 
 INSERT INTO CONTACT_PERSON (USERNAME, PASSWORD, ENABLED,FIRSTNAME,SECONDNAME,DEPARTMENT,CREATOR,ID_COMPANY,ID_ROLE)
 VALUES ('admin@outlook.com','12345',TRUE,'TEST','TEST','TEST','ADMIN',1,1);
+
+
+-- drop function if EXISTS delete_old_rows();
+-- create function delete_old_rows() returns trigger language plpgsql as $$
+-- begin
+-- delete from message where idMessage=(NEW).idMessage;
+-- return null;
+-- end;
+-- $$;
+
+
+
+drop trigger if EXISTS del_old_rows on sent_message;
+create trigger del_old_rows
+ after insert on sent_message
+ FOR EACH ROW
+ execute procedure delete_old_rows();

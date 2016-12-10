@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 @Entity
@@ -19,19 +20,17 @@ public class Message implements Serializable,Comparable<Message>{
     private Long idMessage;
     @Column(name = "priority")
     private int priority;
-    @Column(name = "frequence")
-    private Date frequence;
     @Column(name = "departureTime")
     private Date departureTime;
     @Column(name = "relevantTime")
     private Date relevantTime;
-    @Column(name = "delay")
-    private Date delay;
     @Column(name = "duct")
     @Type(type = "com.common.dao.entity.usertype.WString")
     private String[] duct;
     @Column(name = "message")
     private String message;
+    @Column(name = "stencil")
+    private String stencil;
     @Column(name = "address")
     private String address;
     @ManyToOne(targetEntity = Task.class)
@@ -39,32 +38,58 @@ public class Message implements Serializable,Comparable<Message>{
     private Task id_task;
     @Column(name = "status")
     private int status;
+    @Column(name = "params")
+    private String params;
+    @Column(name = "statistic")
+    private String statistic;
+    @Column(name = "next_duct")
+    private String next_duct;
 
-    public Message(int priority, Date frequence, Date departureTime, Date relevantTime, Date delay, String[] duct, String message, String address,Task task,int status) {
+    public Message(int priority, Date departureTime, Date relevantTime,  String[] duct,String stencil, String message, String address,Task task,int status,String params,String statistic) {
         this.priority = priority;
-        this.frequence = frequence;
         this.departureTime = departureTime;
         this.relevantTime = relevantTime;
-        this.delay = delay;
+
         this.duct = duct;
         this.message = message;
         this.address = address;
         this.id_task=task;
         this.status=status;
+        this.stencil=stencil;
+        this.params=params;
+        this.statistic=statistic;
     }
 
-    public Message(Date frequence, Date departureTime, Date relevantTime, Date delay, String[] duct, String message, String address,Task task,int status) {
-        this.frequence = frequence;
+    public Message( Date departureTime, Date relevantTime,  String[] duct,String stencil, String message, String address,Task task,int status,String params,String statistic) {
+
         this.departureTime = departureTime;
         this.relevantTime = relevantTime;
-        this.delay = delay;
         this.duct = duct;
         this.message = message;
         this.address = address;
         this.id_task=task;
         this.status=status;
+        this.stencil=stencil;
+        this.params=params;
+        this.statistic=statistic;
     }
     public Message(){}
+
+    public String getNext_duct() {
+        return next_duct;
+    }
+
+    public void setNext_duct(String next_duct) {
+        this.next_duct = next_duct;
+    }
+
+    public String getStatistic() {
+        return statistic;
+    }
+
+    public void setStatistic(String statistic) {
+        this.statistic = statistic;
+    }
 
     public int getStatus() {
         return status;
@@ -98,12 +123,12 @@ public class Message implements Serializable,Comparable<Message>{
         this.priority = priority;
     }
 
-    public Date getFrequence() {
-        return frequence;
+    public String getStencil() {
+        return stencil;
     }
 
-    public void setFrequence(Date frequence) {
-        this.frequence = frequence;
+    public void setStencil(String stencil) {
+        this.stencil = stencil;
     }
 
     public Date getDepartureTime() {
@@ -120,14 +145,6 @@ public class Message implements Serializable,Comparable<Message>{
 
     public void setRelevantTime(Date relevantTime) {
         this.relevantTime = relevantTime;
-    }
-
-    public Date getDelay() {
-        return delay;
-    }
-
-    public void setDelay(Date delay) {
-        this.delay = delay;
     }
 
     public String[] getDuct() {
@@ -152,6 +169,33 @@ public class Message implements Serializable,Comparable<Message>{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getParams() {
+        return params;
+    }
+
+    public void setParams(String params) {
+        this.params = params;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "idMessage=" + idMessage +
+                ", priority=" + priority +
+                ", departureTime=" + departureTime +
+                ", relevantTime=" + relevantTime +
+                ", duct=" + Arrays.toString(duct) +
+                ", message='" + message + '\'' +
+                ", stencil='" + stencil + '\'' +
+                ", address='" + address + '\'' +
+                ", id_task=" + id_task +
+                ", status=" + status +
+                ", params='" + params + '\'' +
+                ", statistic='" + statistic + '\'' +
+                ", next_duct='" + next_duct + '\'' +
+                '}';
     }
 
     @Override

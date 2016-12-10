@@ -1,3 +1,4 @@
+com/common/dao/entity/message/SentMessage.class
 com/common/dao/entity/task/Structure.class
 com/common/config/AppInit.class
 com/common/dao/insert/DAOInsertIncomingThread.class
@@ -14,10 +15,13 @@ com/common/dao/entity/stencil/Duct.class
 com/common/dao/entity/queue/InsertQueue.class
 com/common/dao/entity/incoming/Autor.class
 com/common/service/task/TaskService.class
+com/common/service/skype/SkypeService.class
+com/common/service/udp/UDPClient.class
 com/common/service/user/UserServiceImpl.class
 com/common/service/quartz/QuartzService.class
 com/common/service/file/ReadData.class
 com/common/dao/entity/inside/Message.class
+com/common/service/udp/SendUDP.class
 com/common/dao/entity/incoming/Recipient.class
 com/common/dao/entity/task/Language.class
 com/common/dao/message/MessageDAOImpl.class
@@ -51,6 +55,7 @@ com/common/dao/entity/JSONT.class
 com/common/service/company/CompanyServiceImpl.class
 com/common/dao/entity/usertype/WString.class
 com/common/dao/options/OptionsDAO.class
+com/common/service/viber/ViberService.class
 com/common/dao/entity/user/Contacts.class
 com/common/dao/entity/company/Company.class
 com/common/dao/task/TaskDAO.class

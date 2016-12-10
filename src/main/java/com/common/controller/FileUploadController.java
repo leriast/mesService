@@ -4,6 +4,7 @@ import com.common.service.file.ReadData;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.utils.SerializationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,7 @@ import java.util.UUID;
 class FileUploadController {
     public ReadData readData = new ReadData();
     @Autowired
+    @Qualifier("pathToSave")
     String path;
     @Autowired
     AmqpTemplate template;
@@ -35,6 +37,8 @@ class FileUploadController {
     public String processUploadPreview(
             @RequestParam("file") MultipartFile file
     ) {
+     //   new UDPClient().start();
+
         String fileName=UUID.randomUUID()+".csv";
 
         System.out.println(file.getOriginalFilename() + "      " + path + "   " + file.getContentType());

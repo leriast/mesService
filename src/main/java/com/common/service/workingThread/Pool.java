@@ -42,7 +42,7 @@ public class Pool {
 
     public void Start() {
         System.out.println("Pool start");
-        for (int someVarible = 0; someVarible < poolSize; someVarible++) {
+        for (int someVarible = 0; someVarible < 6; someVarible++) {
             try {
                 new ThreadConsumer(template, queue, "Thread number " + someVarible).start();
             } catch (SchedulerException e) {
@@ -52,12 +52,16 @@ public class Pool {
         new DAOInsertThread(sessionFactory).start();
         new DAOInsertThread(sessionFactory).start();
         new DAOInsertThread(sessionFactory).start();
-        new DAOInsertThread(sessionFactory).start();
-        new GetThread(sessionFactory).start();
+//        new DAOInsertThread(sessionFactory).start();
+
+        new GetThread(sessionFactory,0).start();
+        new GetThread(sessionFactory,1).start();
+  //        new GetThread(sessionFactory,2).start();
+
         //  new ZeroPriorityThread().start();
         //   new ClearQueueThread().start();
 
-        new DAOInsertIncomingThread(sessionFactory).start();
+   //     new DAOInsertIncomingThread(sessionFactory).start();
         new DAOInsertIncomingThread(sessionFactory).start();
         new DAOInsertIncomingThread(sessionFactory).start();
         new DAOInsertIncomingThread(sessionFactory).start();

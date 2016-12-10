@@ -25,7 +25,7 @@ public class Task /*implements Serializable*/{
 @Id
 @Column(name = "ID_TASK")
 @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "ID_CONTACT_PERSON", referencedColumnName = "ID_CONTACT_PERSON")
@@ -59,11 +59,11 @@ public class Task /*implements Serializable*/{
 
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -119,6 +119,28 @@ public class Task /*implements Serializable*/{
 
     public String getParams() {
         return params;
+    }
+
+    public Task(Long id,User user, Structure structure, String[] algoritm, byte[] varibles, int priority, Language language, String params) {
+        this.id=id;
+        this.user = user;
+        this.structure = structure;
+        this.algoritm = algoritm;
+        this.varibles = varibles;
+        this.priority = priority;
+        this.language = language;
+        this.params = params;
+    }
+
+
+    public Task(User user, Structure structure, String[] algoritm, byte[] varibles, int priority, Language language, String params) {
+        this.user = user;
+        this.structure = structure;
+        this.algoritm = algoritm;
+        this.varibles = varibles;
+        this.priority = priority;
+        this.language = language;
+        this.params = params;
     }
 
     public void setParams(String params) {

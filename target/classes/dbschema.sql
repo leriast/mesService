@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS CONTACT_PERSON (
   ID_ROLE           INT          NOT NULL DEFAULT 1,
   CONSTRAINT FK_COMPANY_CONTACT_PERSON FOREIGN KEY (ID_COMPANY) REFERENCES COMPANY (ID_COMPANY),
   CONSTRAINT FK_AUTHORITY_CONTACT_PERSON FOREIGN KEY (ID_ROLE) REFERENCES AUTHORITIES (ID_ROLE)
---   ,  UNIQUE (USERNAME)
+  --   ,  UNIQUE (USERNAME)
 );
 
 
@@ -93,13 +93,13 @@ CREATE TABLE STENCIL (
 
 
 CREATE TABLE TASK (
-  ID_TASK           SERIAL            NOT NULL PRIMARY KEY,
-  ID_CONTACT_PERSON INT               NOT NULL,
-  ID_STRUCTURE      INT               NOT NULL,
+  ID_TASK           SERIAL  NOT NULL PRIMARY KEY,
+  ID_CONTACT_PERSON INT     NOT NULL,
+  ID_STRUCTURE      INT     NOT NULL,
   ALGORITM          TEXT [] NOT NULL,
-  VARIABLES         bytea               DEFAULT null,
-  PRIORITY          INT               NOT NULL,
-  ID_LANGUAGE       INT               NOT NULL,
+  VARIABLES         BYTEA DEFAULT NULL,
+  PRIORITY          INT     NOT NULL,
+  ID_LANGUAGE       INT     NOT NULL,
   PARAMS            VARCHAR(100000),
   CONSTRAINT FK_STRUCTURE_TASK FOREIGN KEY (ID_STRUCTURE) REFERENCES STRUCTURE (ID_STRUCTURE),
   CONSTRAINT FK_CONTACT_PERSON_TASK FOREIGN KEY (ID_CONTACT_PERSON) REFERENCES CONTACT_PERSON (ID_CONTACT_PERSON),
@@ -113,37 +113,65 @@ CREATE TABLE D_LIMITATIONS (
   CONSTRAINT FK_LIMITATION_DUCT FOREIGN KEY (ID_D_DUCT) REFERENCES D_DUCT (ID_D_DUCT)
 );
 
+
+
+
+DROP TABLE IF EXISTS common_message CASCADE ;
+CREATE TABLE common_message (
+  idMessage     SERIAL NOT NULL  PRIMARY KEY,
+  priority      INTEGER          DEFAULT 10,
+  departureTime TIMESTAMP        DEFAULT CURRENT_TIMESTAMP,
+  relevantTime  TIMESTAMP        DEFAULT NULL,
+  duct          TEXT []          DEFAULT NULL,
+  message       VARCHAR(1000000),
+  stencil       VARCHAR(1000000),
+  address       VARCHAR(1000000) DEFAULT NULL,
+  status        INT    NOT NULL,
+  id_task       INT    NOT NULL,
+  params        VARCHAR(10000000),
+  statistic     VARCHAR(10000000)
+);
+
 DROP TABLE IF EXISTS Message;
 CREATE TABLE Message (
-  idMessage     SERIAL NOT NULL UNIQUE PRIMARY KEY,
-  priority      INTEGER           DEFAULT 10,
-  frequence     TIMESTAMP         DEFAULT NULL,
-  departureTime TIMESTAMP         DEFAULT CURRENT_TIMESTAMP,
-  relevantTime  TIMESTAMP         DEFAULT NULL,
-  delay         TIMESTAMP         DEFAULT CURRENT_TIMESTAMP,
-  duct          TEXT [] DEFAULT NULL,
+  idMessage     SERIAL NOT NULL  PRIMARY KEY,
+  priority      INTEGER          DEFAULT 10,
+  departureTime TIMESTAMP        DEFAULT CURRENT_TIMESTAMP,
+  relevantTime  TIMESTAMP        DEFAULT NULL,
+  duct          TEXT []          DEFAULT NULL,
   message       VARCHAR(1000000),
+  stencil       VARCHAR(1000000),
   address       VARCHAR(1000000) DEFAULT NULL,
-  status        INT       not null,
-  id_task int not null,
-  CONSTRAINT fk_Mess_task FOREIGN KEY (id_task) REFERENCES TASK(id_task)
-);
+  status        INT    NOT NULL,
+  id_task       INT    NOT NULL,
+  params        VARCHAR(10000000),
+  statistic     VARCHAR(10000000),
+  next_duct     VARCHAR(33),
+  CONSTRAINT fk_Mess_task FOREIGN KEY (id_task) REFERENCES TASK (id_task)
+)INHERITS (common_message);
 
-DROP TABLE IF EXISTS MSG;
-CREATE TABLE MSG (
-  ID_MSG            SERIAL            NOT NULL UNIQUE PRIMARY KEY,
-  ID_CONTACT_PERSON INT               NOT NULL,
-  ID_STRUCTURE      INT               NOT NULL,
-  ALGORITM          TEXT []           NOT NULL,
-  VARIABLES         VARCHAR(10000000) NOT NULL,
-  PRIORITY          INT               NOT NULL,
-  ID_LANGUAGE       INT               NOT NULL,
-  PARAMS            VARCHAR(10000000) NOT NULL,
-  MESSAGE           VARCHAR(10000000) NOT NULL,
-  ID_TASK           INT               NOT NULL,
-  CONSTRAINT FK_STRUCTURE_MSG FOREIGN KEY (ID_STRUCTURE) REFERENCES STRUCTURE (ID_STRUCTURE),
-  CONSTRAINT FK_CONTACT_PERSON_MSG FOREIGN KEY (ID_CONTACT_PERSON) REFERENCES CONTACT_PERSON (ID_CONTACT_PERSON),
-  CONSTRAINT FK_LANGUAGE_MSG FOREIGN KEY (ID_LANGUAGE) REFERENCES LANGUAGE (ID_LANGUAGE),
-  CONSTRAINT FK_TASK_MSG FOREIGN KEY (ID_TASK) REFERENCES TASK (ID_TASK)
-);
 
+
+DROP TABLE IF EXISTS sent_message;
+CREATE TABLE sent_message (
+  idMessage     SERIAL NOT NULL  PRIMARY KEY,
+  priority      INTEGER          DEFAULT 10,
+  departureTime TIMESTAMP        DEFAULT CURRENT_TIMESTAMP,
+  relevantTime  TIMESTAMP        DEFAULT NULL,
+  duct          TEXT []          DEFAULT NULL,
+  message       VARCHAR(1000000),
+  stencil       VARCHAR(1000000),
+  address       VARCHAR(1000000) DEFAULT NULL,
+  status        INT    NOT NULL,
+  id_task       integer    NOT NULL,
+  params        VARCHAR(10000000),
+  statistic     VARCHAR(10000000),
+  next_duct     VARCHAR(33),
+  CONSTRAINT fk_Mess_task FOREIGN KEY (id_task) REFERENCES TASK (id_task)
+)INHERITS (common_message);
+
+drop table if exists status;
+create table status(
+  id serial not null unique,
+  number int
+);
