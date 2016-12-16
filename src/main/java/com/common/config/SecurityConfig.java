@@ -20,6 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.
                 auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("SELECT USERNAME, PASSWORD, ENABLED FROM CONTACT_PERSON WHERE USERNAME=?")
                 .authoritiesByUsernameQuery("SELECT U.ID_ROLE, A.AUTHORITY\n" +
@@ -67,5 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe().key("myKey").tokenValiditySeconds(300)
                 .and()
                 .csrf().disable().authorizeRequests();
+
+
     }
 }

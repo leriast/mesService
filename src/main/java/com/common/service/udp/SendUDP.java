@@ -12,13 +12,13 @@ import java.net.InetAddress;
  * Created by root on 12/5/16.
  */
 @Component
-public class SendUDP {
+public class SendUDP implements ISendUDP{
     @Autowired
     @Qualifier("loggerHost")
     String loggerHost;
     @Autowired
     @Qualifier("loggerPort")
-    String loggerPort;
+    int loggerPort;
     private String log;
 
     public SendUDP(String log) {
@@ -32,19 +32,15 @@ public class SendUDP {
 
     public void sendLog(String log){
         try {
-
-            String host ="172.27.172.208";
-            int port = 999;
-
-            byte[] message = log.getBytes();
+         byte[] message = log.getBytes();
 
             // Get the internet address of the specified host
-            InetAddress address = InetAddress.getByName(host);
+            InetAddress address = InetAddress.getByName(loggerHost);
 
             // Initialize a datagram packet with data and address
 
             DatagramPacket packet = new DatagramPacket(message, message.length,
-                    address, port);
+                    address, loggerPort);
 
             // Create a datagram socket, send the packet through it, close it.
             DatagramSocket dsocket = new DatagramSocket();

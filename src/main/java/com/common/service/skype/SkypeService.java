@@ -5,18 +5,28 @@ import com.samczsun.skype4j.SkypeBuilder;
 import com.samczsun.skype4j.chat.Chat;
 import com.samczsun.skype4j.exceptions.*;
 import com.samczsun.skype4j.user.Contact;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by root on 12/5/16.
  */
-public class SkypeService {
-
+@Service
+public class SkypeService implements ISkypeService{
+    @Autowired
+    @Qualifier("skypeLogin")
+    String skype_login;
+    @Autowired
+    @Qualifier("skypePassword")
+    String skype_password;
     public SkypeService()  {
-        start();
+
     }
 
-    public void start()  {
-        Skype skype = new SkypeBuilder("disxidea", "a80962540689").withAllResources().build();
+    public void Start()  {
+        System.out.println(skype_login+" / "+skype_password);
+        Skype skype = new SkypeBuilder(skype_login, skype_password).withAllResources().build();
         try {
 
             skype.login();

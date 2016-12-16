@@ -1,6 +1,5 @@
 package com.common.service.task;
 
-import com.common.dao.entity.incoming.IncomingTask;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
@@ -18,9 +17,9 @@ public interface TaskService {
 
     void commonTaskList();
 
-    ArrayList<IncomingTask> departuredList();
+    ArrayList<Task> departuredList();
 
-    ArrayList<IncomingTask> inProgresList();
+    ArrayList<Task> inProgresList();
 
     List getAllLanguages();
 
@@ -41,4 +40,8 @@ public interface TaskService {
     Duct getDuctById(int id);
 
     Duct getDuctByName(String name);
+
+    ArrayList<String> getStatistic(Long id);
+
+    List<Stencil> getStencilList(String language,String duct,String username);
 }

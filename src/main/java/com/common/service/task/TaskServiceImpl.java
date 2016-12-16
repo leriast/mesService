@@ -1,6 +1,5 @@
 package com.common.service.task;
 
-import com.common.dao.entity.incoming.IncomingTask;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
@@ -32,13 +31,13 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public ArrayList<IncomingTask> departuredList() {
-        return null;
+    public ArrayList<Task> departuredList() {
+        return taskDAO.departuredList();
     }
 
     @Override
-    public ArrayList<IncomingTask> inProgresList() {
-        return null;
+    public ArrayList<Task> inProgresList() {
+      return null;
     }
 
     @Override
@@ -88,5 +87,15 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Duct getDuctByName(String name) {
         return taskDAO.getDuctByName(name);
+    }
+
+    @Override
+    public ArrayList<String> getStatistic(Long id){
+        return taskDAO.getStatistic(id);
+    }
+
+    @Override
+    public List<Stencil> getStencilList(String language, String duct, String username) {
+        return taskDAO.getStencilList(language,duct,username);
     }
 }

@@ -1,10 +1,11 @@
 package com.common.dao.task;
 
-import com.common.dao.entity.incoming.IncomingTask;
+
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
+import com.common.dao.entity.user.User;
 import com.common.service.user.UserService;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -24,8 +25,8 @@ import java.util.List;
  * Created by root on 11/16/16.
  */
 
-@Repository
-@Transactional
+    @Repository
+    @Transactional
 public class TaskDAOImpl implements TaskDAO {
     @Autowired
     SessionFactory sessionFactory;
@@ -109,14 +110,38 @@ public class TaskDAOImpl implements TaskDAO {
     }
 
     @Override
-    public ArrayList<IncomingTask> departuredList() {
-        return null;
+    public ArrayList<Task> departuredList() {
+        ArrayList<Task> list = (ArrayList<Task>) sessionFactory.getCurrentSession().createQuery("from Task l").list();
+for(Task task:list){
+    System.out.println("!!!!!!!!!   "+task.getId());
+}
+        return list;
     }
 
     @Override
-    public ArrayList<IncomingTask> inProgresList() {
-        return null;
+    public ArrayList<String> getStatistic(Long id) {
+        int count=777;
+        int count1=777;
+
+        try {
+            count= ((Long)sessionFactory.getCurrentSession().createQuery("select count(*) from CommonMessage where id_task=:idTask").setParameter("idTask",getTaskById(id))
+                    .uniqueResult()).intValue();
+            count1= ((Long)sessionFactory.getCurrentSession().createQuery("select count(*) from CommonMessage where id_task=:idTask and status=2").setParameter("idTask",getTaskById(id))
+                    .uniqueResult()).intValue();
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+
+        System.out.println("count ="+count);
+
+        ArrayList<String>list=new ArrayList<>();
+        list.add("total "+count);
+        list.add("sent "+count1);
+                return list;
     }
+
+
 
     @Override
     public List getAllLanguages() {
@@ -192,5 +217,23 @@ public class TaskDAOImpl implements TaskDAO {
         Query query =sessionFactory.getCurrentSession().createQuery("from Duct where name_duct=:name");
         query.setParameter("name",name);
         return (Duct)query.list().get(0);
+    }
+
+    public Task getTaskById(Long id){
+        Query query=sessionFactory.getCurrentSession().createQuery("from Task where id=:idTask");
+        query.setParameter("idTask",id);
+        query.setMaxResults(1);
+        return (Task)query.list().get(0);
+    }
+
+
+    public List<Stencil> getStencilList(String language,String duct,String username){
+        SQLQuery query=sessionFactory.getCurrentSession().createSQLQuery("SELECT STENCIL.* FROM STENCIL INNER JOIN STRUCTURE ON STENCIL.ID_STRUCTURE=STRUCTURE.ID_STRUCTURE\n" +
+                "INNER JOIN COMPANY ON STRUCTURE.ID_COMPANY=COMPANY.ID_COMPANY\n" +
+                "INNER JOIN CONTACT_PERSON ON COMPANY.ID_COMPANY=CONTACT_PERSON.ID_COMPANY\n" +
+                "INNER JOIN D_DUCT ON STENCIL.ID_D_DUCT=D_DUCT.ID_D_DUCT\n" +
+                "INNER JOIN LANGUAGE ON STRUCTURE.ID_LANGUAGE=LANGUAGE.ID_LANGUAGE WHERE CONTACT_PERSON.username='"+username+"' AND D_DUCT.NAME_DUCT='"+duct+"' AND LANGUAGE.NAME='"+language+"'");
+        query.addEntity(Stencil.class);
+        return query.list();
     }
 }

@@ -18,9 +18,9 @@ public class Duct {
     private String name;
     @Column(name = "DUCT_PRIORITY")
     private int duct_priority;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_D_DUCT")
-    private Set<Stencil> stencil;
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name = "ID_D_DUCT")
+        private Set<Stencil> stencil;
 
     public Duct(String name, int duct_priority, Set<Stencil> stencil) {
         this.name = name;

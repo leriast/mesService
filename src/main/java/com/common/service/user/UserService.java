@@ -1,11 +1,12 @@
 package com.common.service.user;
 
-import com.common.dao.entity.JSONT;
 import com.common.dao.entity.message.Message;
+import com.common.dao.entity.user.ContactsDictonary;
 import com.common.dao.entity.user.Role;
 import com.common.dao.entity.user.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface UserService {
 	User listContact(String name);
@@ -14,8 +15,9 @@ public interface UserService {
 	void insertMessageList(ArrayList<Message>list);
 	User insertUser(User user);
 	Role getRoleById(int id);
-	void getContactsDictonary();
+	List<ContactsDictonary> getContactsDictonary();
 	void getContactsByType();
-	void insertJ(JSONT j);
 	User getUserByCompany(String companyName);
+	List<User> getAllUsers();
+	List<Role> getAllRoles();
 }

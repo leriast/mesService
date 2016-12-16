@@ -52,6 +52,7 @@ insert into stencil (id_d_duct,id_structure,stencil_entity) values(1,1,'Как �
    '#boss по полю едет на верном коне.');
 
    insert into stencil (id_d_duct,id_structure,stencil_entity) values(4,1,' #name  #enemy:');
+    insert into stencil (id_d_duct,id_structure,stencil_entity) values(2,1,' #name  #boss:');
 
 
 

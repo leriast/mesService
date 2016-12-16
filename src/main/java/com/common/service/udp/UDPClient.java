@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import java.util.Date;
 
 /**
  * Created by root on 12/5/16.
@@ -14,10 +15,7 @@ public class UDPClient extends Thread {
     int buffer_size = 1024;
 
     public void run(){
-        System.out.println(true);
-
-
-        byte buffer[] = new byte[buffer_size];
+       byte buffer[] = new byte[buffer_size];
         DatagramSocket ds = null;
         try {
             ds = new DatagramSocket(clientPort);
@@ -31,7 +29,7 @@ public class UDPClient extends Thread {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        //    System.out.println("udpClient"+new String(p.getData(), 0, p.getLength())+"/"+new Date());
+            System.out.println("udpClient "+new String(p.getData(), 0, p.getLength())+"/"+new Date());
         }
     }
 

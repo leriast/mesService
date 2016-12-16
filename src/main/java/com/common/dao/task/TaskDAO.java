@@ -1,6 +1,5 @@
 package com.common.dao.task;
 
-import com.common.dao.entity.incoming.IncomingTask;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
@@ -16,9 +15,9 @@ import java.util.List;
 public interface TaskDAO {
     void commonTaskList() throws ParseException;
 
-    ArrayList<IncomingTask> departuredList();
+    ArrayList<Task> departuredList();
+    ArrayList<String> getStatistic(Long id);
 
-    ArrayList<IncomingTask> inProgresList();
 
     List getAllLanguages();
 
@@ -37,4 +36,6 @@ public interface TaskDAO {
     Duct getDuctById(int id);
 
     Duct getDuctByName(String name);
+
+    List<Stencil> getStencilList(String language,String duct,String username);
 }

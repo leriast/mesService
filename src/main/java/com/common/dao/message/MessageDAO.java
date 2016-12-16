@@ -1,6 +1,6 @@
 package com.common.dao.message;
 
-import com.common.dao.entity.incoming.IncomingTask;
+import com.common.dao.entity.message.CommonMessage;
 
 import java.util.ArrayList;
 
@@ -9,10 +9,7 @@ import java.util.ArrayList;
  */
 public interface MessageDAO {
 
+    ArrayList<CommonMessage> getAllMessageByContact(String contact);
 
-    ArrayList<IncomingTask> commonMessageList();
 
-    ArrayList<IncomingTask> departuredMessageList();
-
-    ArrayList<IncomingTask> inProgresMessageList();
 }

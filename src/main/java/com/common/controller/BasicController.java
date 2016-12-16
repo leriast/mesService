@@ -1,17 +1,21 @@
 package com.common.controller;
 
-import com.common.dao.entity.incoming.Autor;
-import com.common.dao.entity.incoming.IncomingTask;
-import com.common.dao.entity.incoming.Param;
-import com.common.dao.entity.incoming.Recipient;
+
+import com.common.dao.entity.company.Company;
+import com.common.dao.entity.message.CommonMessage;
 import com.common.dao.entity.queue.Queue;
+import com.common.dao.entity.stencil.Stencil;
 import com.common.service.company.CompanyService;
-import com.common.service.skype.SkypeService;
+import com.common.service.message.MessageService;
+import com.common.service.skype.ISkypeService;
 import com.common.service.task.TaskService;
+import com.common.service.udp.ISendUDP;
 import com.common.service.user.UserService;
 import org.apache.log4j.Logger;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.utils.SerializationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +25,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -32,134 +39,113 @@ public class BasicController {
     public CompanyService companyService;
     @Autowired
     TaskService taskService;
+    @Autowired
+    MessageService messageService;
+    @Autowired
+    ISkypeService skypeService;
+    @Autowired
+    ISendUDP sendUDP;
 
     ArrayList<String> chanel = new ArrayList<>();
     int i = 1000;
     Logger logger = Logger.getLogger(String.valueOf(BasicController.class));
     @Autowired
     AmqpTemplate template;
-    IncomingTask iTask = new IncomingTask();
     com.common.dao.entity.queue.Queue queue = new Queue();
 
+
+    @RequestMapping(value = "/userpage")
+    public ModelAndView userpage(HttpServletRequest request)
+    {
+        ModelAndView model=new ModelAndView("userpage");
+
+        return model;
+    }
+
+    @RequestMapping(value = {"/getStencilForTask/{json}"},method = RequestMethod.GET)
+    public List getStencilForTask(HttpServletRequest request,@PathVariable(value = "json")String json){
+        String username=request.getRemoteUser();
+        JSONParser parser=new JSONParser();
+        JSONObject jsonObject=null;
+        try {
+             jsonObject= (JSONObject) parser.parse(json);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return taskService.getStencilList((String)jsonObject.get("language"),(String)jsonObject.get("duct"),username);
+
+    }
+
+    @RequestMapping(value = "/adm")
+    public ModelAndView adm(HttpServletRequest request) {
+        return new ModelAndView("adm");
+    }
+
+    @RequestMapping(value = "/companies")
+    public ModelAndView companies(HttpServletRequest request) {
+
+        ModelAndView model = new ModelAndView("companies");
+        model.addObject("companies", companyService.getAllCompanies());
+        return model;
+    }
+
+    @RequestMapping(value = "/users")
+    public ModelAndView users(HttpServletRequest request) {
+
+        ModelAndView model = new ModelAndView("users");
+        model.addObject("users", userService.getAllUsers());
+        model.addObject("companies", companyService.getAllCompanies());
+        return model;
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String processRegistration(@ModelAttribute("companyForm") Company company,
+                                      Map<String, Object> model, HttpServletRequest request) {
+
+        companyService.addCompany(company);
+        return "/companies";
+    }
 
     @RequestMapping(value = "/index")
     public ModelAndView index(Map<String, Object> map,
                               HttpServletRequest request) {
-        new SkypeService();
-        //new skype_api();
-        System.out.println(Thread.activeCount());
         map.put("User", userService.listContact(request
                 .getUserPrincipal().getName()));
-        System.out.println(request.getUserPrincipal().getName() + "   " + new Date());
-
         return new ModelAndView("/index");
-    }
-
-
-    @RequestMapping(value = {"/emit/{a}/{b}"}, method = RequestMethod.GET)
-    @ResponseBody
-    String queue1(HttpServletRequest request, @PathVariable("a") Integer a, @PathVariable("b") Integer b) {
-        //      userService.search();
-        //    System.out.println(request.getUserPrincipal().getName());
-
-
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < a; i++) {
-            byte[] data = SerializationUtils.serialize(generate(b));
-            template.convertAndSend("getData", data);
-        }
-        long finish = System.currentTimeMillis();
-        long timeConsumedMillis = finish - start;
-        return timeConsumedMillis + "";
-    }
-
-    public IncomingTask generate(Integer b) {
-        chanel.clear();
-        Random r = new Random();
-        int z = 5000000;
-        // int x = 1000000 + r.nextInt() % 1000000;
-        ArrayList<Recipient> list = new ArrayList<Recipient>();
-        // list.add(new Recipient("someName", 1000000 + r.nextInt() % 1000000 + ""));
-        for (int q = 0; q < b; q++) {
-
-            list.add(new Recipient(1000000 + r.nextInt() % 1000000 + "", new Param("name", "someName")));
-        }
-        System.out.println("z= " + b);
-        chanel.add("1");
-        chanel.add("2");
-        chanel.add("3");
-        iTask.setId(i);
-        iTask.setChanel(chanel);
-        iTask.setAutor(new Autor("login", "password"));
-        if ((2 + r.nextInt() % 2) % 2 == 0) {
-            //    iTask.setDepartureTime(new Date((new Date().getTime() + 10/*00*//**60*/ * (120 + r.nextInt() % 120))));
-        } else {
-            //    iTask.setDepartureTime(null);
-            iTask.setDepartureTime(new Date((new Date().getTime() + 10 * (120 + r.nextInt() % 120))));
-        }//
-        //iTask.setRelevant(new Date(new Date().getTime()+1000*60*60));
-        iTask.setRelevant(new Date(new Date().getTime() + 1000 * 60 * ((20 + r.nextInt() % 20))));
-        iTask.setLanguage("ua");
-        iTask.setRecipientList(list);
-
-        if ((3 + r.nextInt() % 2) % 2 == 0) {
-            iTask.setPriority(i);
-        } else {
-
-            //    iTask.setPriority(0);
-            iTask.setPriority(i);
-        }
-
-
-        iTask.setEvent(111);
-        if ((3 + r.nextInt() % 2) % 2 == 0) {
-            iTask.setLoop(0);
-        } else {
-
-            iTask.setLoop(0);
-            //  iTask.setPriority(i);
-        }
-
-
-        i--;
-        return iTask;
     }
 
     @RequestMapping(value = {"/", "/log**"}, method = RequestMethod.GET)
     public ModelAndView start(HttpServletRequest request) {
 
-
-        taskService.getStructureById(10);
-        //taskService.getStencilByStructure(taskService.getStructure());
-        //taskService.getStructure();
-//        System.out.println(taskService
-//                .getDuctByName("PUSH").getName());
-//
-//        taskService.getStencilByDuct(taskService.getDuctById(1));
-//        System.out.println("basic controller start  ");
-//        for (Object a : taskService.getAllLanguages()) {
-//            Language lng = (Language) a;
-//            System.out.println(lng.getName());
-//        }
-
-//        for(Object a:taskService.commonTaskList()){
-//            Task task=(Task) a;
-//            System.out.println("alg?  "+task.getAlgoritm()[0]);
-//        }
-        //   userService.insertUser(new User("QWE","test",true,"test","test","test","test",1,companyService.getCompanyById(2), userService.getRoleById(1)));
-        //userService.getContactsDictonary();
-
-        //userService.getContactsByType();
-        //companyService.getCompanies();
-        // userService.search();
         return new ModelAndView("/log");
     }
 
     @RequestMapping(value = {"/task"}, method = RequestMethod.GET)
-    public String taskForm(HttpServletRequest request) {
-        return ("/task");
+    public ModelAndView taskForm(HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("task");
+        model.addObject("tasks", taskService.departuredList());
+        return model;
     }
 
+    @RequestMapping(value = {"/getStatistic/{id}"}, method = RequestMethod.GET)
+    public
+    @ResponseBody
+    /*public*/ ArrayList<String> getStatisstic(HttpServletRequest request, @PathVariable(value = "id") String id) {
+        System.out.println("try to show statistic " + id);
+        ArrayList<String> result = taskService.getStatistic(Long.parseLong(id));
+        return result;
+    }
+
+    @RequestMapping(value = {"/getInfoByContact/{contact}"}, method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ArrayList<CommonMessage> getStatisticByContact(@PathVariable(value = "contact") String contact, HttpServletRequest request) {
+        System.out.println(contact);
+        ArrayList<CommonMessage> list = messageService.getAllMessageByContact(contact);
+        System.out.println(list.get(0).getStatistic());
+        System.out.println("basicController listSize= " + list.size());
+        return list;
+    }
 
     @RequestMapping(value = "/app/{data}", method = RequestMethod.GET)
     @ResponseBody

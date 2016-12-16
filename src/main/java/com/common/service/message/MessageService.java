@@ -1,6 +1,7 @@
 package com.common.service.message;
 
-import com.common.dao.entity.incoming.IncomingTask;
+
+import com.common.dao.entity.message.CommonMessage;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,5 @@ import java.util.ArrayList;
  */
 public interface MessageService {
 
-    ArrayList<IncomingTask> commonMessageList();
-
-    ArrayList<IncomingTask> departuredMessageList();
-
-    ArrayList<IncomingTask> inProgresMessageList();
+    ArrayList<CommonMessage> getAllMessageByContact(String contact);
 }

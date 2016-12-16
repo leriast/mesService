@@ -26,7 +26,7 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
     Session session;
     private SessionFactory sessionFactory;
     InsertQueue queue = new InsertQueue();
-    Queue q=new Queue();
+    Queue q = new Queue();
     Message task = new Message();
 
     public DAOInsertThread() {
@@ -37,93 +37,67 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
     }
 
     public void run() {
+        try {
+            session = sessionFactory.getCurrentSession();
+        } catch (HibernateException e) {
+            session = sessionFactory.openSession();
+        }
         while (true) {
             try {
-                task = /*(Message)*/ queue.getMainQueue().take();
+                task = queue.getMainQueue().take();
                 list.add(task);
                 try {
                     if (list.size() == 20000) {
-                        try {
-                            session = sessionFactory.getCurrentSession();
-                        } catch (HibernateException e) {
-                            while (sessionFactory.getStatistics().getSessionOpenCount() > 90) {
-                                logger.info("to many DB sessions");
-                            }
-                            session = sessionFactory.openSession();
-                        }
-                        session.clear();
-                        System.out.println("daoInsertThread.list=   "+list.size());
-                            for (int i = 0; i < list.size(); i++) {
-                                task = list.get(i);
-                                if (task != null) {
-                                    if (task.getStatus() == 2) {
-                                        SentMessage mess=new SentMessage(task);
-                                        session.save(mess);
-                                    } else {
-                                        session.update(task);
-                                      //  System.out.println(task.getStatus());
-                                    }
 
-                                }
-                            }
-                   //         session.flush();
-                            session.getTransaction().begin();
-                            session.getTransaction().commit();
-                            //session.clear();
-                            System.out.println("insert queue=  "+queue.getMainQueue().size()+"   before workers=   "+q.getMainQueue().size()+"    DAOInsertThread commit  " + new Date());
-                            list.clear();
-
-                            session.close();
-
-
-                    } else if (queue.getMainQueue().size() == 0 && list.size() != 0) {
-                        try {
-                            session = sessionFactory.getCurrentSession();
-                        } catch (HibernateException e) {
-                            session = sessionFactory.openSession();
-                            session.clear();
-                        }
-                        System.out.println("daoInsertThread.list=   "+list.size());
-                        session.clear();
+//                        session.clear();
                         for (int i = 0; i < list.size(); i++) {
                             task = list.get(i);
-
+                            if (task != null) {
                                 if (task.getStatus() == 2) {
-                                    try {
-                                        session.saveOrUpdate(new SentMessage(task));
-                                    }catch (Exception e){
-                                        System.err.println("error id= "+task.getIdMessage());
-                                    }
+                                    SentMessage mess = new SentMessage(task);
+                                    session.save(mess);
                                 } else {
                                     session.update(task);
                                 }
+                            }
+                        }
+                        session.getTransaction().begin();
+                        session.getTransaction().commit();
+                        System.out.println("insert queue=  " + queue.getMainQueue().size() + "   before workers=   " + q.getMainQueue().size() + "    DAOInsertThread commit  " + new Date());
+                        list.clear();
+                        //        session.close();
+                        session.clear();
+
+                    } else if (queue.getMainQueue().size() == 0 && list.size() != 0) {
+                        for (int i = 0; i < list.size(); i++) {
+                            task = list.get(i);
+                            if (task.getStatus() == 2) {
+                                try {
+                                    session.saveOrUpdate(new SentMessage(task));
+                                } catch (Exception e) {
+                                    System.err.println("error id= " + task.getIdMessage());
+                                }
+                            } else {
+                                session.update(task);
+                            }
 
                         }
-                 //       session.flush();
                         session.getTransaction().begin();
                         list.clear();
-//                        try {
-//                            session.beginTransaction();
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
                         try {
-                            System.out.println("insert if queue=  "+queue.getMainQueue().size()+"   before workers=   "+q.getMainQueue().size()+"    DAOInsertThread commit  " + new Date());
+                            System.out.println("insert if queue=  " + queue.getMainQueue().size() + "   before workers=   " + q.getMainQueue().size() + "    DAOInsertThread commit  " + new Date());
                             session.getTransaction().commit();
                             session.clear();
-                            session.close();
+                            // session.close();
                         } catch (Exception e) {
                             e.printStackTrace();
-
                         }
                     }
-                 //   session.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } catch (
                     InterruptedException e)
-
             {
                 e.printStackTrace();
             }

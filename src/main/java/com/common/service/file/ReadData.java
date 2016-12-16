@@ -1,4 +1,5 @@
 package com.common.service.file;
+
 import com.common.dao.entity.queue.IncomingInsertQueue;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -18,7 +19,7 @@ import java.util.Date;
 class for reading from csv
  */
 public class ReadData {
-    IncomingInsertQueue queue=new IncomingInsertQueue();
+    IncomingInsertQueue queue = new IncomingInsertQueue();
     private String path;
     private String fileName;
 
@@ -26,7 +27,7 @@ public class ReadData {
         this.path = path;
         this.fileName = fileName;
         try {
-          return  listFilesForFolder(fileName);
+            return listFilesForFolder(fileName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -34,7 +35,7 @@ public class ReadData {
     }
 
     public JSONArray listFilesForFolder(String fileName) throws FileNotFoundException {
-        System.out.println("start parse csv   "+new Date());
+        System.out.println("start parse csv   " + new Date());
         ArrayList<String> word = new ArrayList<String>();
         String autorParam = "";
         ArrayList<String> title = new ArrayList<String>();
@@ -88,13 +89,9 @@ public class ReadData {
                 obj0.put(t, word.get(x));
                 x++;
             }
-       //     queue.getMainQueue().add(new JSONT(obj0.toJSONString()));
-
-
             obj1.add(obj0.clone());
-
-         }
-        System.out.println("   end parse, start return    "+new Date());
+        }
+        System.out.println("   end parse, start return    " + new Date());
         return obj1;
     }
 }

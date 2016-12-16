@@ -69,4 +69,9 @@ public class Company {
         this.telephone = telephone;
         this.address = address;
     }
+    public Company( String company_name, String telephone, String address) {
+        this.company_name = company_name;
+        this.telephone = telephone;
+        this.address = address;
+    }
 }

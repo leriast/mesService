@@ -44,7 +44,7 @@ public class Config {
     @Bean
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory =
-                new CachingConnectionFactory("localhost");
+                new CachingConnectionFactory("localhost");     //where rabbit queue will be locate
         return connectionFactory;
     }
 
@@ -92,27 +92,25 @@ public class Config {
     @Value("${jdbc.hsqldb.postgres.password}")
     private String jdbcPassword;
 
-
-//    @Value("${jdbc.hsqldb.driverClass}")
-//    private String driverClass;
-//    @Value("${jdbc.hsqldb.url}")
-//    private String jdbcUrl;
-//    @Value("${jdbc.hsqldb.username}")
-//    private String jdbcUserName;
-//    @Value("${jdbc.hsqldb.password}")
-//    private String jdbcPassword;
-
-
     @Value("classpath:dbschema.sql")
     private Resource dbschemaSqlScript;
     @Value("classpath:test-data.sql")
     private Resource testDataSqlScript;
 
-    @Value("loggerHost")
+    @Value("${loggerHost}")
     private String loggerHost;
 
-    @Value("loggerPort")
+    @Value("${skype_login}")
+    private String skype_login;
+
+    @Value("${skype_password}")
+    private String skype_password;
+
+    @Value("${loggerPort}")
     private String loggerPort;
+
+    @Value("${max_file_size}")
+    private String max_file_size;
 
     @Bean(name = "dataSource")
     public DriverManagerDataSource getDriverManagerDataSource() {
@@ -121,9 +119,6 @@ public class Config {
         dataSource.setUrl(jdbcUrl);
         dataSource.setUsername(jdbcUserName);
         dataSource.setPassword(jdbcPassword);
-
-
-
         return dataSource;
     }
 
@@ -156,10 +151,6 @@ public class Config {
         Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.dialect",
                "org.hibernate.dialect.PostgreSQLDialect");
-//                "PostgreSQL94JsonDialect");
-
-//        jpaProperties.put("hibernate.dialect",
-//                "org.hibernate.dialect.MySQLDialect");
         jpaProperties.put("hibernate.show_sql", true);
         jpaProperties.put("hibernate.format_sql", "false");
         jpaProperties.put("hibernate.hbm2ddl.auto", "update");
@@ -196,7 +187,7 @@ public class Config {
 //        return 8;
 //    }
 
-    //@Autowired
+
     @Bean(name = "sessionFactory")
     public SessionFactory getSessionFactory(DriverManagerDataSource dataSource) {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(     //entities
@@ -214,29 +205,29 @@ public class Config {
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver commonsMultipartResolver(){
         CommonsMultipartResolver resolver=new CommonsMultipartResolver();
-        resolver.setMaxUploadSize(200000000);                                //max file size
+        resolver.setMaxUploadSize(Integer.parseInt(max_file_size));                                //max file size
         return resolver;
     }
 
     @Bean(name = "loggerHost")
     public String getLoggerHost(){
-
-        return loggerHost;
+        return this.loggerHost;
     }
 
     @Bean(name = "loggerPort")
-    public String getLoggerPort(){
-
-        return loggerPort;
+    public int getLoggerPort(){
+        return Integer.parseInt(this.loggerPort);
     }
 
-//    @Bean(name="ControllerLogger")
-//    public ControllerLogger logger(){
-//        return new ControllerLogger();
-//    }
-//
-//    @Bean(name="PoincutDefinition")
-//    public PointcutDefinition pointcut(){
-//        return new PointcutDefinition();
-//    }
+    @Bean(name = "skypeLogin")
+    public String getSkype_login(){
+        return this.skype_login;
+    }
+
+    @Bean(name = "skypePassword")
+    public String getSkype_password(){
+        return this.skype_password;
+    }
+
+
 }

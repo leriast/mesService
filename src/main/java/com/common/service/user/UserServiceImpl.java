@@ -2,8 +2,8 @@ package com.common.service.user;
 
 //import com.common.dao.entity.JSONT;
 
-import com.common.dao.entity.JSONT;
 import com.common.dao.entity.message.Message;
+import com.common.dao.entity.user.ContactsDictonary;
 import com.common.dao.entity.user.Role;
 import com.common.dao.entity.user.User;
 import com.common.dao.user.UserDAO;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional
@@ -49,7 +50,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void getContactsDictonary() {userDAO.getContactsDictonary();}
+    public List<ContactsDictonary> getContactsDictonary() {return userDAO.getContactsDictonary();}
 
     @Override
     public void getContactsByType() {
@@ -57,13 +58,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void insertJ(JSONT j) {
-        userDAO.insertJ(j);
+    public User getUserByCompany(String companyName) {
+        return userDAO.getUserByCompany(companyName);
     }
 
     @Override
-    public User getUserByCompany(String companyName) {
-        return userDAO.getUserByCompany(companyName);
+    public List<User> getAllUsers() {
+        return userDAO.getAllUsers();
+    }
+
+    @Override
+    public List<Role> getAllRoles() {
+        return userDAO.getAllRoles();
     }
 
 

@@ -28,7 +28,7 @@ public class Pool {
     private int poolSize = 8;
     private AmqpTemplate template;
 
-    public Pool(SessionFactory sessionFactory, int poolSize, AmqpTemplate template) {
+    public Pool(SessionFactory sessionFactory, int poolSize/*, AmqpTemplate template*/) {
         this.sessionFactory = sessionFactory;
         this.poolSize = poolSize;
         this.template = template;
@@ -41,21 +41,23 @@ public class Pool {
     public Queue queue = new Queue();
 
     public void Start() {
-        System.out.println("Pool start");
-        for (int someVarible = 0; someVarible < 6; someVarible++) {
+        System.out.println("Pool start    ");
+        for (int someVarible = 0; someVarible < 8; someVarible++) {
             try {
-                new ThreadConsumer(template, queue, "Thread number " + someVarible).start();
+                new ThreadConsumer( queue, "Thread number " + someVarible).start();
             } catch (SchedulerException e) {
                 e.printStackTrace();
             }
         }
         new DAOInsertThread(sessionFactory).start();
         new DAOInsertThread(sessionFactory).start();
-        new DAOInsertThread(sessionFactory).start();
+      //  new DAOInsertThread(sessionFactory).start();
 //        new DAOInsertThread(sessionFactory).start();
 
         new GetThread(sessionFactory,0).start();
         new GetThread(sessionFactory,1).start();
+     //   new GetThread(sessionFactory,2).start();
+     //   new GetThread(sessionFactory,2).start();
   //        new GetThread(sessionFactory,2).start();
 
         //  new ZeroPriorityThread().start();

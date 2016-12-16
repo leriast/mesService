@@ -1,8 +1,8 @@
 package com.common.controller;
 
+import com.common.listener.IListener;
 import com.common.service.file.ReadData;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.utils.SerializationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -22,6 +22,8 @@ import java.util.UUID;
 @Controller
 class FileUploadController {
     public ReadData readData = new ReadData();
+    @Autowired
+    IListener listener;
     @Autowired
     @Qualifier("pathToSave")
     String path;
@@ -53,8 +55,9 @@ class FileUploadController {
         }
 
         //readData.readData(path,fileName);
-        byte[] data = SerializationUtils.serialize(readData.readData(path,fileName));
-        template.convertAndSend("json", data);
+        listener.init(readData.readData(path,fileName));
+//        byte[] data = SerializationUtils.serialize(readData.readData(path,fileName));
+//        template.convertAndSend("json", data);
         return "redirect:index";
     }
 }

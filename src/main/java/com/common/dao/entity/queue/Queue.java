@@ -1,7 +1,6 @@
 package com.common.dao.entity.queue;
 
 
-import com.common.dao.entity.incoming.IncomingTask;
 import com.common.dao.entity.message.Message;
 
 import java.util.concurrent.PriorityBlockingQueue;
@@ -15,8 +14,7 @@ public class Queue {
    // public Pool pool=new Pool();
     private  PriorityBlockingQueue<Message> mainQueue=new PriorityBlockingQueue<Message>(/*100*/);
     public Queue(){}
-    public Queue(IncomingTask ex){
-    }
+
 
     public /*synchronized*/ PriorityBlockingQueue<Message> getMainQueue() {
         return INSTANCE.mainQueue;
