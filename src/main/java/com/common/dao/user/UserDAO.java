@@ -34,4 +34,8 @@ public interface UserDAO {
     List<User> getAllUsers();
 
     List<Role> getAllRoles();
+
+    User getUserById(int id);
+
+    User getUserByLogin(String name);
 }

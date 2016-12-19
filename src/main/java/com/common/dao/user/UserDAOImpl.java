@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +23,8 @@ import java.util.List;
 public class UserDAOImpl implements UserDAO {
     @Autowired
     private SessionFactory sessionFactory;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     public User listContact(String name) {
         Criteria criteria = sessionFactory
                 .getCurrentSession()
@@ -56,6 +58,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User insertUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         sessionFactory.getCurrentSession().save(user);
         beginCommitTransaction();
         return user;
@@ -116,6 +119,16 @@ public class UserDAOImpl implements UserDAO {
     public List<Role> getAllRoles() {
         List<Role> list=sessionFactory.getCurrentSession().createQuery("from Role").list();
         return list;
+    }
+
+    @Override
+    public User getUserById(int id) {
+        return (User) sessionFactory.getCurrentSession().createQuery("from User where idUser=:id").setParameter("id",id).list().get(0);
+    }
+
+    @Override
+    public User getUserByLogin(String name) {
+        return (User) sessionFactory.getCurrentSession().createQuery("from User where username=:id").setParameter("id",name).list().get(0);
     }
 
     public void beginCommitTransaction() {

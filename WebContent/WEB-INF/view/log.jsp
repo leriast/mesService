@@ -1,28 +1,50 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
- 
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>HelloWorld Login page</title>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
 </head>
+
 <body>
-<form name="form" action="j_spring_security_check" method="post" class="form-signin">
+<div id="mainWrapper">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-form">
+                <c:url var="loginUrl" value="/log" />
+                <form action="${loginUrl}" method="post" class="form-horizontal">
+                    <c:if test="${param.error != null}">
+                        <div class="alert alert-danger">
+                            <p>Invalid username and password.</p>
+                        </div>
+                    </c:if>
+                    <c:if test="${param.logout != null}">
+                        <div class="alert alert-success">
+                            <p>You have been logged out successfully.</p>
+                        </div>
+                    </c:if>
+                    <div class="input-group input-sm">
+                        <label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+                    </div>
+                    <div class="input-group input-sm">
+                        <label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                    </div>
+                    <input type="hidden" name="${_csrf.parameterName}"
+                           value="${_csrf.token}" />
 
-    <label for="inputEmail" class="sr-only"><spring:message code="email" text="Email"/></label>
-    <input id="inputEmail" class="form-control" name="j_username" value="superuser@outlook.com" required autofocus/>
-
-    <label for="inputPassword" class="sr-only"><spring:message code="pass" text="Password"/></label>
-    <input type="password" id="inputPassword" class="form-control" name="j_password" value="12345" required/>
-
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" id="rememberme"  name="_spring_security_remember_me"/>Запомнить меня
-        </label>
+                    <div class="form-actions">
+                        <input type="submit"
+                               class="btn btn-block btn-primary btn-default" value="Log in">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <input type="submit" value="Войти" class="btn btn-lg btn-primary btn-block" >
-    <br/>
-    <a href="javascript:history.back()">Назад</a>
+</div>
 
-    <br /><br />
-</form>
 </body>
-
 </html>

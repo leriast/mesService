@@ -1,13 +1,19 @@
 package com.common.config;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.sql.DataSource;
 
 
 @Configuration
@@ -15,60 +21,42 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private DataSource dataSource;
+    @Qualifier("customUserDetailsService")
+    UserDetailsService userDetailsService;
 
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.
-                auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("SELECT USERNAME, PASSWORD, ENABLED FROM CONTACT_PERSON WHERE USERNAME=?")
-                .authoritiesByUsernameQuery("SELECT U.ID_ROLE, A.AUTHORITY\n" +
-                        "        \t FROM AUTHORITIES A, CONTACT_PERSON U WHERE U.ID_ROLE = A.ID_ROLE AND U.USERNAME = ?");
-
+    @Autowired
+    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
+        auth.authenticationProvider(authenticationProvider());
     }
 
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userDetailsService);
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        return authenticationProvider;
+    }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-               // .antMatchers("/index/**").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/index/**","/index/","/emit*").access("hasRole('ROLE_SUPERUSER')")
-        //.antMatchers("/index/**").access("hasRole('ADMIN')")
-            //    .antMatchers("/emit/**").access("hasRole('ROLE_SUPERUSER')")
-//              .anyRequest().authenticated() //all requests will checked
+                .antMatchers("/", "/home","/newuser").permitAll()
+                .antMatchers("/index/**").access("hasRole('ROLE_SUPERUSER')")
+                .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+                .and().formLogin().loginPage("/log")
+                .usernameParameter("username").passwordParameter("password")
                 .and().formLogin().defaultSuccessUrl("/index", false)
-                .and()
-                .formLogin().loginPage("/log").permitAll().usernameParameter("j_username")
-                .passwordParameter("j_password").loginProcessingUrl("/j_spring_security_check").failureUrl("/log")
-                .and()
-                .httpBasic()
-                .and().
-                authorizeRequests()
-                // .antMatchers("/index/**").access("hasRole('ROLE_ADMIN')")
-                .and()
-//                .authorizeRequests().antMatchers("/user*//**").hasRole("ADMIN")
-//                .antMatchers("/user*//**").hasRole("USER")
-//                .and()
+                .and().formLogin().failureUrl("/end")
 
-           //     .authorizeRequests().antMatchers("/index/**").hasRole("SUPERUSER")
-              //  .and()
-              //  .authorizeRequests().antMatchers("/emit/**").hasRole("SUPERUSER").antMatchers("/index/**").hasRole("SUPERUSER").antMatchers("/index/**").hasRole("ADMIN")
-               // .and().authorizeRequests().antMatchers("/index/**").hasRole("ADMIN")
-                //.and()
-                .logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/log")
-                .and()
-                .rememberMe().key("myKey").tokenValiditySeconds(300)
-                .and()
-                .csrf().disable().authorizeRequests();
-
-
-        http.authorizeRequests().antMatchers("/index/**").hasAnyRole("ADMIN","SUPERUSER")/*.hasRole("ADMIN")*/.and()
-                .logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/log")
-                .and()
-                .rememberMe().key("myKey").tokenValiditySeconds(300)
-                .and()
-                .csrf().disable().authorizeRequests();
-
-
+                .and().csrf()
+                .and().exceptionHandling().accessDeniedPage("/Access_Denied");
     }
 }

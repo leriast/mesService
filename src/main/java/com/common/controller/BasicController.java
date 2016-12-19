@@ -4,7 +4,7 @@ package com.common.controller;
 import com.common.dao.entity.company.Company;
 import com.common.dao.entity.message.CommonMessage;
 import com.common.dao.entity.queue.Queue;
-import com.common.dao.entity.stencil.Stencil;
+import com.common.dao.entity.user.User;
 import com.common.service.company.CompanyService;
 import com.common.service.message.MessageService;
 import com.common.service.skype.ISkypeService;
@@ -19,12 +19,17 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -58,7 +63,6 @@ public class BasicController {
     public ModelAndView userpage(HttpServletRequest request)
     {
         ModelAndView model=new ModelAndView("userpage");
-
         return model;
     }
 
@@ -78,6 +82,7 @@ public class BasicController {
 
     @RequestMapping(value = "/adm")
     public ModelAndView adm(HttpServletRequest request) {
+      //  VKService vk=new VKService();
         return new ModelAndView("adm");
     }
 
@@ -111,12 +116,12 @@ public class BasicController {
                               HttpServletRequest request) {
         map.put("User", userService.listContact(request
                 .getUserPrincipal().getName()));
+        getPrincipal();
         return new ModelAndView("/index");
     }
 
     @RequestMapping(value = {"/", "/log**"}, method = RequestMethod.GET)
     public ModelAndView start(HttpServletRequest request) {
-
         return new ModelAndView("/log");
     }
 
@@ -131,7 +136,6 @@ public class BasicController {
     public
     @ResponseBody
     /*public*/ ArrayList<String> getStatisstic(HttpServletRequest request, @PathVariable(value = "id") String id) {
-        System.out.println("try to show statistic " + id);
         ArrayList<String> result = taskService.getStatistic(Long.parseLong(id));
         return result;
     }
@@ -140,17 +144,13 @@ public class BasicController {
     public
     @ResponseBody
     ArrayList<CommonMessage> getStatisticByContact(@PathVariable(value = "contact") String contact, HttpServletRequest request) {
-        System.out.println(contact);
-        ArrayList<CommonMessage> list = messageService.getAllMessageByContact(contact);
-        System.out.println(list.get(0).getStatistic());
-        System.out.println("basicController listSize= " + list.size());
+        ArrayList<CommonMessage> list = messageService.getAllMessageByContact(contact);;
         return list;
     }
 
     @RequestMapping(value = "/app/{data}", method = RequestMethod.GET)
     @ResponseBody
     public String getData(HttpServletRequest request, @RequestParam(value = "ID", defaultValue = "") String id) {
-        System.out.println(id);
         String userAgent = request.getHeader("user-agent");
         userAgent += " " + " ";
         try {
@@ -212,6 +212,38 @@ public class BasicController {
             return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
         }
 
+    }
+
+    private String getPrincipal(){
+        String userName = null;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails) {
+            userName = ((UserDetails)principal).getUsername();
+        } else {
+            userName = principal.toString();
+        }
+        return userName;
+    }
+    @RequestMapping(value = "/newUser", method = RequestMethod.GET)
+    public String saveRegistration() {
+
+        User user=userService.getUserById(1);
+        user.setIdUser(100);
+        user.setUsername("login");
+        user.setPassword("12345");
+        userService.insertUser(user);
+
+
+        return "adm";
+    }
+    @RequestMapping(value="/j_spring_security_logout", method = RequestMethod.GET)
+    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null){
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:log";
     }
 }
 

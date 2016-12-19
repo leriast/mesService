@@ -4,7 +4,7 @@
  
 </head>
 <body>
-<form name="form" action="j_spring_security_check" method="post" class="form-signin">
+<form name="form" action="${loginUrl}" method="post" class="form-signin">
    
 
     

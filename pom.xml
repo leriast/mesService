@@ -31,6 +31,16 @@
     </properties>
 
     <dependencies>
+
+
+        <dependency>
+            <groupId>com.vk.api</groupId>
+            <artifactId>sdk</artifactId>
+            <version>0.3.7</version>
+        </dependency>
+
+
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -389,6 +399,7 @@
     </dependencies>
     <build>
         <!--<testSourceDirectory>src/main/test</testSourceDirectory>-->
+
         <plugins>
 
             <plugin>
@@ -428,4 +439,10 @@
         </plugins>
 
     </build>
+    <repositories>
+        <repository>
+            <id>java-vk-oauth20.googlecode.com</id>
+            <url>http://java-vk-oauth20.googlecode.com/svn/m2/releases</url>
+        </repository>
+    </repositories>
 </project>

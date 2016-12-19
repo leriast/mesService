@@ -20,4 +20,6 @@ public interface UserService {
 	User getUserByCompany(String companyName);
 	List<User> getAllUsers();
 	List<Role> getAllRoles();
+	User getUserById(int id);
+	User getUserByLogin(String name);
 }

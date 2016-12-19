@@ -8,6 +8,7 @@ import com.common.dao.entity.user.Role;
 import com.common.dao.entity.user.User;
 import com.common.dao.user.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -19,7 +20,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDAO userDAO;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Transactional
     public User listContact(String name) {
         return userDAO.listContact(name);
@@ -72,5 +74,18 @@ public class UserServiceImpl implements UserService {
         return userDAO.getAllRoles();
     }
 
+    @Override
+    public User getUserById(int id) {
+        return userDAO.getUserById(id);
+    }
 
+    @Override
+    public User getUserByLogin(String name) {
+        return userDAO.getUserByLogin(name);
+    }
+
+    public void save(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userDAO.addUser(user);
+    }
 }
