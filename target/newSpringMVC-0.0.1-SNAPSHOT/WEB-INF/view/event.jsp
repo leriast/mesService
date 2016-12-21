@@ -120,7 +120,7 @@
                     <input type='datetime-local' id='{{prefix}}_delivery_time' class="form-control short-field">
                 </div>
                 <div class="row_label"><span>Frequency</span>
-                    <input type='number' id='{{prefix}}_frequency' class="form-control short-field">
+                    <input type='number' id='{{prefix}}_frequency' class="form-control short-field" min="0" max="10">
                 </div>
                 <div class="row_label"><span>Delay</span>
                     D: <input type='number' class='delay d_day mini-field form-control' min='0' max='3'  id='{{prefix}}_f_d'>
@@ -140,7 +140,7 @@
                 <select class="template-list form-control" id="{{prefix}}_template_id"
                         ng-model="selected_tmpl"
                         ng-change="getTemplate()"
-                        ng-options="item as item.val for item in templateList">
+                        ng-options="item as item.val for item in templateList track by item.id">
                     <option value="" disabled>Choose</option>
                 </select>
                 <textarea class="template-body form-control" id="{{prefix}}_template_body"></textarea>

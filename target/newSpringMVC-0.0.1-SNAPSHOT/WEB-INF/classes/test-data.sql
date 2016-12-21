@@ -46,15 +46,15 @@ INSERT INTO STRUCTURE (ID_COMPANY,ID_LANGUAGE,ALGORITM,PRIORITY,PARAMS,NAME) VAL
 
 --STENCIL
 -- INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY) VALUES (1,1,'ASD #NAME QWE #VALUE');
-INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY,NAME ) VALUES (2,2,'ASD #NAME QWE #VALUE','sometestname1');
-INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY,NAME ) VALUES (3,2,'ASD #NAME QWE #VALUE','sometestname2');
-insert into stencil (id_d_duct,id_structure,stencil_entity,NAME ) values(1,1,'Как ныне сбирается вещий #name Отмстить неразумным #enemy:' ||
+INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY,NAME ) VALUES (2,2,'ASD #NAME# QWE #VALUE#','sometestname1');
+INSERT INTO STENCIL (ID_D_DUCT,ID_STRUCTURE,STENCIL_ENTITY,NAME ) VALUES (3,2,'ASD #NAME# QWE #VALUE#','sometestname2');
+insert into stencil (id_d_duct,id_structure,stencil_entity,NAME ) values(1,1,'Как ныне сбирается вещий #name Отмстить неразумным #enemy#:' ||
  ' Их села и нивы за буйный набег Обрек он мечам и пожарам;' ||
   'С дружиной своей, в цареградской броне, ' ||
-   '#boss по полю едет на верном коне.','PUSHKIN_OLEKSANDR');
+   '#boss# по полю едет на верном коне.','PUSHKIN_OLEKSANDR');
 
-   insert into stencil (id_d_duct,id_structure,stencil_entity,NAME ) values(4,1,' #name  #enemy:','sometestname4');
-    insert into stencil (id_d_duct,id_structure,stencil_entity,NAME ) values(2,1,' #name  #boss:','sometestname0');
+   insert into stencil (id_d_duct,id_structure,stencil_entity,NAME ) values(4,1,' #name#  #enemy#:','sometestname4');
+    insert into stencil (id_d_duct,id_structure,stencil_entity,NAME ) values(2,1,' #name#  #boss#:','sometestname0');
 
 
 

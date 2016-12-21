@@ -81,7 +81,7 @@ public class ThreadConsumer extends Thread {
                         query.setParameter("tw", tw);
                         query.setParameter("next_duct", duct);
                         query.setParameter("poolSize", poolSize);
-                        query.setMaxResults(1000);
+                        query.setMaxResults(10);
                         Task task = m.getId_task();
                         query.setParameter("idTask", task);
                         list = query.list();                        ///from message where status = 7 and id_task = sam
@@ -116,7 +116,7 @@ public class ThreadConsumer extends Thread {
                 query.setParameter("code", 1);
                 query.setParameter("tw", tw);
                 query.setParameter("poolSize", poolSize);
-                query.setMaxResults(1000);
+                query.setMaxResults(10);
                 list = query.list();
                 if (!list.isEmpty()) {
                     list = query.list();
@@ -215,7 +215,7 @@ public class ThreadConsumer extends Thread {
         String[] wordArray = st.split("[\\s,.:!?]+");
 
         StringBuffer sb = new StringBuffer();
-        Pattern p = Pattern.compile("(#[a-z0-9]{1,10})");
+        Pattern p = Pattern.compile("(#![a-z0-9]{1,10}#)");
 
         if (p.matcher(wordArray[0]).matches()) {
             isFirst = true;
@@ -277,6 +277,6 @@ public class ThreadConsumer extends Thread {
         if (s == null || s.length() == 0) {
             return s;
         }
-        return s.substring(1, s.length());
+        return s.substring(1, s.length()-1);
     }
 }

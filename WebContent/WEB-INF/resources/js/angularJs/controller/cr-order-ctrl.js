@@ -56,7 +56,7 @@ module.controller('crOrd', ['$compile', '$scope', '$http', function($compile, $s
 		$http({
 			url:'/eventStencil',
 			method:'POST',
-			data: {data: res}
+			data: res
 		}).tHen(function (res) {
 			console.log(res)
 		})
@@ -79,7 +79,7 @@ module.controller('crOrd', ['$compile', '$scope', '$http', function($compile, $s
 				$http({
 					url:'/getStencils',
 					method:'POST',
-					data: {lang:angular.element('#'+$scope.prefix['val']+'_lang').val()}
+					data: {lang:angular.element('#'+$scope.prefix+'_lang').val()}
 				}).then(function(res){
 					$scope.templateList = res['data'];
 				})
@@ -89,7 +89,7 @@ module.controller('crOrd', ['$compile', '$scope', '$http', function($compile, $s
 				$http({
 					url:'#',
 					method:'POST',
-					data: {tid:angular.element('#'+$scope.prefix['val']+'_template_id').val()}
+					data: {tid:angular.element('#'+$scope.prefix+'_template_id').val()}
 				}).then(function(res){
 					angular.element('#'+prefix['val']+'_template_body').val(res['data']);
 				})

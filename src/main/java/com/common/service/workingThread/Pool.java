@@ -40,7 +40,7 @@ public class Pool {
                 new ThreadConsumer(sessionFactory,i,poolSize).start();
         }
         new DAOInsertThread(sessionFactory).start();
-        new DAOInsertThread(sessionFactory).start();
+    //    new DAOInsertThread(sessionFactory).start();
       //  new DAOInsertThread(sessionFactory).start();
 //        new DAOInsertThread(sessionFactory).start();
 

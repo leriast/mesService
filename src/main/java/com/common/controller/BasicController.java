@@ -278,10 +278,10 @@ public class BasicController {
         for (Structure l : str) {
             arr1.put("1", l.getId());
             arr1.put("2", l.getName());
-            arr1.put("2", l.getAlgoritm());
-            arr1.put("3", l.getParams());
-            arr1.put("4", l.getId_structure());
-            System.out.println(arr1);
+            arr1.put("3", l.getAlgoritm());
+            arr1.put("4", l.getParams());
+            arr1.put("5", l.getId_structure());
+            System.out.println("structure  "+arr1);
 
         }
         for (Duct l : ducts) {

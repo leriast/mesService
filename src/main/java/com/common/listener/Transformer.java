@@ -87,7 +87,7 @@ public class Transformer implements IListener {
         String[] wordArray = st.split("[\\s,.:!?]+");
 
         StringBuffer sb = new StringBuffer();
-        Pattern p = Pattern.compile("(#[a-z0-9]{1,10})");
+        Pattern p = Pattern.compile("(#[a-z0-9]{1,10}#)");
 
         if (p.matcher(wordArray[0]).matches()) {
             isFirst = true;
@@ -151,6 +151,6 @@ public class Transformer implements IListener {
         if (s == null || s.length() == 0) {
             return s;
         }
-        return s.substring(1, s.length());
+        return s.substring(1, s.length()-1);
     }
 }
