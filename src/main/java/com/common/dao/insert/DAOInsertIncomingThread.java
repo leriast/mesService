@@ -29,6 +29,7 @@ public class DAOInsertIncomingThread extends Thread {
     }
 
     public void run() {
+        System.out.println("INCOMINGinsert " +currentThread().getName());
         try {
             session = sessionFactory.getCurrentSession();
         } catch (HibernateException e) {

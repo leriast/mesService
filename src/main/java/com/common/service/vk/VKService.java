@@ -2,12 +2,13 @@ package com.common.service.vk;
 
 import com.vk.api.sdk.client.TransportClient;
 import com.vk.api.sdk.client.VkApiClient;
-import com.vk.api.sdk.client.actors.ServiceActor;
+import com.vk.api.sdk.client.actors.UserActor;
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
 import com.vk.api.sdk.objects.ServiceClientCredentialsFlowResponse;
 import com.vk.api.sdk.objects.users.User;
+import com.vk.api.sdk.objects.wall.responses.GetResponse;
 import com.vk.api.sdk.queries.friends.FriendsSearchQuery;
 import com.vk.api.sdk.queries.groups.GroupsGetMembersQuery;
 import com.vk.api.sdk.queries.users.UsersGetQuery;
@@ -149,17 +150,31 @@ https://oauth.vk.com/authorize?client_id=5784490&display=page&redirect_uri=https
         } catch (ClientException e) {
             e.printStackTrace();
         }
-        ServiceActor actor = new ServiceActor(5290648,"K6qPGMm9O4h96nzrtIr4","ed23c6694e3b98721df7f7bef3f5781d902eaa2dcd62d7da094bf915d133231ad4d7bfad94efeb07e1ecf");
+        UserActor actor =  actor = new UserActor( 90256900     /*,"K6qPGMm9O4h96nzrtIr4"*//*,"ed23c6694e3b98721df7f7bef3f5781d902eaa2dcd62d7da094bf915d133231ad4d7bfad94efeb07e1ecf"*/,"24c74d5e226947d31e61c5976b2a736c49044191117e5325b0b962b3c4b03769e3c475f9db3c6c5da8a33");
         FriendsSearchQuery user;
         try {
+            GetResponse getResponse = vk.wall().get(actor)
+                    .ownerId(1)
+                    .count(100)
+                    .offset(5)
+                    //.filter("owner")
+                    .execute();
+            vk.messages().send(actor).userId(90256900).message("test").execute();
+        } catch (ApiException e) {
+            e.printStackTrace();
+        } catch (ClientException e) {
+            e.printStackTrace();
+        }
+        try {
            // int o=vk.utils().resolveScreenName("habr").execute().getObjectId();
+
             GroupsGetMembersQuery a=vk.groups().getMembers().groupId("110589914");
             for(int i=0;i<a.execute().getItems().size();i++){
                 int is=a.execute().getItems().get(i);
                 if(is==90256900) {
                     UsersGetQuery user1 = vk.users().get().userIds(is + "");
                     User user2 = user1.execute().get(0);
-                    vk.messages().send(actor).userId(90256900).message("test").execute();
+                    vk.messages().send(actor).userId(26909285).message("test").execute();
 
                 }
                 System.out.println(is);

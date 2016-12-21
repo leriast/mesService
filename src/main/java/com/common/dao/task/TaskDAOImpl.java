@@ -159,6 +159,7 @@ for(Task task:list){
     @Override
     public void insertTask(Task task) {
         try {
+            System.out.println(task.getVaribles());
             sessionFactory.getCurrentSession().save(task);
         } catch (Exception e) {
             e.printStackTrace();
@@ -234,6 +235,24 @@ for(Task task:list){
                 "INNER JOIN D_DUCT ON STENCIL.ID_D_DUCT=D_DUCT.ID_D_DUCT\n" +
                 "INNER JOIN LANGUAGE ON STRUCTURE.ID_LANGUAGE=LANGUAGE.ID_LANGUAGE WHERE CONTACT_PERSON.username='"+username+"' AND D_DUCT.NAME_DUCT='"+duct+"' AND LANGUAGE.NAME='"+language+"'");
         query.addEntity(Stencil.class);
+        List<Stencil> list=query.list();
+        System.out.println("empty?");
+        for(Stencil st:list){
+            System.out.println(st.getStencil_entity());
+        }
         return query.list();
+    }
+    @Override
+    public List getAllStructuresById(User user){
+        SQLQuery query=sessionFactory.getCurrentSession().createSQLQuery("select structure.* from structure inner join company on structure.id_company=company.id_company\n" +
+                "inner join contact_person on contact_person.id_company=company.id_company\n" +
+                "where contact_person.id_contact_person='"+user.getIdUser()+"'");
+        query.addEntity(Structure.class);
+        return query.list();
+    }
+
+    @Override
+    public List getAllDucts(){
+        return sessionFactory.getCurrentSession().createQuery("from Duct").list();
     }
 }

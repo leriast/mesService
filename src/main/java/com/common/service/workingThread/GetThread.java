@@ -53,10 +53,8 @@ public class GetThread extends Thread {
         } catch (HibernateException e) {
             session = sessionFactory.openSession();
         }
-
         while (true) {
             if (queue.getMainQueue().size() < 15000) {
-           //     System.out.println("***********before workers less 15k  " + new Date());
 
                 query = session.createQuery("from Message where status = :code  and idMessage %2= :tw order by priority");
                 query.setParameter("tw", tw);
@@ -95,7 +93,6 @@ public class GetThread extends Thread {
                         }
                         session.getTransaction().begin();
                         session.getTransaction().commit();
-                        // session.close();
                         session.clear();
                         queue.getMainQueue().addAll(list2);
                         list.clear();
@@ -103,21 +100,7 @@ public class GetThread extends Thread {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                } /*else {*/
-
-
-//                else if (session.isOpen()||session.isConnected()){
-//                    session.close();
-//                }
-
-
-//                try {
-//                    session = sessionFactory.getCurrentSession();
-//                } catch (HibernateException e) {
-//                    while (sessionFactory.getStatistics().getSessionOpenCount() > 120) {
-//                    }
-//                    session = sessionFactory.openSession();
-//                }
+                }
                 query = session.createQuery("from Message where status = :code and idMessage %2= :tw order by priority");
                 query.setParameter("code", 1);
                 query.setParameter("tw", tw);
@@ -138,22 +121,13 @@ public class GetThread extends Thread {
                     session.clear();
                 } else {
                     try {
-                    //    System.out.println("sleep1   list is empty");
                         sleep(500);                     //too many connections to DB
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-
-
-//                if (session.isConnected()||session.isOpen()){
-//                    session.close();
-//                }
-
-
             } else {
                 try {
-                    System.out.println("sleep2      getMainQueue<15000");
                     sleep(300);                             //many empty queries
                 } catch (InterruptedException e) {
                     e.printStackTrace();

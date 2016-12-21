@@ -15,6 +15,8 @@ public class Stencil {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_STENCIL")
     private int id;
+    @Column(name = "name")
+    private String name;
     @Column(name = "STENCIL_ENTITY")
     private String stencil_entity;
 
@@ -30,6 +32,14 @@ public class Stencil {
         this.stencil_entity = stencil_entity;
         this.structure = structure;
         this.duct = duct;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {

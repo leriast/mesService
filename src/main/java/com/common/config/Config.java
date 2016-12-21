@@ -202,9 +202,10 @@ public class Config {
         return sessionBuilder.buildSessionFactory();
     }
 
-    @Bean(name = "multipartResolver")
+    @Bean(name = "filterMultipartResolver")
     public CommonsMultipartResolver commonsMultipartResolver(){
         CommonsMultipartResolver resolver=new CommonsMultipartResolver();
+
         resolver.setMaxUploadSize(Integer.parseInt(max_file_size));                                //max file size
         return resolver;
     }

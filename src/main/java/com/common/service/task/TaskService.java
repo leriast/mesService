@@ -4,6 +4,7 @@ import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
+import com.common.dao.entity.user.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,9 @@ import java.util.List;
 public interface TaskService {
 
     //void insertTask()
+
+    List getAllDucts();
+
 
     void commonTaskList();
 
@@ -27,7 +31,7 @@ public interface TaskService {
 
     void insertTask(Task task);
 
-    void getAllStructure();
+    List getAllStructureById(User user);
 
     void getStencilByStructure(Structure structure);
 

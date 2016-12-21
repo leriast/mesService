@@ -4,6 +4,7 @@ import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
+import com.common.dao.entity.user.User;
 import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
@@ -18,6 +19,9 @@ public interface TaskDAO {
     ArrayList<Task> departuredList();
     ArrayList<String> getStatistic(Long id);
 
+    List getAllStructuresById(User user);
+
+    List getAllDucts();
 
     List getAllLanguages();
 

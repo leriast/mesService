@@ -37,7 +37,7 @@ public class Transformer implements IListener {
     UserService userService;
     @Autowired
     TaskService taskService;
-    int poolSize = 8;
+    int poolSize = 10;
     public IncomingInsertQueue incomingInsertQueue = new IncomingInsertQueue();
     Stencil stencil = new Stencil();
 
@@ -48,10 +48,10 @@ public class Transformer implements IListener {
     ArrayList<Message> list = new ArrayList<>();
 
     public void init(JSONArray obj) {
-        if (a == 0) {
+//        if (a == 0) {
             new Pool(sessionFactory, poolSize);
-            a = 1;
-        }
+//            a = 1;
+//        }
         JSONArray obj1 = obj;
         try {
             Task task = new Task(userService.getUserByCompany("NP"), taskService.getStructure(), new String[]{"PUSH", "TELEGRAM", "SMS"}, obj1.toJSONString(), 1, (Language) taskService.getAllLanguages().get(0),
@@ -68,6 +68,7 @@ public class Transformer implements IListener {
             }
             for (Object o : obj1) {
                 JSONObject q = (JSONObject) o;
+
                 incomingInsertQueue.getMainQueue().add(new Message(1, new Date(), new Date(), task.getAlgoritm(), q.toJSONString(), readStencil(stencil.getStencil_entity(), q), "address", task, 1, task.getParams(), arr.toJSONString()));
             }
         } catch (Exception e) {

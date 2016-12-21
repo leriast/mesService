@@ -151,7 +151,7 @@ public class Task /*implements Serializable*/{
         this.user = user;
         this.structure = structure;
         this.algoritm = algoritm;
-        this.varibles = SerializationUtils.serialize(varibles);
+        this.varibles = SerializationUtils.serialize(/*varibles*/"a");
         this.priority = priority;
         this.language = language;
         this.params = params;

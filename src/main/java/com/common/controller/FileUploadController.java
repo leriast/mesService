@@ -2,7 +2,6 @@ package com.common.controller;
 
 import com.common.listener.IListener;
 import com.common.service.file.ReadData;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -27,21 +26,22 @@ class FileUploadController {
     @Autowired
     @Qualifier("pathToSave")
     String path;
-    @Autowired
-    AmqpTemplate template;
+
 
     @RequestMapping(value = "/file", method = RequestMethod.GET)
     public String setupUploadFile() {
         return "upload";
     }
 
-    @RequestMapping(value = "/uploadFile")
+    //@Secured("ROLE_ADMIN")
+
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     public String processUploadPreview(
             @RequestParam("file") MultipartFile file
     ) {
-     //   new UDPClient().start();
-
-        String fileName=UUID.randomUUID()+".csv";
+        //   new UDPClient().start();
+        System.out.println("uploadfile");
+        String fileName= UUID.randomUUID()+".csv";
 
         System.out.println(file.getOriginalFilename() + "      " + path + "   " + file.getContentType());
 

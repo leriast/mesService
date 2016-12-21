@@ -37,6 +37,7 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
     }
 
     public void run() {
+        System.out.println("dapinsert " +currentThread().getName());
         try {
             session = sessionFactory.getCurrentSession();
         } catch (HibernateException e) {
@@ -45,9 +46,10 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
         while (true) {
             try {
                 task = queue.getMainQueue().take();
+
                 list.add(task);
                 try {
-                    if (list.size() == 20000) {
+                    if (list.size() == 10000) {
 
 //                        session.clear();
                         for (int i = 0; i < list.size(); i++) {

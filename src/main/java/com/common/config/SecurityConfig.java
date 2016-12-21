@@ -49,14 +49,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/", "/home","/newuser").permitAll()
-                .antMatchers("/index/**").access("hasRole('ROLE_SUPERUSER')")
+                .antMatchers("/index/**","/uploadFile","/file","/getStencils").access("hasRole('SUPERUSER')")
                 .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
                 .and().formLogin().loginPage("/log")
                 .usernameParameter("username").passwordParameter("password")
                 .and().formLogin().defaultSuccessUrl("/index", false)
                 .and().formLogin().failureUrl("/end")
+//.and().httpBasic()
+                .and().csrf().disable().authorizeRequests()
+                .and().exceptionHandling().accessDeniedPage("/Access_Denied")
+//                .and()
+//                .requiresChannel()
+//                .anyRequest().requiresSecure()
 
-                .and().csrf()
-                .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+
+
+        ;
+
+        http.headers().xssProtection().xssProtectionEnabled(true);
+        http.headers().httpStrictTransportSecurity();
+
+
+//        http.sessionManagement()
+//                .sessionFixation()
+//                .none();
     }
 }

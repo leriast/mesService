@@ -16,8 +16,18 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/WEB-INF/view/**").addResourceLocations("/view/");
+        registry.addResourceHandler("/WEB-INF/view/**/*").addResourceLocations("/view/")/*.addResourceLocations("/view/js/").addResourceLocations("/view/js/angularJs*//**").addResourceLocations("/css*//**").addResourceLocations("/css/tld")*/
+                /*.addResourceLocations("/js/angularJs/controller/")
+                .addResourceLocations("/js/bootstrap")
+                .addResourceLocations("/js/angularJs/controller*//**")
+                .addResourceLocations("/js/bootstrap*//**")*/;
+        registry.addResourceHandler("/WEB-INF/view/css/**").addResourceLocations("/css/");
+        registry.addResourceHandler("/WEB-INF/view/js/angular/**").addResourceLocations("/angular/");
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/css/**").addResourceLocations("/WEB-INF/resources/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/resources/js/");
     }
+
 
     @Bean
     public InternalResourceViewResolver setupViewResolver() {

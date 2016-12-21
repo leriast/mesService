@@ -4,6 +4,7 @@ import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
+import com.common.dao.entity.user.User;
 import com.common.dao.task.TaskDAO;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,12 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService {
     @Autowired
     TaskDAO taskDAO;
+
+    @Override
+    public List getAllDucts() {
+       return taskDAO.getAllDucts();
+    }
+
     @Override
     public void commonTaskList() {
         try {
@@ -56,8 +63,9 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void getAllStructure() {
-        taskDAO.getStructure();
+    public List getAllStructureById(User user) {
+
+        return taskDAO.getAllStructuresById(user);
     }
 
     @Override
