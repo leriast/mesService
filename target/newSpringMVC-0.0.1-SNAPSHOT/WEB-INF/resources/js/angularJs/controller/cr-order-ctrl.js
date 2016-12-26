@@ -1,101 +1,196 @@
 var module = angular.module('crOrder', ['ui.bootstrap']);
 
 module.controller('crOrd', ['$compile', '$scope', '$http', function($compile, $scope, $http){
-    $scope.delivery_methods = [{id:0, val:'skype'}, {id:1, val:'viber'}, {id:2, val:'sms'}, {id:3, val:'bird'}, {id:4, val:'fish'}];
-    $scope.langs = [{id:'0', val:'uk'}, {id:1, val:'ru'}, {id:2, val:'en'}, {id:3, val:'es'}];
-    $scope.templateList = [{id:0, val:'first'}, {id:1, val:'second'}, {id:2, val:'third'}]
-    $scope.choosen_del_types = [];
-  	$scope.tabs = [];
-  	$scope.send_data = {};
+	$scope.delivery_methods = {'skype':4, 'viber':5, 'sms':6, 'bird':7, 'fish':8};
+	$scope.langs = [{id:'3', val:'uk'}, {id:4, val:'ru'}, {id:5, val:'en'}, {id:5, val:'es'}];
+	// $scope.templateList = {}//[{id:0, val:'first'}, {id:1, val:'second'}, {id:2, val:'third'}]
+	$scope.order_list = [{id:0, val:"first_order_templ"}, {id:1, val:'second_ord_templ'}, {id:2, val:'third_ord_templ'}]
+	$scope.choosen_del_types = [];
+	$scope.tabs = [];
+	$scope.send_data = {};
+	$scope.data = {label:'', id:'', duct:{}};
+	$scope.templateLists = []
 	console.log(window.gen_data);
 	$scope.select_delyvery_type = function(){
-		if($scope.choosen_del_types.indexOf($scope.selected_delyvery_type.id)<0){
-			$scope.choosen_del_types.push($scope.selected_delyvery_type.id);
-			$scope.tabs.push({title:$scope.selected_delyvery_type.val, templateList:$scope.templateList, langs:$scope.langs, id:$scope.selected_delyvery_type.id});
+		if($scope.choosen_del_types.indexOf($scope.selected_delyvery_type)<0 && $scope.selected_delyvery_type){
+			$scope.data.duct[angular.element('.delivery_type option:selected').text()] = {duct_id:$scope.selected_delyvery_type};
+			$scope.choosen_del_types.push($scope.selected_delyvery_type);
+			$scope.tabs.push({title:angular.element('.delivery_type option:selected').text(), templateList:$scope.templateList, langs:$scope.langs, id:$scope.selected_delyvery_type});
+			$scope.prefix = angular.element('.delivery_type option:selected').text();
 		}
+
 	}
 
-	$scope.remove_variant = function(el, index){
+	$scope.remove_variant = function(el){
 		var pos = $scope.tabs.indexOf(el)
+		delete $scope.data.duct[el.title]
 		$scope.tabs.splice(pos, 1);
 		$scope.choosen_del_types.splice($scope.choosen_del_types.indexOf(el.id), 1);
 		$scope.active = 0;
 	}
 
 	$scope.send_data = function(){
-		var prefix = {};
-		var res = [];
-		for (var i =0; i<$scope.choosen_del_types.length; i++) {
-			console.log()
-			for(var j=0; j<$scope.delivery_methods.length; j++){
-				if($scope.delivery_methods[j]['id']==$scope.choosen_del_types[i]){
-					prefix = $scope.delivery_methods[j];
-					console.log('#'+prefix['val']+'_lang')
-					console.log(angular.element('#'+prefix['val']+'_lang'))
-					var tmp = angular.element('#'+prefix['val']+'_lang').val();
-					console.log(tmp)
-					console.log(angular.element('#'+prefix['val']+'_lang option:selected').text())	
-					var delay = angular.element('#'+prefix['val']+'_f_d').val()*24*60*60*1000
-						+ angular.element('#'+prefix['val']+'_f_d').val()*60*60*1000
-						+ angular.element('#'+prefix['val']+'_f_d').val()*60*1000
-						+ angular.element('#'+prefix['val']+'_f_d').val()*1000;
-					res.push({
-						delivery_method_id:prefix['id'],
-						priority:angular.element('#'+prefix['val']+'_priority').val(),
-						lang:angular.element('#'+prefix['val']+'_lang').val(),
-						delivery_time:angular.element('#'+prefix['val']+'_delivery_time').val(),
-						frequency:angular.element('#'+prefix['val']+'_frequency').val(),
-						time_to_live:angular.element('#'+prefix['val']+'_time_to_live').val(),
-						template_id:angular.element('#'+prefix['val']+'_template_id').val(),
-						template_body:angular.element('#'+prefix['val']+'_template_body').val(),
-						delay: delay
-					});
-				}
-			}
-		}
+		$scope.data_to_send ={}
+		angular.copy($scope.data, $scope.data_to_send)
+		$.each($scope.data_to_send.duct, function(idx){
+			$scope.data_to_send.duct[idx].delay =
+				$scope.data_to_send.duct[idx].f_d * 24*60*60*1000 +
+				$scope.data_to_send.duct[idx].f_h * 60*60*1000 +
+				$scope.data_to_send.duct[idx].f_m * 60*1000 +
+				$scope.data_to_send.duct[idx].f_s * 1000;
+			delete $scope.data_to_send.duct[idx].f_d;
+			delete $scope.data_to_send.duct[idx].f_h;
+			delete $scope.data_to_send.duct[idx].f_m;
+			delete $scope.data_to_send.duct[idx].f_s;
+			$scope.data_to_send.duct[idx].delivery_time = $scope.data_to_send.duct[idx].delivery_time.getTime();
+			$scope.data_to_send.duct[idx].time_to_live = $scope.data_to_send.duct[idx].time_to_live.getTime();
+		});
+		console.log($scope.data_to_send)
 		$http({
 			url:'/eventStencil',
 			method:'POST',
-			data: res
-		}).tHen(function (res) {
+			data: $scope.data_to_send
+		}).then(function (res) {
 			console.log(res)
+		})
+	}
+
+	$scope.changeLang = function(prefix){
+		console.log(prefix)
+		$http({
+			url:'/getStencils',
+			method:'POST',
+			data: {lang:$scope.data.duct[prefix].lang}
+		}).then(function(res){
+			$scope.templateLists[prefix] = res['data'];
+			console.log($scope.templateLists['viber'])
+		})
+	}
+
+	$scope.getTemplate = function(prefix){
+		console.log(prefix)
+		$http({
+			url:'/getStencilEntity',
+			method:'POST',
+			data: {tid:$scope.data.duct[prefix].template_id}
+		}).then(function(res){
+			$scope.data.duct[prefix].template_body = res['data']['data'];
 		})
 	}
 
 
 
+	$scope.choose_order = function(){
+		$http({
+			url:'#',
+			method:'POST',
+			data:{oid:$scope.data.id}
+		}).then(function(res){
+			res = jQuery.parseJSON('{"viber":{"duct_id":"5","priority":2,"lang":4,"delivery_time":"2016-02-01T23:00:00.000Z","frequency":2,"time_to_live":"2016-01-01T23:01:00.000Z","template_id":1,"template_body":"1321","delay":176461000},"sms":{"duct_id":"6","priority":3,"lang":5,"delivery_time":"2016-01-01T23:00:00.000Z","frequency":3,"time_to_live":"2015-12-31T23:01:00.000Z","template_id":2,"template_body":"12131","delay":176521000}}');
+			$scope.choosen_del_types = [];
+			$scope.tabs = [];
+			$scope.data = {label:'', id:'', duct:{}};
+			$.each(res, function(ind, val){
+				var delay = parseInt(val.delay);
+				var d_d = parseInt(delay/24/60/60/1000);
+				delay -= d_d*24*60*60*1000;
+				var d_h = parseInt(delay/60/60/1000);
+				delay -= d_h*60*60*100
+				var d_m = parseInt(delay/60/1000);
+				delay -= d_m*60*1000;
+				var d_s = parseInt(delay/1000);
+				$scope.data.duct[ind] = {
+					"duct_id":parseInt(val.duct_id),
+					"priority":parseInt(val.priority),
+					"lang":val.lang,
+					"delivery_time":new Date(val.delivery_time),
+					"frequency":2,"time_to_live": new Date(val.time_to_live),
+					"template_id":parseInt(val.template_id),
+					"template_body":"1321",
+					"delay":176461000,
+					"f_d": d_d,
+					"f_h":d_h,
+					"f_m":d_m,
+					"f_s":d_s,
+				}
+
+				$scope.choosen_del_types.push(val.duct_id);
+				$scope.tabs.push({title:ind, id:val.duct_id});
+			})
+		})
+	}
+
+	$scope.uploadFile = function() {
+		console.log('dfddd')
+		$('#fileUpd').ajaxSubmit({
+			url: '/uploadFile',
+			type: 'POST',
+			resetForm: true,
+			data: {format: 'json'},
+			dataType: 'json',
+			resetForm: true,
+			success: function (res) {}
+		})
+
+	};
+
 }]).directive('orderForm', ['$compile', function($compile){
 	return{
-		templateUrl:"order_template.html",
 		restrict: 'E',
 		replace: 'true',
-		scope:{
-			prefix:'@',
-			templateList:'=',
-			langs:'='
-		},
-		controller: ['$scope', '$http', function($scope, $http){
-			$scope.changeLang = function(){
-				$http({
-					url:'/getStencils',
-					method:'POST',
-					data: {lang:angular.element('#'+$scope.prefix+'_lang').val()}
-				}).then(function(res){
-					$scope.templateList = res['data'];
-				})
-			}
-
-			$scope.getTemplate = function(){
-				$http({
-					url:'#',
-					method:'POST',
-					data: {tid:angular.element('#'+$scope.prefix+'_template_id').val()}
-				}).then(function(res){
-					angular.element('#'+prefix['val']+'_template_body').val(res['data']);
-				})
-			}
-
-
-		}],
+		link: function ($scope, element, attrs) {
+			var prefix = attrs['prefix']
+			var template = '\
+		        <div class="row">\
+		            <div class="col-xs-6">\
+		                <div class="row_label"><span>Priority</span>\
+		                    <input type="number" ng-model="data.duct.'+prefix+'.priority" min="1" class="form-control short-field">\
+		                </div>\
+		                <div class="row_label"><span>Lang</span>\
+		                    <select class="lang short-field form-control" , ng-model="data.duct.'+prefix+'.lang"\
+		                            ng-change="changeLang(\''+prefix+'\')"\
+		                            ng-options="lang.id as lang.val for lang in langs">\
+		                        <option value="" selected disabled>Choose</option>\
+		                    </select>\
+		                </div>\
+		                <div class="row_label"><span>Delivery date</span>\
+		                    <input type="datetime-local" ng-model="data.duct.'+prefix+'.delivery_time" class="form-control short-field">\
+		                </div>\
+		                <div class="row_label"><span>Frequency</span>\
+		                    <input type="number" ng-model="data.duct.'+prefix+'.frequency" class="form-control short-field" min="0" max="10">\
+		                </div>\
+		                <div class="row_label"><span>Delay</span>\
+		                    D: <input type="number" class="delay d_day mini-field form-control" min="0" max="3"  ng-model="data.duct.'+prefix+'.f_d">\
+		                    H: <input type="number" class="delay d_hour mini-field form-control" min="0" max="24" ng-model="data.duct.'+prefix+'.f_h">\
+		                    M: <input type="number" class="delay d_minute mini-field form-control" min="0" max="60" ng-model="data.duct.'+prefix+'.f_m">\
+		                    S: <input type="number" class="delay d_seconds mini-field form-control" min="0" max="60" ng-model="data.duct.'+prefix+'.f_s">\
+		                </div>\
+		                <div class="row_label"><span>Time to live</span>\
+		                    <input type="datetime-local" ng-model="data.duct.'+prefix+'.time_to_live" class="form-control short-field">\
+		                </div>\
+		            </div>\
+		            <div class="col-xs-4">\
+		                <select class="template-list form-control" ng-model="data.duct.'+prefix+'.template_id"\
+		                        ng-change="getTemplate(\''+prefix+'\')"\
+		                        ng-options="item.id as item.val for item in templateLists.'+prefix+'">\
+		                    <option value="" disabled>Choose</option>\
+		                </select>\
+		                <textarea class="template-body form-control" ng-model="data.duct.'+prefix+'.template_body"></textarea>\
+		            </div>\
+		        </div>';
+			var linkFn = $compile(template);
+			var content = linkFn($scope);
+			element.append(content);
+			$.each($scope.langs, function(ind, val){
+				console.log('index == '+ind)
+				console.log('lang_id == '+val.id)
+				console.log('def_lang_model == '+$scope.data.duct[prefix].lang)
+				console.log('lang_id_from_source == '+$scope.langs[ind].id);
+				if(val.id==$scope.data.duct[prefix].lang){
+					console.log('yeah')
+					$scope.data.duct[prefix].lang = $scope.langs[ind].id
+				}
+			})
+		}
 	}
 }])

@@ -19,10 +19,10 @@ public class Pool {
     }
 
 
-
     Logger logger = Logger.getLogger(String.valueOf(Pool.class));
-     private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
     private int poolSize;
+    private int getThreadCount = 2;
 
     public Pool(SessionFactory sessionFactory, int poolSize) {
         this.sessionFactory = sessionFactory;
@@ -33,27 +33,33 @@ public class Pool {
     }
 
 
-
     public void Start() {
         System.out.println("Pool start    ");
+
         for (int i = 0; i < poolSize; i++) {
-                new ThreadConsumer(sessionFactory,i,poolSize).start();
+            new ThreadConsumer(sessionFactory).start();
         }
+
+        new JournalWorker(sessionFactory).start();
+
         new DAOInsertThread(sessionFactory).start();
-    //    new DAOInsertThread(sessionFactory).start();
-      //  new DAOInsertThread(sessionFactory).start();
+        new DAOInsertThread(sessionFactory).start();
+
+        //  new DAOInsertThread(sessionFactory).start();
 //        new DAOInsertThread(sessionFactory).start();
 
-//        new GetThread(sessionFactory,0).start();
-//        new GetThread(sessionFactory,1).start();
-     //   new GetThread(sessionFactory,2).start();
-     //   new GetThread(sessionFactory,2).start();
-  //        new GetThread(sessionFactory,2).start();
+        for (int i = 0; i < getThreadCount; i++) {
+            new GetThread(sessionFactory, i, getThreadCount).start();
+        }
+
+        //   new GetThread(sessionFactory,2).start();
+        //   new GetThread(sessionFactory,2).start();
+        //        new GetThread(sessionFactory,2).start();
 
         //  new ZeroPriorityThread().start();
         //   new ClearQueueThread().start();
 
-   //     new DAOInsertIncomingThread(sessionFactory).start();
+        //     new DAOInsertIncomingThread(sessionFactory).start();
         new DAOInsertIncomingThread(sessionFactory).start();
         new DAOInsertIncomingThread(sessionFactory).start();
         new DAOInsertIncomingThread(sessionFactory).start();

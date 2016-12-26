@@ -49,11 +49,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/", "/home","/newuser").permitAll()
-                .antMatchers("/index/**","/uploadFile","/file","/getStencils").access("hasRole('SUPERUSER')")
+                .antMatchers("/index/**","/uploadFile","/file","/getStencils","/event").access("hasRole('SUPERUSER')")
                 .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
                 .and().formLogin().loginPage("/log")
                 .usernameParameter("username").passwordParameter("password")
-                .and().formLogin().defaultSuccessUrl("/index", false)
+                .and().formLogin().defaultSuccessUrl("/event", false)
                 .and().formLogin().failureUrl("/end")
 //.and().httpBasic()
                 .and().csrf().disable().authorizeRequests()
@@ -66,9 +66,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         ;
 
-        http.headers().xssProtection().xssProtectionEnabled(true);
-        http.headers().httpStrictTransportSecurity();
+//        http.headers().xssProtection().xssProtectionEnabled(true);
+//        http.headers().httpStrictTransportSecurity();
 
+
+//        http
+//                .portMapper()				//maps the port 8080(http) to 8443(https)
+//                .http(8082).mapsTo(443);
 
 //        http.sessionManagement()
 //                .sessionFixation()

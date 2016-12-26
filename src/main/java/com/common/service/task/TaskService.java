@@ -1,5 +1,6 @@
 package com.common.service.task;
 
+import com.common.dao.entity.journal.Journal;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
@@ -16,8 +17,12 @@ public interface TaskService {
 
     //void insertTask()
 
+
+    Stencil getStencilById(int id);
+
     List getAllDucts();
 
+    void insertJournal(Journal journal);
 
     void commonTaskList();
 

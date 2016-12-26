@@ -1,5 +1,6 @@
 package com.common.listener;
 
+import com.common.dao.entity.user.User;
 import org.json.simple.JSONArray;
 import org.springframework.stereotype.Service;
 
@@ -8,5 +9,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface IListener {
-    void init(JSONArray arr);
+    void init(JSONArray arr, User user,String filename);
 }

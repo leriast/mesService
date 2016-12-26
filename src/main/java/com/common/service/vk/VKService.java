@@ -150,7 +150,7 @@ https://oauth.vk.com/authorize?client_id=5784490&display=page&redirect_uri=https
         } catch (ClientException e) {
             e.printStackTrace();
         }
-        UserActor actor =  actor = new UserActor( 90256900     /*,"K6qPGMm9O4h96nzrtIr4"*//*,"ed23c6694e3b98721df7f7bef3f5781d902eaa2dcd62d7da094bf915d133231ad4d7bfad94efeb07e1ecf"*/,"24c74d5e226947d31e61c5976b2a736c49044191117e5325b0b962b3c4b03769e3c475f9db3c6c5da8a33");
+        UserActor actor =  actor = new UserActor( 90256900     /*,"K6qPGMm9O4h96nzrtIr4"*//*,"ed23c6694e3b98721df7f7bef3f5781d902eaa2dcd62d7da094bf915d133231ad4d7bfad94efeb07e1ecf"*/,"83f2928619131c6b8bdc45723d6ce2a86753c320dc6b780f2f7bf47747d83119040fd971d814b0383517b");
         FriendsSearchQuery user;
         try {
             GetResponse getResponse = vk.wall().get(actor)
@@ -174,7 +174,7 @@ https://oauth.vk.com/authorize?client_id=5784490&display=page&redirect_uri=https
                 if(is==90256900) {
                     UsersGetQuery user1 = vk.users().get().userIds(is + "");
                     User user2 = user1.execute().get(0);
-                    vk.messages().send(actor).userId(26909285).message("test").execute();
+                    vk.messages().send(actor).userId(90256900).message("test").execute();
 
                 }
                 System.out.println(is);

@@ -40,7 +40,7 @@ public class DAOInsertIncomingThread extends Thread {
                 task = (Message) queue.getMainQueue().take();
                 list.add(task);
                 try {
-                    if (list.size() == 30000) {
+                    if (list.size() == 50000) {
                         for (int i = 0; i < list.size(); i++) {
 
                             task = list.get(i);

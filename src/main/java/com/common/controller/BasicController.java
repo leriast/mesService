@@ -2,6 +2,7 @@ package com.common.controller;
 
 
 import com.common.dao.entity.company.Company;
+import com.common.dao.entity.journal.Journal;
 import com.common.dao.entity.message.CommonMessage;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
@@ -36,10 +37,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Controller
@@ -93,7 +91,7 @@ public class BasicController {
 
     @RequestMapping(value = "/adm")
     public ModelAndView adm(HttpServletRequest request) {
-        //  VKService vk=new VKService();
+        //VKService vk=new VKService();
         return new ModelAndView("adm");
     }
 
@@ -133,6 +131,15 @@ public class BasicController {
 
     @RequestMapping(value = {"/", "/log**"}, method = RequestMethod.GET)
     public ModelAndView start(HttpServletRequest request) {
+//
+//        Language language = (Language) taskService.getAllLanguages().get(0);
+//        Structure structure= taskService.getStructure();
+//        Duct duct= (Duct) taskService.getAllDucts().get(0);
+//        Stencil stn= (Stencil) taskService.getStencilById(1);
+//        System.out.println("stncl     "+stn.getCreator().getUsername());
+//        System.out.println("lng     "+language.getCreator().getUsername());
+//        System.out.println("str     "+structure.getCreator().getUsername());
+//        System.out.println("duct     "+duct.getCreator().getUsername());
         return new ModelAndView("/log");
     }
 
@@ -281,7 +288,6 @@ public class BasicController {
             arr1.put("3", l.getAlgoritm());
             arr1.put("4", l.getParams());
             arr1.put("5", l.getId_structure());
-            System.out.println("structure  "+arr1);
 
         }
         for (Duct l : ducts) {
@@ -290,43 +296,143 @@ public class BasicController {
         arr2.put("duct", arr3.clone());
         arr2.put("structure", arr1.clone());
         arr2.put("language", arr.clone());
-        if (str == null) {
-            System.out.println("fucking null");
-        }
+        arr2.put("priority", userService.getUserByLogin(request.getRemoteUser()).getPriority());
         model.addObject("R2D2", arr2);
         return model;
     }
 
     @RequestMapping(value = "/eventStencil", method = RequestMethod.POST)
-    public String eventStencil(/*@RequestParam("json") String json,*/HttpServletRequest request, @RequestBody String preJson) {
-        System.out.println(preJson);
+    public
+    @ResponseBody
+    String eventStencil(/*@RequestParam("json") String json,*/HttpServletRequest request, @RequestBody String preJson) {
+        System.out.println(" " + preJson);
+        JSONObject incomingjson = null;
+        JSONObject incomingDuct;
+        JSONObject incomingDuctsParams;
+        long delivery_time=0;
+        long delay;
+        long ttl = 0;
+        int priority=0;
+
         try {
-            JSONArray json = (JSONArray) parser.parse(preJson);
+            incomingjson = (JSONObject) parser.parse(preJson);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return "redirect:file";
-    }
-    //Secure
-    @RequestMapping(value = "/getStencils",method = RequestMethod.POST)
-    public @ResponseBody
-    JSONArray getStencils(HttpServletRequest request, @RequestBody String preJson) {
-//        System.out.println("prejson"+preJson);
-        JSONObject obj=new JSONObject();
-        JSONArray arr=new JSONArray();
-        List<Stencil> list=null;
+        incomingDuct = (JSONObject) incomingjson.get("duct");
         try {
-            list = taskService.getStencilList("UA", "PUSH", request.getUserPrincipal().getName());
-        }catch (Exception e){
+            for (Object chanel_ : incomingDuct.keySet()) {
+                String chanel = (String) chanel_;
+                incomingDuctsParams = (JSONObject) incomingDuct.get(chanel);
+                System.out.println(chanel + "        " + incomingDuctsParams);
+                Date date=new Date();
+                if (incomingDuctsParams.get("delivery_time") != null) {
+                     delivery_time=  Long.parseLong(String.valueOf(incomingDuctsParams.get("delivery_time")));
+                    date.setTime(delivery_time);
+                    System.out.println("delivery_time   "+date);
+                }
+                if (incomingDuctsParams.get("delay") != null) {
+                     delay =  Long.parseLong(String.valueOf(incomingDuctsParams.get("delay")));
+                    date.setTime(delay);
+                    System.out.println("delay   "+date);
+                }
+                if (incomingDuctsParams.get("time_to_live") != null) {
+                    ttl = Long.parseLong(String.valueOf(incomingDuctsParams.get("time_to_live")));
+                    date.setTime(ttl);
+                    System.out.println("ttl   "+date);
+                }
+                if (incomingDuctsParams.get("duct_id") != null) {
+                    long id_duct = Long.parseLong(String.valueOf(incomingDuctsParams.get("duct_id")));
+                    System.out.println("duct   "+id_duct);
+                }
+                if (incomingDuctsParams.get("template_id") != null) {
+                    long id_stencil = Long.parseLong(String.valueOf(incomingDuctsParams.get("template_id")));
+                    System.out.println("stencil   "+id_stencil);
+                }
+                if (incomingDuctsParams.get("template_body") != null) {
+                    String stencilEntity = String.valueOf(incomingDuctsParams.get("template_body"));
+                    System.out.println("entity   "+stencilEntity);
+                }
+                if (incomingDuctsParams.get("priority") != null) {
+                    priority = Integer.parseInt(String.valueOf(incomingDuctsParams.get("priority")));
+                    System.out.println("priority   "+priority);
+                }
+                if (incomingDuctsParams.get("lang") != null) {
+                    long id_language = Long.parseLong(String.valueOf(incomingDuctsParams.get("lang")));
+                    System.out.println("language   "+id_language);
+                }
+                if (incomingDuctsParams.get("frequency") != null) {
+                    long frequency = Long.parseLong(String.valueOf(incomingDuctsParams.get("frequency")));
+                    System.out.println("freuence   "+frequency);
+                }
+                User currentUser=userService.getUserByLogin(request.getRemoteUser());
+                if(priority!=0 && (priority-currentUser.getPriority())>0){
+                    int count = (int) ((ttl - delivery_time) / (priority - currentUser.getPriority()));
+                    for(int i=1;i<priority-currentUser.getPriority();i++){
+                        date.setTime(delivery_time+(count*i));
+                        taskService.insertJournal(new Journal(date,0,priority-i,246380413));
+                        System.out.println(date);
+                        System.out.println(count);
+                        System.out.println(i);
+                    }
+//
+//
+//                    System.out.println(count);
+//                    long newdate=delivery_time+count;
+//                    date.setTime(newdate);
+//                    Date tesst=new Date();
+//                    tesst.setTime(delivery_time);
+//                    System.out.println(tesst+"     /      "+date);
+                }
+//                else {
+//
+//                    System.out.println(false);
+//                }
+                //taskService.insertJournal()
+
+
+
+
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        for(Stencil st:list){
-            obj.put("id",st.getId());
-            obj.put("val",st.getName());
+        return "ok";
+    }
+
+    //Secure
+    @RequestMapping(value = "/getStencils", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    JSONArray getStencils(HttpServletRequest request, @RequestBody String preJson) {
+//        System.out.println("prejson"+preJson);
+        JSONObject obj = new JSONObject();
+        JSONArray arr = new JSONArray();
+        List<Stencil> list = null;
+        try {
+            list = taskService.getStencilList("UA", "PUSH", request.getUserPrincipal().getName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        for (Stencil st : list) {
+            obj.put("id", st.getId());
+            obj.put("val", st.getName());
         }
 //        System.out.println(obj);
         arr.add(obj);
         return arr;
+    }
+
+
+    @RequestMapping(value = "/getStencilEntity", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    JSONObject getStencilEntity(HttpServletRequest request, @RequestBody String preJson) {
+
+        JSONObject result = new JSONObject();
+        result.put("data", taskService.getStencilById(3).getStencil_entity());
+        //  System.out.println(result);
+        return result;
     }
 }
 

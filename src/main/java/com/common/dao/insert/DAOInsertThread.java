@@ -90,6 +90,7 @@ public class DAOInsertThread extends Thread /*implements IDAOInsertThread*/ {
                             System.out.println("insert if queue=  " + queue.getMainQueue().size() + "   before workers=   " + q.getMainQueue().size() + "    DAOInsertThread commit  " + new Date());
                             session.getTransaction().commit();
                             session.clear();
+                            sleep(1500);
                             // session.close();
                         } catch (Exception e) {
                             e.printStackTrace();

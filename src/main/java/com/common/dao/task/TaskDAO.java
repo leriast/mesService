@@ -1,5 +1,6 @@
 package com.common.dao.task;
 
+import com.common.dao.entity.journal.Journal;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
@@ -15,6 +16,10 @@ import java.util.List;
  */
 public interface TaskDAO {
     void commonTaskList() throws ParseException;
+
+    Stencil getStencilById(int id);
+
+    void insertJournal(Journal journal);
 
     ArrayList<Task> departuredList();
     ArrayList<String> getStatistic(Long id);

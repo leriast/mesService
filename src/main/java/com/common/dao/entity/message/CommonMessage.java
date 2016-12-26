@@ -44,7 +44,7 @@ public class CommonMessage {
     private String statistic;
 
 
-    public CommonMessage(int priority, Date departureTime, Date relevantTime,  String[] duct,String stencil, String message, String address,Task task,int status,String params,String statistic) {
+    public CommonMessage(int priority, Date departureTime, Date relevantTime, String[] duct, String stencil, String message, String address, Task task, int status, String params, String statistic) {
         this.priority = priority;
         this.departureTime = departureTime;
         this.relevantTime = relevantTime;
@@ -52,28 +52,29 @@ public class CommonMessage {
         this.duct = duct;
         this.message = message;
         this.address = address;
-        this.id_task=task;
-        this.status=status;
-        this.stencil=stencil;
-        this.params=params;
-        this.statistic=statistic;
+        this.id_task = task;
+        this.status = status;
+        this.stencil = stencil;
+        this.params = params;
+        this.statistic = statistic;
     }
 
-    public CommonMessage( Date departureTime, Date relevantTime,  String[] duct,String stencil, String message, String address,Task task,int status,String params,String statistic) {
+    public CommonMessage(Date departureTime, Date relevantTime, String[] duct, String stencil, String message, String address, Task task, int status, String params, String statistic) {
 
         this.departureTime = departureTime;
         this.relevantTime = relevantTime;
         this.duct = duct;
         this.message = message;
         this.address = address;
-        this.id_task=task;
-        this.status=status;
-        this.stencil=stencil;
-        this.params=params;
-        this.statistic=statistic;
+        this.id_task = task;
+        this.status = status;
+        this.stencil = stencil;
+        this.params = params;
+        this.statistic = statistic;
     }
-    public CommonMessage(){}
 
+    public CommonMessage() {
+    }
 
 
     public String getStatistic() {

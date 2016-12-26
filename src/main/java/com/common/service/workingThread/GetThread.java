@@ -29,22 +29,23 @@ public class GetThread extends Thread {
     Session session;
     //   List a = new ArrayList<Message>();
     JSONParser parser = new JSONParser();
-    long tw;
+    long getThreadCount;
+    long getThreadNum;
     List<Message> list = new ArrayList<>();
     List<Message> list2 = new ArrayList<>();
-    Message aa;
+    Message messageTempVarible;
     Query query;
     Queue queue = new Queue();
 
     public GetThread() {
     }
 
-
     private SessionFactory sessionFactory;
 
-    public GetThread(SessionFactory sessionFactory, long tw) {
+    public GetThread(SessionFactory sessionFactory,long getThreadNum, long getThreadCount) {
         this.sessionFactory = sessionFactory;
-        this.tw = tw;
+        this.getThreadCount = getThreadCount;
+        this.getThreadNum=getThreadNum;
     }
 
     public void run() {
@@ -54,42 +55,50 @@ public class GetThread extends Thread {
             session = sessionFactory.openSession();
         }
         while (true) {
-            if (queue.getMainQueue().size() < 15000) {
+            if (queue.getMainQueue().size() < 25000) {
 
-                query = session.createQuery("from Message where status = :code  and idMessage %2= :tw order by priority");
-                query.setParameter("tw", tw);
+                query = session.createQuery("from Message where status = :code  and idMessage %:getThreadCount= :getThreadNum order by priority");
+                query.setParameter("getThreadNum", getThreadNum);
                 query.setParameter("code", 7);
+                query.setParameter("getThreadCount", getThreadCount);
 
                 query.setMaxResults(1);
                 list = query.list();
                 if (!list.isEmpty()) {
-                    System.out.println("        " + currentThread().getName() + "        _______getThread status 7   " + new Date());
+          //          System.out.println("        " + currentThread().getName() + "        _______getThread status 7   " + new Date());
                     try {
-                        Message m = (Message) query.list().get(0);
-                        String duct = m.getNext_duct();
-                        query = session.createQuery("from Message where status = :code and  id_task=:idTask and idMessage %2= :tw and next_duct=:next_duct order by priority");
-                         query.setParameter("code", 7);
-                        query.setParameter("tw", tw);
+                        Message messWithStatus7 = (Message) query.list().get(0);
+                        String duct = messWithStatus7.getNext_duct();
+                        query = session.createQuery("from Message where status = :code and  id_task=:idTask and idMessage %:getThreadCount= :getThreadNum and next_duct=:next_duct order by priority");
+                        query.setParameter("code", 7);
+                        query.setParameter("getThreadNum", getThreadNum);
+                        query.setParameter("getThreadCount",getThreadCount);
                         query.setParameter("next_duct", duct);
+                        query.setMaxResults(25000);
 
-                        query.setMaxResults(15000);
-                        Task task = m.getId_task();
+                        Task task = messWithStatus7.getId_task();
                         query.setParameter("idTask", task);
                         list = query.list();                        ///from message where status = 7 and id_task = sam
                         Structure structure = task.getStructure();
 
                         Stencil stencil = selectStencilByStructure(structure, duct);
-                        for (Message aa : list) {
+                        for (Message messBeforeExecute : list) {
                             JSONObject varibles = null;
                             try {
-                                varibles = (JSONObject) parser.parse(aa.getStencil());
+                                varibles = (JSONObject) parser.parse(messBeforeExecute.getStencil());
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
-                            aa.setStatus(11);
-                            aa.setMessage(readStencil(stencil.getStencil_entity(), varibles));
-                            session.update(aa);
-                            list2.add(aa);
+                            messBeforeExecute.setStatus(11);
+
+                            String messageEntity = stencil.getStencil_entity();
+                            for (Object var : varibles.keySet()) {
+                                messageEntity = messageEntity.replaceAll("(\\{" + var + "\\})", String.valueOf(varibles.get(var)));
+                            }
+
+                            messBeforeExecute.setMessage(messageEntity);
+                            session.update(messBeforeExecute);
+                            list2.add(messBeforeExecute);
                         }
                         session.getTransaction().begin();
                         session.getTransaction().commit();
@@ -101,17 +110,18 @@ public class GetThread extends Thread {
                         e.printStackTrace();
                     }
                 }
-                query = session.createQuery("from Message where status = :code and idMessage %2= :tw order by priority");
+                query = session.createQuery("from Message where status = :code and idMessage %:getThreadCount= :getThreadNum order by priority");
                 query.setParameter("code", 1);
-                query.setParameter("tw", tw);
-                query.setMaxResults(15000);
+                query.setParameter("getThreadCount", getThreadCount);
+                query.setParameter("getThreadNum", getThreadNum);
+                query.setMaxResults(25000);
                 list = query.list();
                 if (!list.isEmpty()) {
                     list = query.list();
                     for (Object object : list) {
-                        aa = (Message) object;
-                        aa.setStatus(11);
-                        session.update(aa);
+                        messageTempVarible = (Message) object;
+                        messageTempVarible.setStatus(11);
+                        session.update(messageTempVarible);
                     }
                     session.getTransaction().begin();
                     session.getTransaction().commit();
@@ -147,80 +157,5 @@ public class GetThread extends Thread {
         q.setParameter("iduct", duct);
         Stencil stencil = (Stencil) q.list().get(0);
         return stencil;
-    }
-
-    public String readStencil(String st, JSONObject jsonObject) {
-        ArrayList<String> parts = new ArrayList<String>();
-        ArrayList<String> varibles = new ArrayList<String>();
-        StringBuffer sb1 = new StringBuffer();
-        boolean isFirst = false;
-        Map<String, String> map = new HashMap<String, String>();
-
-        String[] wordArray = st.split("[\\s,.:!?]+");
-
-        StringBuffer sb = new StringBuffer();
-        Pattern p = Pattern.compile("(#[a-z0-9]{1,10})");
-
-        if (p.matcher(wordArray[0]).matches()) {
-            isFirst = true;
-        }
-
-        for (int i = 0; i < wordArray.length; i++) {
-            Matcher matcher = p.matcher(wordArray[i]);
-            if (matcher.find()) {
-                sb.append(map.get(wordArray[i]) + " ");
-                parts.add(sb1.toString());
-                varibles.add(wordArray[i]);
-                sb1.delete(0, sb1.capacity());
-            } else {
-                sb.append(wordArray[i] + " ");
-                sb1.append(wordArray[i] + " ");
-            }
-        }
-        parts.add(sb1.toString());
-        return generateMessage(parts, varibles, isFirst, jsonObject);
-    }
-
-    public static String generateMessage(ArrayList<String> parts, ArrayList<String> varibles, boolean isFirst, JSONObject jsonObject) {
-        StringBuffer mes = new StringBuffer();
-        String part = "";
-        String varible = "";
-        if (isFirst) {
-            for (int i = 0; i < varibles.size(); i++) {
-                try {
-                    part = parts.get(i + 1);
-                } catch (Exception e) {
-                    part = "";
-                }
-                try {
-                    varible = jsonObject.get(varibles.get(i)) + " ";
-                } catch (Exception e) {
-                    varible = "";
-                }
-                mes.append(varible).append(part);
-            }
-        } else if (!isFirst) {
-            for (int i = 0; i < parts.size(); i++) {
-                try {
-                    part = parts.get(i);
-                } catch (Exception e) {
-                    part = "";
-                }
-                try {
-                    varible = jsonObject.get(removeLastChar(varibles.get(i))) + " ";
-                } catch (Exception e) {
-                    varible = "";
-                }
-                mes.append(part).append(varible);
-            }
-        }
-        return mes.toString();
-    }
-
-    public static String removeLastChar(String s) {
-        if (s == null || s.length() == 0) {
-            return s;
-        }
-        return s.substring(1, s.length());
     }
 }

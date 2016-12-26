@@ -199,6 +199,8 @@ public class Config {
         sessionBuilder.scanPackages("com.common.dao.entity.task");
         sessionBuilder.scanPackages("com.common.service.workingThread");
         sessionBuilder.scanPackages("com.common.dao.entity.usertype");
+     //   sessionBuilder.setProperty("hibernate.show_sql", "true");
+
         return sessionBuilder.buildSessionFactory();
     }
 

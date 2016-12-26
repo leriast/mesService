@@ -1,10 +1,15 @@
 package com.common.dao.entity.user;
 
 import com.common.dao.entity.company.Company;
+import com.common.dao.entity.stencil.Duct;
+import com.common.dao.entity.stencil.Stencil;
+import com.common.dao.entity.task.Language;
+import com.common.dao.entity.task.Structure;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "CONTACT_PERSON")
@@ -46,6 +51,19 @@ public class User {
     @ManyToOne(targetEntity = Role.class)
     @JoinColumn(name = "ID_ROLE", referencedColumnName = "ID_ROLE")
     private Role id_role;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CREATOR")
+    private Set<Language> languages;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CREATOR")
+    private Set<Structure> structures;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CREATOR")
+    private Set<Duct> ducts;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CREATOR")
+    private Set<Stencil> stencils;
 
     public User(){}
 

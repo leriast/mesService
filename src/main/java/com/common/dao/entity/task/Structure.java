@@ -2,6 +2,7 @@ package com.common.dao.entity.task;
 
 import com.common.dao.entity.company.Company;
 import com.common.dao.entity.stencil.Stencil;
+import com.common.dao.entity.user.User;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -35,9 +36,32 @@ public class Structure {
     private int priority;
     @Column(name = "params")
     private String params;
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "id_creator", referencedColumnName = "ID_CONTACT_PERSON")
+    private User creator;
+
     public Structure(Company company, Language language) {
         this.company = company;
         this.language = language;
+    }
+
+    public Structure(String name, Company company, Language language, Set<Stencil> stencil, String algoritm, int priority, String params, User creator) {
+        this.name = name;
+        this.company = company;
+        this.language = language;
+        this.stencil = stencil;
+        this.algoritm = algoritm;
+        this.priority = priority;
+        this.params = params;
+        this.creator = creator;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
     }
 
     public int getId() {

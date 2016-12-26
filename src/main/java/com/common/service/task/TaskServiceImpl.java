@@ -1,5 +1,6 @@
 package com.common.service.task;
 
+import com.common.dao.entity.journal.Journal;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Structure;
@@ -22,6 +23,13 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService {
     @Autowired
     TaskDAO taskDAO;
+
+    @Override
+    public void insertJournal(Journal journal){taskDAO.insertJournal(journal);}
+    @Override
+    public Stencil getStencilById(int id) {
+        return taskDAO.getStencilById(id);
+    }
 
     @Override
     public List getAllDucts() {
@@ -64,7 +72,6 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public List getAllStructureById(User user) {
-
         return taskDAO.getAllStructuresById(user);
     }
 

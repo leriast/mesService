@@ -7,8 +7,7 @@
 <body>
 <h1>Please upload a file</h1>
 <form action="/uploadFile" method="POST" encType="multipart/form-data">
-    <input type="hidden" name="${_csrf.parameterName}"
-           value="${_csrf.token}" />
+
     <tr>
         <td>Content</td>
         <td><input type="file" name="file"><br></td>

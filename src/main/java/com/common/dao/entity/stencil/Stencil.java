@@ -1,6 +1,7 @@
 package com.common.dao.entity.stencil;
 
 import com.common.dao.entity.task.Structure;
+import com.common.dao.entity.user.User;
 
 import javax.persistence.*;
 
@@ -28,10 +29,30 @@ public class Stencil {
     @JoinColumn(name = "ID_D_DUCT", referencedColumnName = "ID_D_DUCT")
     private Duct duct;
 
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "id_creator", referencedColumnName = "ID_CONTACT_PERSON")
+    private User creator;
+
+    public Stencil(String name, String stencil_entity, Structure structure, Duct duct, User creator) {
+        this.name = name;
+        this.stencil_entity = stencil_entity;
+        this.structure = structure;
+        this.duct = duct;
+        this.creator = creator;
+    }
+
     public Stencil(String stencil_entity, Structure structure, Duct duct) {
         this.stencil_entity = stencil_entity;
         this.structure = structure;
         this.duct = duct;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
     }
 
     public String getName() {
