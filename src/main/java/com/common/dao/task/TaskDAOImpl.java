@@ -4,6 +4,7 @@ package com.common.dao.task;
 import com.common.dao.entity.journal.Journal;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
+import com.common.dao.entity.task.Language;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
 import com.common.dao.entity.user.User;
@@ -44,7 +45,11 @@ public void insertJournal(Journal journal){
     @Override
     public void commonTaskList() throws ParseException {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Task.class, "arr");
-        Task task = (Task) criteria.list().get(0);
+        List<Task> taskList=criteria.list();
+        Task task=null;
+        if (!taskList.isEmpty()) {
+            task= (Task)taskList.get(0);
+        }
         try {
             System.out.println("var=" + task.getVaribles());
         } catch (IOException e) {
@@ -127,7 +132,12 @@ public void insertJournal(Journal journal){
         Query query = sessionFactory.getCurrentSession().createQuery("from Stencil where id_d_duct=:id_d_duct and id_structure=:id_structure");
         query.setParameter("id_d_duct", duct.getId());
         query.setParameter("id_structure", structure.getId());
-        return (Stencil) query.list().get(0);
+        List<Stencil>stencilLis=query.list();
+        Stencil stencil=null;
+        if(!stencilLis.isEmpty()){
+            stencil=stencilLis.get(0);
+        }
+        return stencil;
         // System.out.println(stencil.getStencil_entity());
     }
 
@@ -147,20 +157,33 @@ public void insertJournal(Journal journal){
     public Duct getDuctById(int id) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Duct where id_d_duct=:id");
         query.setParameter("id", id);
-        return (Duct) query.list().get(0);
+        if(query.list().isEmpty()){
+            return null;
+        }else {
+            Duct duct= (Duct) query.list().get(0);
+            return duct;
+        }
     }
 
     @Override
     public Duct getDuctByName(String name) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Duct where name_duct=:name");
         query.setParameter("name", name);
-        return (Duct) query.list().get(0);
+        if(query.list().isEmpty()){
+            return null;
+        }
+        else {
+            return (Duct) query.list().get(0);
+        }
     }
 
     public Task getTaskById(Long id) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Task where id=:idTask");
         query.setParameter("idTask", id);
         query.setMaxResults(1);
+        if(query.list().isEmpty()){
+            return null;
+        }
         return (Task) query.list().get(0);
     }
 
@@ -192,6 +215,20 @@ public void insertJournal(Journal journal){
 
     @Override
     public Stencil getStencilById(int id) {
-        return (Stencil) sessionFactory.getCurrentSession().createQuery("from Stencil where id=:id").setParameter("id", id).list().get(0);
+
+        if(sessionFactory.getCurrentSession().createQuery("from Stencil where id=:id").setParameter("id", id).list().isEmpty()){
+            return null;
+        }
+        return (Stencil)sessionFactory.getCurrentSession().createQuery("from Stencil where id=:id").setParameter("id", id).list() .get(0);
+    }
+
+    @Override
+    public Language getLanguageByName(String name){
+        Language lng=null;
+        List<Language>lngList= sessionFactory.getCurrentSession().createQuery("from Language where name=:name").setParameter("name",name).list();
+        if(!lngList.isEmpty()){
+            lng=lngList.get(0);
+        }
+        return lng;
     }
 }

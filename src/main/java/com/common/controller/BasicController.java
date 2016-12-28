@@ -8,6 +8,8 @@ import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Language;
 import com.common.dao.entity.task.Structure;
+import com.common.dao.entity.task.Task;
+import com.common.dao.entity.task.WrapperTaskStructure;
 import com.common.dao.entity.user.User;
 import com.common.listener.IListener;
 import com.common.service.company.CompanyService;
@@ -32,11 +34,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.*;
 
 
@@ -131,6 +137,8 @@ public class BasicController {
 
     @RequestMapping(value = {"/", "/log**"}, method = RequestMethod.GET)
     public ModelAndView start(HttpServletRequest request) {
+
+        //  Language language=taskService.getLanguageByName("blabla");
 //
 //        Language language = (Language) taskService.getAllLanguages().get(0);
 //        Structure structure= taskService.getStructure();
@@ -305,98 +313,7 @@ public class BasicController {
     public
     @ResponseBody
     String eventStencil(/*@RequestParam("json") String json,*/HttpServletRequest request, @RequestBody String preJson) {
-        System.out.println(" " + preJson);
-        JSONObject incomingjson = null;
-        JSONObject incomingDuct;
-        JSONObject incomingDuctsParams;
-        long delivery_time=0;
-        long delay;
-        long ttl = 0;
-        int priority=0;
-
-        try {
-            incomingjson = (JSONObject) parser.parse(preJson);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        incomingDuct = (JSONObject) incomingjson.get("duct");
-        try {
-            for (Object chanel_ : incomingDuct.keySet()) {
-                String chanel = (String) chanel_;
-                incomingDuctsParams = (JSONObject) incomingDuct.get(chanel);
-                System.out.println(chanel + "        " + incomingDuctsParams);
-                Date date=new Date();
-                if (incomingDuctsParams.get("delivery_time") != null) {
-                     delivery_time=  Long.parseLong(String.valueOf(incomingDuctsParams.get("delivery_time")));
-                    date.setTime(delivery_time);
-                    System.out.println("delivery_time   "+date);
-                }
-                if (incomingDuctsParams.get("delay") != null) {
-                     delay =  Long.parseLong(String.valueOf(incomingDuctsParams.get("delay")));
-                    date.setTime(delay);
-                    System.out.println("delay   "+date);
-                }
-                if (incomingDuctsParams.get("time_to_live") != null) {
-                    ttl = Long.parseLong(String.valueOf(incomingDuctsParams.get("time_to_live")));
-                    date.setTime(ttl);
-                    System.out.println("ttl   "+date);
-                }
-                if (incomingDuctsParams.get("duct_id") != null) {
-                    long id_duct = Long.parseLong(String.valueOf(incomingDuctsParams.get("duct_id")));
-                    System.out.println("duct   "+id_duct);
-                }
-                if (incomingDuctsParams.get("template_id") != null) {
-                    long id_stencil = Long.parseLong(String.valueOf(incomingDuctsParams.get("template_id")));
-                    System.out.println("stencil   "+id_stencil);
-                }
-                if (incomingDuctsParams.get("template_body") != null) {
-                    String stencilEntity = String.valueOf(incomingDuctsParams.get("template_body"));
-                    System.out.println("entity   "+stencilEntity);
-                }
-                if (incomingDuctsParams.get("priority") != null) {
-                    priority = Integer.parseInt(String.valueOf(incomingDuctsParams.get("priority")));
-                    System.out.println("priority   "+priority);
-                }
-                if (incomingDuctsParams.get("lang") != null) {
-                    long id_language = Long.parseLong(String.valueOf(incomingDuctsParams.get("lang")));
-                    System.out.println("language   "+id_language);
-                }
-                if (incomingDuctsParams.get("frequency") != null) {
-                    long frequency = Long.parseLong(String.valueOf(incomingDuctsParams.get("frequency")));
-                    System.out.println("freuence   "+frequency);
-                }
-                User currentUser=userService.getUserByLogin(request.getRemoteUser());
-                if(priority!=0 && (priority-currentUser.getPriority())>0){
-                    int count = (int) ((ttl - delivery_time) / (priority - currentUser.getPriority()));
-                    for(int i=1;i<priority-currentUser.getPriority();i++){
-                        date.setTime(delivery_time+(count*i));
-                        taskService.insertJournal(new Journal(date,0,priority-i,246380413));
-                        System.out.println(date);
-                        System.out.println(count);
-                        System.out.println(i);
-                    }
-//
-//
-//                    System.out.println(count);
-//                    long newdate=delivery_time+count;
-//                    date.setTime(newdate);
-//                    Date tesst=new Date();
-//                    tesst.setTime(delivery_time);
-//                    System.out.println(tesst+"     /      "+date);
-                }
-//                else {
-//
-//                    System.out.println(false);
-//                }
-                //taskService.insertJournal()
-
-
-
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        readRequest(preJson, request);
         return "ok";
     }
 
@@ -433,6 +350,168 @@ public class BasicController {
         result.put("data", taskService.getStencilById(3).getStencil_entity());
         //  System.out.println(result);
         return result;
+    }
+
+
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    public String processUploadPreview(
+            @RequestParam("file") MultipartFile file, @RequestParam("data") String prejosn, HttpServletRequest request/*, @RequestBody String preJson*/
+    ) {
+
+        WrapperTaskStructure wrapperTaskStructure=readRequest(prejosn, request);
+        Task task=wrapperTaskStructure.getTask();
+        Structure structure=wrapperTaskStructure.getStructure();
+        //   new UDPClient().start();
+    //    System.out.println("uploadfile");
+
+        // System.out.println(preJson);
+        String fileName = UUID.randomUUID() + ".csv";
+
+    //    System.out.println(file.getOriginalFilename() + "      " + path + "   " + file.getContentType());
+
+        try {
+            FileOutputStream out = new FileOutputStream(path + fileName);
+            out.write(file.getBytes());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //readData.readData(path,fileName);
+    //    System.out.println("try to start lisener    ");
+        //      listener.init(readData.readData(path, fileName), userService.getUserByLogin(request.getRemoteUser()),fileName);
+
+//        byte[] data = SerializationUtils.serialize(readData.readData(path,fileName));
+        return "redirect:index";
+    }
+
+
+    public WrapperTaskStructure readRequest(String preJson, HttpServletRequest request) {
+        int algItter=0;
+
+        Task task = new Task();
+        Structure structure = new Structure();
+        Language language;
+        User user = userService.getUserByLogin(request.getRemoteUser());
+
+        JSONObject incomingjson = null;
+        JSONObject incomingDuct;
+        JSONObject incomingDuctsParams;
+
+        JSONArray params=new JSONArray();
+
+        long delivery_time = 0;
+        long delay;
+        long ttl = 0;
+        int priority = 0;
+
+        try {
+            incomingjson = (JSONObject) parser.parse(preJson);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        language = taskService.getLanguageByName((String) incomingjson.get("language"));
+        structure.setName((String) incomingjson.get("label"));
+        structure.setLanguage(language);
+        structure.setCreator(user);
+        structure.setCompany(user.getCompany());
+        task.setUser(user);
+        task.setLanguage(language);
+        //task.setStructure();
+        incomingDuct = (JSONObject) incomingjson.get("duct");
+        String[] algoritm=new String[incomingDuct.size()];
+
+        try {
+            for (Object chanel_ : incomingDuct.keySet()) {
+                JSONObject chanelParams=new JSONObject();
+                String chanel = (String) chanel_;
+                algoritm[algItter]=chanel;
+                algItter++;
+                incomingDuctsParams = (JSONObject) incomingDuct.get(chanel);
+
+                Date date = new Date();
+                if (incomingDuctsParams.get("delivery_time") != null) {
+                    delivery_time = Long.parseLong(String.valueOf(incomingDuctsParams.get("delivery_time")));
+                    date.setTime(delivery_time);
+                    if(algItter==1){
+                        task.setDepartureTime(date);
+                    }
+                    chanelParams.put("departuretime",date);
+                }
+                if (incomingDuctsParams.get("delay") != null) {
+                    delay = Long.parseLong(String.valueOf(incomingDuctsParams.get("delay")));
+                    chanelParams.put("delay",delay);
+                }
+                if (incomingDuctsParams.get("time_to_live") != null) {
+                    ttl = Long.parseLong(String.valueOf(incomingDuctsParams.get("time_to_live")));
+                    date.setTime(ttl);
+                    if(algItter==algoritm.length){
+                        task.setRelevant_time(date);
+                    }
+                }
+                if (incomingDuctsParams.get("duct_id") != null) {
+                    long id_duct = Long.parseLong(String.valueOf(incomingDuctsParams.get("duct_id")));
+                }
+                if (incomingDuctsParams.get("template_id") != null) {
+                    long id_stencil = Long.parseLong(String.valueOf(incomingDuctsParams.get("template_id")));
+                }
+                if (incomingDuctsParams.get("template_body") != null) {
+                    String stencilEntity = String.valueOf(incomingDuctsParams.get("template_body"));
+                }
+                if (incomingDuctsParams.get("priority") != null) {
+                    priority = Integer.parseInt(String.valueOf(incomingDuctsParams.get("priority")));
+                }
+                if (incomingDuctsParams.get("lang") != null) {
+                    long id_language = Long.parseLong(String.valueOf(incomingDuctsParams.get("lang")));
+                }
+                if (incomingDuctsParams.get("frequency") != null) {
+                    long frequency = Long.parseLong(String.valueOf(incomingDuctsParams.get("frequency")));
+                    chanelParams.put("frequence",frequency);
+                }
+                params.add(chanelParams);
+
+
+
+
+                /*
+                *
+                * create record in journal nedds to up priority
+                *
+                * */
+                if (priority != 0 && (priority - user.getPriority()) > 0) {
+                    int count = (int) ((ttl - delivery_time) / (priority - user.getPriority()));
+                    for (int i = 1; i < priority - user.getPriority(); i++) {
+                        date.setTime(delivery_time + (count * i));
+                        taskService.insertJournal(new Journal(date, 0, priority - i, 246380413));
+                        System.out.println(date);
+                        System.out.println(count);
+                        System.out.println(i);
+                    }
+                }
+            }
+
+
+            structure.setAlgoritm(algoritm);
+            task.setAlgoritm(algoritm);
+
+            if(priority>user.getPriority()){
+                structure.setPriority(priority);
+                task.setPriority(priority);
+            }else {
+                structure.setPriority(user.getPriority());
+                task.setPriority(priority);
+            }
+            structure.setParams(params.toJSONString());
+            task.setParams(params.toJSONString());
+
+
+            System.out.println("str    "+structure.toString());
+            System.out.println("task    "+task.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new WrapperTaskStructure(task,structure);
     }
 }
 

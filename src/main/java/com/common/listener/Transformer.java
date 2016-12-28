@@ -3,6 +3,7 @@ package com.common.listener;
 import com.common.dao.entity.message.Message;
 import com.common.dao.entity.queue.IncomingInsertQueue;
 import com.common.dao.entity.queue.InsertQueue;
+import com.common.dao.entity.queue.JSONArrQueue;
 import com.common.dao.entity.queue.Queue;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.task.Language;
@@ -32,26 +33,27 @@ public class Transformer implements IListener {                    // startPool
     TaskService taskService;
     int poolSize = 8;
     public IncomingInsertQueue incomingInsertQueue = new IncomingInsertQueue();
+    public JSONArrQueue arrQueue=new JSONArrQueue();
     Stencil stencil = new Stencil();
-
+    public Wrapper wrapper=new Wrapper();
 
     //  Logger logger = Logger.getLogger(String.valueOf(RabbitMqListener.class));
     public Queue queue = new Queue();
 
     public void init(JSONArray jsonTask, User user,String filename) {
+
         new Pool(sessionFactory, poolSize);
+//        arrQueue.getMainQueue().add()
         try {
-           // Task task = null;
+      //      Task task = null;
 //            System.out.println(jsonTask);
 //            
             Task task = new Task(userService.getUserByCompany("NP"), taskService.getStructure(), new String[]{"PUSH", "TELEGRAM", "SMS"}, filename, 1, (Language) taskService.getAllLanguages().get(0),
                     "[{\"frequence\":2,\"departuretime\":\"" + new Date(new Date().getTime() + 10000) + "\",\"delay\":5000},{\"frequence\":2,\"departuretime\":\"" + new Date(new Date().getTime() + 10000) + "\",\"delay\":5000},{\"frequence\":2,\"departuretime\":\"" + new Date(new Date().getTime() + 10000) + "\",\"delay\":5000}]");//,{"frequence":2,"departuretime":"" + new Date(new Date().getTime() + 10000) + "","delay":5000}
-
-            
-            
-            
             taskService.insertTask(task);
-
+            wrapper.setTask(task);
+            wrapper.setJsonArr(jsonTask);
+            arrQueue.getMainQueue().add(wrapper);
             stencil = taskService.getStencilByTask(taskService.getDuctByName(task.getAlgoritm()[0]), task.getStructure());
 
             JSONArray algoritmArr = new JSONArray();

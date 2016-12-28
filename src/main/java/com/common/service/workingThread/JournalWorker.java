@@ -22,8 +22,6 @@ public class JournalWorker extends Thread {
     Session session;
 
     public void run() {
-        System.out.println("journal worker start    " + currentThread().getName() + "       /       " + sessionFactory);
-
         try {
             session = sessionFactory.getCurrentSession();
         } catch (HibernateException e) {
@@ -34,22 +32,21 @@ public class JournalWorker extends Thread {
             Journal journal = new Journal();
             Criteria criteria = session.createCriteria(Journal.class);
             criteria.add(Restrictions.lt("time", new Date()));
-            criteria.add(Restrictions.eq("status",0));
-            if(!criteria.list().isEmpty()) {
+            criteria.add(Restrictions.eq("status", 0));
+            if (!criteria.list().isEmpty()) {
                 Journal journal1Result = (Journal) criteria.list().get(0);
-
-                SQLQuery query=session.createSQLQuery("update message set priority="+journal1Result.getPriority()+" where idmessage<>"+journal1Result.getTaskId());
+                SQLQuery query = session.createSQLQuery("update message set priority=" + journal1Result.getPriority() + " where idmessage<>" + journal1Result.getTaskId());
                 query.executeUpdate();
-
                 session.delete(journal1Result);
                 session.getTransaction().begin();
                 session.getTransaction().commit();
                 System.out.println(journal1Result.getTaskId() + "        journal     " + journal1Result.getTime());
-            }
-            try {
-                sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            }else {
+                try {
+                    sleep(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

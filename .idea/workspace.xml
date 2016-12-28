@@ -2,112 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74232484-55d2-419d-9b24-3d2bb11a9c77" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Message.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/options/OptionsDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/options/OptionsDAOImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMQInsertData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/options/OptionsDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/options/OptionsDAOImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/options/OptionsDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/options/OptionsDAOImpl.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/config/Config.class" afterPath="$PROJECT_DIR$/target/classes/com/common/config/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/config/SecurityConfig.class" afterPath="$PROJECT_DIR$/target/classes/com/common/config/SecurityConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/config/WebConfig.class" afterPath="$PROJECT_DIR$/target/classes/com/common/config/WebConfig.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/controller/BasicController.class" afterPath="$PROJECT_DIR$/target/classes/com/common/controller/BasicController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/controller/FileUploadController.class" afterPath="$PROJECT_DIR$/target/classes/com/common/controller/FileUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/company/Company.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/company/Company.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/CommonMessage.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/CommonMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/Message.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/Message.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/SentMessage.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/message/SentMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/stencil/Duct.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/stencil/Duct.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/stencil/Stencil.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/stencil/Stencil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/task/Language.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/task/Language.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/task/Structure.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/task/Structure.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/task/Task.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/task/Task.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/Contacts.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/Contacts.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/ContactsDictonary.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/ContactsDictonary.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/Role.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/Role.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/User.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/entity/user/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertIncomingThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertIncomingThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/insert/DAOInsertThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/task/TaskDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/task/TaskDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/dao/task/TaskDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/common/dao/task/TaskDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/listener/IListener.class" afterPath="$PROJECT_DIR$/target/classes/com/common/listener/IListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/listener/Transformer.class" afterPath="$PROJECT_DIR$/target/classes/com/common/listener/Transformer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/task/TaskService.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/task/TaskService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/task/TaskServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/task/TaskServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/vk/VKService.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/vk/VKService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/GetThread.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/GetThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/JournalWorker.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/JournalWorker.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/Pool.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/Pool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ThreadConsumer.class" afterPath="$PROJECT_DIR$/target/classes/com/common/service/workingThread/ThreadConsumer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/Config.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/SecurityConfig.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/SecurityConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/WebConfig.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/config/WebConfig.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/BasicController.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/BasicController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/FileUploadController.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/controller/FileUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/company/Company.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/company/Company.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/CommonMessage.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/CommonMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/Message.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/Message.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/SentMessage.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/message/SentMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/stencil/Duct.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/stencil/Duct.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/stencil/Stencil.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/stencil/Stencil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/task/Language.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/task/Language.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/task/Structure.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/task/Structure.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/task/Task.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/task/Task.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/Contacts.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/Contacts.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/ContactsDictonary.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/ContactsDictonary.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/Role.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/Role.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/User.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/entity/user/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertIncomingThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertIncomingThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/insert/DAOInsertThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/task/TaskDAO.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/task/TaskDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/task/TaskDAOImpl.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/dao/task/TaskDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/IListener.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/IListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/Transformer.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/listener/Transformer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/task/TaskService.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/task/TaskService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/task/TaskServiceImpl.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/task/TaskServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/vk/VKService.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/vk/VKService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/GetThread.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/GetThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/JournalWorker.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/JournalWorker.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/Pool.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/Pool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ThreadConsumer.class" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/com/common/service/workingThread/ThreadConsumer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/angularJs/controller/cr-order-ctrl.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/angularJs/controller/cr-order-ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/view/companies.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/view/companies.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/view/event.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/view/event.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/view/upload.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/view/upload.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/config/SecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/config/SecurityConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/config/WebConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/config/WebConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/CommonMessage.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/CommonMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Duct.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Duct.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Stencil.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Stencil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/listener/IListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/listener/IListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/listener/Transformer.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/listener/Transformer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/vk/VKService.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/vk/VKService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/JournalWorker.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/JournalWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" afterPath="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dbschema.sql" afterPath="$PROJECT_DIR$/src/main/resources/dbschema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/test-data.sql" afterPath="$PROJECT_DIR$/src/main/resources/test-data.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/util.properties" afterPath="$PROJECT_DIR$/src/main/resources/util.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dbschema.sql" afterPath="$PROJECT_DIR$/target/classes/dbschema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/test-data.sql" afterPath="$PROJECT_DIR$/target/classes/test-data.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/util.properties" afterPath="$PROJECT_DIR$/target/classes/util.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/dbschema.sql" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/dbschema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/test-data.sql" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/test-data.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/util.properties" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/classes/util.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/resources/js/angularJs/controller/cr-order-ctrl.js" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/resources/js/angularJs/controller/cr-order-ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/view/companies.jsp" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/view/companies.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/view/event.jsp" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/view/event.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/view/upload.jsp" afterPath="$PROJECT_DIR$/target/newSpringMVC-0.0.1-SNAPSHOT/WEB-INF/view/upload.jsp" />
     </list>
     <ignored path="newSpringMVC.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -137,34 +69,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BasicController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BasicController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="372" column="89" selection-start-line="372" selection-start-column="89" selection-end-line="372" selection-end-column="89" />
+            <state relative-caret-position="292">
+              <caret line="364" column="43" selection-start-line="364" selection-start-column="43" selection-end-line="364" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThreadConsumer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java">
+      <file leaf-file-name="WrapperTaskStructure.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/WrapperTaskStructure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+            <state relative-caret-position="165">
+              <caret line="11" column="65" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
               <folding>
-                <element signature="e#583#584#0" expanded="true" />
-                <element signature="e#635#636#0" expanded="true" />
+                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#395#396#0" expanded="true" />
+                <element signature="e#433#434#0" expanded="true" />
+                <element signature="e#465#466#0" expanded="true" />
+                <element signature="e#504#505#0" expanded="true" />
+                <element signature="e#536#537#0" expanded="true" />
+                <element signature="e#589#590#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbschema.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/dbschema.sql">
+      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="199" column="44" selection-start-line="199" selection-start-column="44" selection-end-line="199" selection-end-column="44" />
+            <state relative-caret-position="247">
+              <caret line="188" column="18" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Structure.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1140">
+              <caret line="147" column="42" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transformer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/listener/Transformer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="50" column="158" selection-start-line="50" selection-start-column="158" selection-end-line="50" selection-end-column="158" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -173,44 +141,21 @@
       <file leaf-file-name="TaskServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+            <state relative-caret-position="221">
+              <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
               <folding>
-                <element signature="e#1816#1817#0" expanded="true" />
+                <element signature="e#2921#2922#0" expanded="true" />
+                <element signature="e#2975#2976#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JournalWorker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/JournalWorker.java">
+      <file leaf-file-name="TaskDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
-              <folding>
-                <marker date="1482764616338" expanded="true" signature="1235:1263" ph="update messa... " />
-                <marker date="1482764616338" expanded="true" signature="1235:1311" ph="update messa... " />
-                <marker date="1482764616338" expanded="true" signature="1235:1313" ph="update messa... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pool.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetThread.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="134" column="37" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="37" />
+            <state relative-caret-position="210">
+              <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -219,38 +164,14 @@
       <file leaf-file-name="TaskDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="41" column="65" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+            <state relative-caret-position="182">
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
-                <marker date="1482761474913" expanded="true" signature="5939:6504" ph="SELECT STENC... STENCIL" />
-                <marker date="1482761474913" expanded="true" signature="6767:6960" ph="select struc... structure" />
-                <marker date="1482761474913" expanded="true" signature="6767:7021" ph="select struc... structure" />
-                <marker date="1482761474913" expanded="true" signature="6767:7046" ph="select struc... structure" />
+                <marker date="1482915538907" expanded="true" signature="6516:7081" ph="SELECT STENC... STENCIL" />
+                <marker date="1482915538907" expanded="true" signature="7344:7537" ph="select struc... structure" />
+                <marker date="1482915538907" expanded="true" signature="7344:7598" ph="select struc... structure" />
+                <marker date="1482915538907" expanded="true" signature="7344:7623" ph="select struc... structure" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Journal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/journal/Journal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-              <folding>
-                <element signature="e#1476#1477#0" expanded="true" />
-                <element signature="e#1521#1522#0" expanded="true" />
-                <element signature="e#1561#1562#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Company.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/company/Company.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="16" column="51" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="51" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -277,19 +198,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/users.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/index.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/log.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/user/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/user/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/user/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/config/CustomUserDetailsService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/controller/VKController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/config/SpringSecurity.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/event.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/config/WebConfig.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/log.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/config/Config.java" />
@@ -297,37 +211,44 @@
         <option value="$PROJECT_DIR$/src/main/java/com/common/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/service/vk/VKService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/util.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/test-data.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/listener/Transformer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/listener/IListener.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/upload.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/angularJs/controller/cr-order-ctrl.js" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/event.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Duct.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/company/Company.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/ContactsDictonary.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/Contacts.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/CommonMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/SentMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/stencil/Stencil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/dbschema.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/journal/Journal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/JournalWorker.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/JournalWorker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/IPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/JSONArrQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/workingThread/FileReadThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/listener/Wrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/config/WebConfig.java" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/companies.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/angularJs/controller/cr-order-ctrl.js" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/view/event.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/listener/Transformer.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/dbschema.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/test-data.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/WrapperTaskStructure.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java" />
       </list>
     </option>
   </component>
@@ -419,9 +340,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -773,6 +691,44 @@
               <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newSpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rezi-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="listener" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -906,7 +862,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="company" />
+              <option name="myItemId" value="task" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -940,8 +896,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newSpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rezi-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -956,10 +945,6 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/WebContent/WEB-INF/view" />
-      <recent name="$PROJECT_DIR$/WebContent/WEB-INF/js/angularJs/controller" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.common.service.file" />
       <recent name="com.common.dao.user" />
@@ -967,15 +952,19 @@
       <recent name="com.common.dao.insert" />
       <recent name="com.common.dao" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.common.controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/angularJs/controller" />
       <recent name="$PROJECT_DIR$/WebContent/WEB-INF/resources/css" />
       <recent name="$PROJECT_DIR$/WebContent/WEB-INF/resources" />
       <recent name="$PROJECT_DIR$/WebContent/WEB-INF" />
       <recent name="$PROJECT_DIR$/WebContent/WEB-INF/view" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.common.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WebContent/WEB-INF/view" />
+      <recent name="$PROJECT_DIR$/WebContent/WEB-INF/js/angularJs/controller" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Unnamed">
@@ -1622,12 +1611,16 @@
       <workItem from="1482498442191" duration="6162000" />
       <workItem from="1482564183800" duration="952000" />
       <workItem from="1482567625799" duration="3661000" />
-      <workItem from="1482738337622" duration="25103000" />
+      <workItem from="1482738337622" duration="29908000" />
+      <workItem from="1482823200457" duration="111000" />
+      <workItem from="1482836917063" duration="11650000" />
+      <workItem from="1482852334040" duration="4238000" />
+      <workItem from="1482910803438" duration="13463000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="983472000" />
+    <option name="totallyTimeSpent" value="1017739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1055" extended-state="0" />
@@ -1636,7 +1629,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3404711" sideWeight="0.10149573" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.034722224" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.025106838" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1652,10 +1645,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35974303" sideWeight="0.89850426" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3576017" sideWeight="0.89850426" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17307693" sideWeight="0.91528237" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26175213" sideWeight="0.91528237" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2054429" sideWeight="0.08471761" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2581361" sideWeight="0.50398177" order="5" side_tool="true" content_ui="tabs" />
@@ -1735,155 +1728,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/view/bootstrap.min.css" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.4.RELEASE/spring-webmvc-4.2.4.RELEASE.jar!/org/springframework/web/servlet/config/annotation/ResourceHandlerRegistry.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="87" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/css/tld/c.tld">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/view/companies.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/file/ReadData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-681">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/view/log.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="56" selection-start-line="35" selection-start-column="24" selection-end-line="36" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/CustomUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/SpringSecurity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="71" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="92" column="40" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1052#1053#0" expanded="false" />
-            <element signature="e#1092#1093#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2460">
-          <caret line="201" column="7" selection-start-line="201" selection-start-column="7" selection-end-line="201" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2614#2615#0" expanded="false" />
-            <element signature="e#2673#2674#0" expanded="false" />
-            <element signature="e#2729#2730#0" expanded="false" />
-            <element signature="e#2791#2792#0" expanded="false" />
-            <element signature="e#2831#2832#0" expanded="false" />
-            <element signature="e#2871#2872#0" expanded="false" />
-            <element signature="e#2912#2913#0" expanded="false" />
-            <element signature="e#2955#2956#0" expanded="false" />
-            <element signature="e#3019#3020#0" expanded="false" />
-            <element signature="e#3065#3066#0" expanded="false" />
-            <element signature="e#3336#3337#0" expanded="false" />
-            <element signature="e#3365#3366#0" expanded="false" />
-            <element signature="e#8605#8606#0" expanded="false" />
-            <element signature="e#8643#8644#0" expanded="false" />
-            <element signature="e#8707#8708#0" expanded="false" />
-            <element signature="e#8763#8764#0" expanded="false" />
-            <element signature="e#8831#8832#0" expanded="false" />
-            <element signature="e#8870#8871#0" expanded="false" />
-            <element signature="e#8944#8945#0" expanded="false" />
-            <element signature="e#8986#8987#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/options/OptionsDAO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/listener/RabbitMQInsertData.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/insert/DAOInsertIncomingThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="51" column="85" selection-start-line="51" selection-start-column="85" selection-end-line="51" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1471#1472#0" expanded="false" />
-            <element signature="e#1521#1522#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/vk/VKService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2055">
           <caret line="152" column="269" selection-start-line="152" selection-start-column="269" selection-end-line="152" selection-end-column="269" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#887#888#0" expanded="false" />
-            <element signature="e#902#903#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1891,7 +1739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="900" column="16" selection-start-line="900" selection-start-column="16" selection-end-line="900" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1899,7 +1746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1907,15 +1753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/listener/Transformer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1927,57 +1764,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test-data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="3" selection-end-line="127" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/js/angularJs/controller/cr-order-ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="43" column="53" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
-          <folding>
-            <marker date="1482756298940" expanded="true" signature="5072:7727" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="5110:7162" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="5153:5327" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="5370:5785" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="5496:5759" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="5828:6012" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="6055:6240" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="6283:6915" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="6958:7140" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="7200:7709" ph="..." />
-            <marker date="1482756298940" expanded="true" signature="7307:7565" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/view/event.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/user/Role.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1985,7 +1775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1993,9 +1782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <marker date="1482758474900" expanded="true" signature="172:203" ph="//..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2003,7 +1789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2011,7 +1796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2019,7 +1803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2027,25 +1810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2053,47 +1817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dbschema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="199" column="44" selection-start-line="199" selection-start-column="44" selection-end-line="199" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2105,84 +1828,426 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="41" column="65" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
-          <folding>
-            <marker date="1482761474913" expanded="true" signature="5939:6504" ph="SELECT STENC... STENCIL" />
-            <marker date="1482761474913" expanded="true" signature="6767:6960" ph="select struc... structure" />
-            <marker date="1482761474913" expanded="true" signature="6767:7021" ph="select struc... structure" />
-            <marker date="1482761474913" expanded="true" signature="6767:7046" ph="select struc... structure" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="372" column="89" selection-start-line="372" selection-start-column="89" selection-end-line="372" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/journal/Journal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="810">
           <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
           <folding>
-            <element signature="e#1476#1477#0" expanded="true" />
-            <element signature="e#1521#1522#0" expanded="true" />
-            <element signature="e#1561#1562#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/JournalWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
-          <folding>
-            <marker date="1482764616338" expanded="true" signature="1235:1263" ph="update messa... " />
-            <marker date="1482764616338" expanded="true" signature="1235:1311" ph="update messa... " />
-            <marker date="1482764616338" expanded="true" signature="1235:1313" ph="update messa... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
-          <folding>
-            <element signature="e#1816#1817#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-          <folding>
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#635#636#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#926#927#0" expanded="false" />
+            <element signature="e#951#952#0" expanded="false" />
+            <element signature="e#985#986#0" expanded="false" />
+            <element signature="e#1013#1014#0" expanded="false" />
+            <element signature="e#1042#1043#0" expanded="false" />
+            <element signature="e#1069#1070#0" expanded="false" />
+            <element signature="e#1107#1108#0" expanded="false" />
+            <element signature="e#1139#1140#0" expanded="false" />
+            <element signature="e#1169#1170#0" expanded="false" />
+            <element signature="e#1198#1199#0" expanded="false" />
+            <element signature="e#1239#1240#0" expanded="false" />
+            <element signature="e#1275#1276#0" expanded="false" />
+            <element signature="e#1306#1307#0" expanded="false" />
+            <element signature="e#1335#1336#0" expanded="false" />
+            <element signature="e#1377#1378#0" expanded="false" />
+            <element signature="e#1413#1414#0" expanded="false" />
+            <element signature="e#1521#1522#0" expanded="false" />
+            <element signature="e#1561#1562#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/GetThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
+        <state relative-caret-position="1282">
           <caret line="134" column="37" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/JournalWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+          <folding>
+            <element signature="e#403#404#0" expanded="false" />
+            <element signature="e#455#456#0" expanded="false" />
+            <marker date="1482837011317" expanded="true" signature="1116:1144" ph="update messa... " />
+            <marker date="1482837011317" expanded="true" signature="1116:1196" ph="update messa... " />
+            <marker date="1482837011317" expanded="true" signature="1116:1198" ph="update messa... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/ThreadConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/IPool.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="51" column="85" selection-start-line="51" selection-start-column="85" selection-end-line="51" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/SpringSecurity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="71" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/IncomingInsertQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/JSONArrQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="71" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#342#351#0" expanded="false" />
+            <element signature="e#466#467#0" expanded="false" />
+            <element signature="e#507#508#0" expanded="false" />
+            <element signature="e#594#595#0" expanded="false" />
+            <element signature="e#636#637#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/FileReadThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#453#454#0" expanded="false" />
+            <element signature="e#493#494#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/queue/InsertQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/workingThread/Pool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/file/DeleteFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/file/ReadData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/message/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="55" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2413#2414#0" expanded="false" />
+            <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2495#2496#0" expanded="false" />
+            <element signature="e#2537#2538#0" expanded="false" />
+            <element signature="e#2573#2574#0" expanded="false" />
+            <element signature="e#2605#2606#0" expanded="false" />
+            <element signature="e#2655#2656#0" expanded="false" />
+            <element signature="e#2697#2698#0" expanded="false" />
+            <element signature="e#2727#2728#0" expanded="false" />
+            <element signature="e#2756#2757#0" expanded="false" />
+            <element signature="e#2797#2798#0" expanded="false" />
+            <element signature="e#2833#2834#0" expanded="false" />
+            <element signature="e#2865#2866#0" expanded="false" />
+            <element signature="e#2895#2896#0" expanded="false" />
+            <element signature="e#2939#2940#0" expanded="false" />
+            <element signature="e#2977#2978#0" expanded="false" />
+            <element signature="e#3011#3012#0" expanded="false" />
+            <element signature="e#3043#3044#0" expanded="false" />
+            <element signature="e#3091#3092#0" expanded="false" />
+            <element signature="e#3133#3134#0" expanded="false" />
+            <element signature="e#3165#3166#0" expanded="false" />
+            <element signature="e#3196#3197#0" expanded="false" />
+            <element signature="e#3241#3242#0" expanded="false" />
+            <element signature="e#3281#3282#0" expanded="false" />
+            <element signature="e#3315#3316#0" expanded="false" />
+            <element signature="e#3345#3346#0" expanded="false" />
+            <element signature="e#3391#3392#0" expanded="false" />
+            <element signature="e#3429#3430#0" expanded="false" />
+            <element signature="e#3467#3468#0" expanded="false" />
+            <element signature="e#3503#3504#0" expanded="false" />
+            <element signature="e#3559#3560#0" expanded="false" />
+            <element signature="e#3609#3610#0" expanded="false" />
+            <element signature="e#3646#3647#0" expanded="false" />
+            <element signature="e#3681#3682#0" expanded="false" />
+            <element signature="e#3735#3736#0" expanded="false" />
+            <element signature="e#3783#3784#0" expanded="false" />
+            <element signature="e#3816#3817#0" expanded="false" />
+            <element signature="e#3843#3844#0" expanded="false" />
+            <element signature="e#3885#3886#0" expanded="false" />
+            <element signature="e#3917#3918#0" expanded="false" />
+            <element signature="e#3951#3952#0" expanded="false" />
+            <element signature="e#3981#3982#0" expanded="false" />
+            <element signature="e#4027#4028#0" expanded="false" />
+            <element signature="e#4065#4066#0" expanded="false" />
+            <element signature="e#4099#4100#0" expanded="false" />
+            <element signature="e#4129#4130#0" expanded="false" />
+            <element signature="e#4175#4176#0" expanded="false" />
+            <element signature="e#4213#4214#0" expanded="false" />
+            <element signature="e#4246#4247#0" expanded="false" />
+            <element signature="e#4275#4276#0" expanded="false" />
+            <element signature="e#4319#4320#0" expanded="false" />
+            <element signature="e#4355#4356#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1396">
+          <caret line="201" column="7" selection-start-line="201" selection-start-column="7" selection-end-line="201" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/AppInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#566#567#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/CustomUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/js/angularJs/controller/cr-order-ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3630">
+          <caret line="242" column="39" selection-start-line="242" selection-start-column="39" selection-end-line="242" selection-end-column="39" />
+          <folding>
+            <marker date="1482853866593" expanded="true" signature="6784:9495" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="6822:8914" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="6865:7043" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="7086:7509" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="7216:7483" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="7552:7740" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="7783:7972" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="8015:8663" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="8706:8892" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="8952:9477" ph="..." />
+            <marker date="1482853866593" expanded="true" signature="9063:9329" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/config/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/view/companies.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/listener/Wrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Language.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/FileUploadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+          <folding>
+            <element signature="e#2921#2922#0" expanded="true" />
+            <element signature="e#2975#2976#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/service/task/TaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/task/TaskDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding>
+            <marker date="1482915538907" expanded="true" signature="6516:7081" ph="SELECT STENC... STENCIL" />
+            <marker date="1482915538907" expanded="true" signature="7344:7537" ph="select struc... structure" />
+            <marker date="1482915538907" expanded="true" signature="7344:7598" ph="select struc... structure" />
+            <marker date="1482915538907" expanded="true" signature="7344:7623" ph="select struc... structure" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/view/event.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="116" column="104" selection-start-line="116" selection-start-column="104" selection-end-line="116" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/listener/Transformer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="50" column="158" selection-start-line="50" selection-start-column="158" selection-end-line="50" selection-end-column="158" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dbschema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="85" column="37" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test-data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="43" column="100" selection-start-line="43" selection-start-column="100" selection-end-line="43" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="188" column="18" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/Structure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="147" column="42" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/dao/entity/task/WrapperTaskStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="65" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
+          <folding>
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#504#505#0" expanded="true" />
+            <element signature="e#536#537#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/common/controller/BasicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="364" column="43" selection-start-line="364" selection-start-column="43" selection-end-line="364" selection-end-column="43" />
           <folding />
         </state>
       </provider>

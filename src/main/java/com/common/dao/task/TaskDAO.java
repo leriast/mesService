@@ -3,6 +3,7 @@ package com.common.dao.task;
 import com.common.dao.entity.journal.Journal;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
+import com.common.dao.entity.task.Language;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
 import com.common.dao.entity.user.User;
@@ -20,6 +21,8 @@ public interface TaskDAO {
     Stencil getStencilById(int id);
 
     void insertJournal(Journal journal);
+
+    Language getLanguageByName(String name);
 
     ArrayList<Task> departuredList();
     ArrayList<String> getStatistic(Long id);

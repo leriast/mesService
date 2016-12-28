@@ -3,6 +3,7 @@ package com.common.service.task;
 import com.common.dao.entity.journal.Journal;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
+import com.common.dao.entity.task.Language;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
 import com.common.dao.entity.user.User;
@@ -112,5 +113,10 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<Stencil> getStencilList(String language, String duct, String username) {
         return taskDAO.getStencilList(language,duct,username);
+    }
+
+    @Override
+    public Language getLanguageByName(String name){
+        return taskDAO.getLanguageByName(name);
     }
 }

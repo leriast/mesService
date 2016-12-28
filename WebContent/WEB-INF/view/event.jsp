@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-
+<meta charset="utf-8"/>
     <title>1</title>
     <style type="text/css">
         .order-form {
@@ -114,7 +114,7 @@
     </div>
     <input type="button" value="Send" ng-click="send_data()" class="btn btn-default" ng-hide="tabs.length<1">
 
-    <form class="fileUpd" id="fileUpd" enctype="multipart/form-data" method="post">
+    <form class="fileUpd" id="fileUpd" enctype="multipart/form-data" method="post" accept-charset="UTF-8">
         <input type="file" name="file" id="fileObj" onchange="angular.element(this).scope().uploadFile()">
         <form>
 

@@ -4,6 +4,7 @@ package com.common.service.workingThread;
 import com.common.dao.insert.DAOInsertIncomingThread;
 import com.common.dao.insert.DAOInsertThread;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.logging.Logger;
 
@@ -20,6 +21,7 @@ public class Pool {
 
 
     Logger logger = Logger.getLogger(String.valueOf(Pool.class));
+    @Autowired
     private SessionFactory sessionFactory;
     private int poolSize;
     private int getThreadCount = 2;

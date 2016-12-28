@@ -3,8 +3,10 @@ package com.common.dao.entity.task;
 import com.common.dao.entity.company.Company;
 import com.common.dao.entity.stencil.Stencil;
 import com.common.dao.entity.user.User;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Set;
 
 /**
@@ -30,8 +32,8 @@ public class Structure {
     @JoinColumn(name = "ID_STRUCTURE")
     private Set<Stencil> stencil;
     @Column(name = "algoritm")
-//    @Type(type = "com.common.dao.entity.usertype.WString")
-    private String/*[]*/ algoritm;
+    @Type(type = "com.common.dao.entity.usertype.WString")
+    private String[] algoritm;
     @Column(name = "priority")
     private int priority;
     @Column(name = "params")
@@ -45,7 +47,7 @@ public class Structure {
         this.language = language;
     }
 
-    public Structure(String name, Company company, Language language, Set<Stencil> stencil, String algoritm, int priority, String params, User creator) {
+    public Structure(String name, Company company, Language language, Set<Stencil> stencil, String[] algoritm, int priority, String params, User creator) {
         this.name = name;
         this.company = company;
         this.language = language;
@@ -112,11 +114,11 @@ public class Structure {
         this.stencil = stencil;
     }
 
-    public String getAlgoritm() {
+    public String[] getAlgoritm() {
         return algoritm;
     }
 
-    public void setAlgoritm(String algoritm) {
+    public void setAlgoritm(String[] algoritm) {
         this.algoritm = algoritm;
     }
 
@@ -134,5 +136,20 @@ public class Structure {
 
     public void setParams(String params) {
         this.params = params;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Structure{" +
+                "id_structure=" + id_structure +
+                ", name='" + name + '\'' +
+                ", company=" + company +
+                ", language=" + language +
+                ", algoritm=" + Arrays.toString(algoritm) +
+                ", priority=" + priority +
+                ", params='" + params + '\'' +
+                ", creator=" + creator +
+                '}';
     }
 }

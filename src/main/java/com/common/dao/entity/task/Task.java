@@ -185,8 +185,6 @@ public class Task /*implements Serializable*/ {
         this.params = params;
     }
 
-
-
     @Override
     public String toString() {
         return "Task{" +
@@ -196,8 +194,10 @@ public class Task /*implements Serializable*/ {
                 ", algoritm=" + Arrays.toString(algoritm) +
                 ", varibles='" + varibles + '\'' +
                 ", priority=" + priority +
-                ", language=" + language.getName() +
+                ", language=" + language +
                 ", params='" + params + '\'' +
+                ", departureTime=" + departureTime +
+                ", relevant_time=" + relevant_time +
                 '}';
     }
 }

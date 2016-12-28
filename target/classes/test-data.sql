@@ -94,6 +94,16 @@ INSERT INTO CONTACT_PERSON (USERNAME, PASSWORD, ENABLED,FIRSTNAME,SECONDNAME,DEP
 VALUES ('admin@outlook.com','12345',TRUE,'TEST','TEST','TEST','ADMIN',1,1);
 
 
+INSERT INTO STATUS (NUMBER,DESCRIPTION) values(1,'message was select for sending');
+INSERT INTO STATUS (NUMBER,DESCRIPTION) values(2,'message was send');
+INSERT INTO STATUS (NUMBER,DESCRIPTION) values(3,'message has used all attempts');
+INSERT INTO STATUS (NUMBER,DESCRIPTION) values(7,'message needs to change stencil');
+INSERT INTO STATUS (NUMBER,DESCRIPTION) values(11,'message in work');
+
+
+
+
+
 -- drop function if EXISTS delete_old_rows();
 -- create function delete_old_rows() returns trigger language plpgsql as $$
 -- begin

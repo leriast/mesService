@@ -3,6 +3,7 @@ package com.common.service.task;
 import com.common.dao.entity.journal.Journal;
 import com.common.dao.entity.stencil.Duct;
 import com.common.dao.entity.stencil.Stencil;
+import com.common.dao.entity.task.Language;
 import com.common.dao.entity.task.Structure;
 import com.common.dao.entity.task.Task;
 import com.common.dao.entity.user.User;
@@ -32,7 +33,7 @@ public interface TaskService {
 
     List getAllLanguages();
 
-    Structure getStructure();
+    Structure getStructure();                      // delete
 
     void insertTask(Task task);
 
@@ -53,4 +54,6 @@ public interface TaskService {
     ArrayList<String> getStatistic(Long id);
 
     List<Stencil> getStencilList(String language,String duct,String username);
+
+    Language getLanguageByName(String name);
 }
